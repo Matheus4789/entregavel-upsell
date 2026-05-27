@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bônus 03 – 30 Atividades em Família para TDAH</title>
+<meta name="description" content="30 atividades lúdicas e terapêuticas para fazer em família: mindfulness, jogos de memória, arte, movimento e muito mais.">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--green:#22c55e;--teal:#00d4aa;--emerald:#059669;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:#f0fdf4;color:#1e293b;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+
+.topbar{background:linear-gradient(135deg,#064e3b,#059669);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(5,150,105,0.4);}
+.topbar-logo{font-family:'Fredoka One',cursive;font-size:20px;}
+.topbar-right{display:flex;gap:10px;flex-wrap:wrap;}
+.btn{padding:10px 20px;border-radius:50px;font-weight:800;font-size:13px;cursor:pointer;border:none;display:flex;align-items:center;gap:6px;transition:all 0.2s;text-decoration:none;font-family:inherit;}
+.btn-print{background:#fff;color:#059669;}
+.btn-print:hover{transform:scale(1.05);}
+.btn-back{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3);}
+
+.tab-nav{background:#fff;border-bottom:2px solid #bbf7d0;display:flex;overflow-x:auto;scrollbar-width:none;padding:0 24px;position:sticky;top:62px;z-index:90;}
+.tab-nav::-webkit-scrollbar{display:none;}
+.tab{padding:16px 18px;font-weight:700;font-size:13px;color:#94a3b8;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:all 0.2s;background:none;border-top:none;border-left:none;border-right:none;}
+.tab.active{color:#22c55e;border-bottom-color:#22c55e;}
+
+main{max-width:1000px;margin:0 auto;padding:40px 24px 80px;}
+.section{display:none;}
+.section.active{display:block;}
+
+.hero{background:linear-gradient(135deg,#064e3b,#065f46,#047857);border-radius:24px;padding:48px;color:#fff;text-align:center;margin-bottom:40px;position:relative;overflow:hidden;}
+.hero::before{content:'🎨';position:absolute;font-size:220px;opacity:0.06;bottom:-40px;right:-10px;}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(28px,5vw,48px);background:linear-gradient(90deg,#6ee7b7,#a7f3d0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;}
+.hero p{font-size:16px;opacity:0.85;max-width:520px;margin:0 auto 32px;line-height:1.6;}
+.hero-stats{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.hero-stat{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:14px;padding:14px 20px;text-align:center;}
+.hero-stat-num{font-family:'Fredoka One',cursive;font-size:28px;color:#6ee7b7;}
+.hero-stat-label{font-size:11px;opacity:0.75;}
+
+.card{background:#fff;border-radius:20px;padding:28px;margin-bottom:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid #bbf7d0;}
+.card h2{font-family:'Fredoka One',cursive;font-size:24px;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.card p{font-size:15px;color:#475569;line-height:1.7;margin-bottom:12px;}
+
+.highlight{border-radius:16px;padding:18px 22px;margin:16px 0;border-left:5px solid;font-size:14px;line-height:1.7;}
+.hi-green{background:#f0fdf4;border-color:#22c55e;color:#14532d;}
+.hi-teal{background:#f0fdfa;border-color:#14b8a6;color:#134e4a;}
+.hi-blue{background:#eff6ff;border-color:#3b82f6;color:#1e3a5f;}
+.hi-orange{background:#fff7ed;border-color:#f97316;color:#7c2d12;}
+
+/* ACTIVITIES GRID */
+.activities-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.filter-btn{padding:8px 16px;border-radius:50px;border:2px solid #bbf7d0;background:#fff;font-weight:700;font-size:12px;cursor:pointer;color:#64748b;transition:all 0.2s;}
+.filter-btn.active{background:#22c55e;border-color:#22c55e;color:#fff;}
+
+.activities-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+
+.activity-card{
+  background:#fff;border-radius:20px;overflow:hidden;
+  box-shadow:0 4px 16px rgba(0,0,0,0.06);
+  border:2px solid #e2e8f0;
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  cursor:pointer;
+  position:relative;
+}
+.activity-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,0,0,0.12);}
+.activity-card.done{border-color:#22c55e;background:#f0fdf4;}
+.activity-card.done .activity-body{opacity:0.8;}
+
+.activity-thumb{
+  height:120px;display:flex;align-items:center;justify-content:center;
+  font-size:56px;position:relative;
+}
+.activity-num{
+  position:absolute;top:12px;left:12px;
+  background:rgba(0,0,0,0.4);color:#fff;
+  border-radius:50%;width:28px;height:28px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:900;
+}
+.activity-check-overlay{
+  position:absolute;inset:0;background:rgba(34,197,94,0.15);
+  display:none;align-items:center;justify-content:center;
+  font-size:48px;
+}
+.activity-card.done .activity-check-overlay{display:flex;}
+.activity-cat{
+  position:absolute;top:12px;right:12px;
+  font-size:10px;font-weight:800;letter-spacing:0.5px;
+  padding:3px 8px;border-radius:50px;
+  background:rgba(255,255,255,0.9);color:#1e293b;
+}
+.activity-body{padding:16px 20px;}
+.activity-day{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#22c55e;margin-bottom:4px;}
+.activity-card.done .activity-day{color:#16a34a;}
+.activity-title{font-family:'Fredoka One',cursive;font-size:18px;color:#1e293b;margin-bottom:6px;}
+.activity-desc{font-size:13px;color:#64748b;line-height:1.5;margin-bottom:12px;}
+.activity-meta{display:flex;gap:8px;flex-wrap:wrap;}
+.meta-badge{padding:3px 10px;border-radius:50px;font-size:11px;font-weight:700;}
+.activity-footer{
+  padding:12px 20px;
+  border-top:1px solid #e2e8f0;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.activity-card.done .activity-footer{border-color:#bbf7d0;}
+.mark-btn{
+  font-size:12px;font-weight:800;
+  padding:6px 14px;border-radius:50px;
+  border:none;cursor:pointer;transition:all 0.2s;
+  font-family:inherit;
+}
+
+/* MEMORY GAME INTERATIVO */
+.game-area{background:#fff;border-radius:20px;padding:28px;border:2px solid #bbf7d0;margin:24px 0;}
+.game-title{font-family:'Fredoka One',cursive;font-size:22px;color:#166534;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.game-btn{padding:12px 24px;border-radius:50px;font-weight:800;font-size:14px;cursor:pointer;border:none;color:#fff;background:linear-gradient(135deg,#22c55e,#16a34a);transition:all 0.2s;font-family:inherit;}
+.game-btn:hover{transform:scale(1.05);}
+.game-btn.purple{background:linear-gradient(135deg,#8b5cf6,#6c47ff);}
+.game-btn.orange{background:linear-gradient(135deg,#f97316,#ef4444);}
+
+/* MEMORY CARDS */
+.mem-grid{display:grid;gap:10px;margin:20px auto;max-width:500px;}
+.mc{
+  aspect-ratio:1;border-radius:12px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;transition:all 0.3s;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+  background:linear-gradient(135deg,#065f46,#22c55e);
+  color:transparent;
+  user-select:none;
+}
+.mc.flipped,.mc.matched{color:black;background:#fff;}
+.mc.matched{background:#dcfce7;border:2px solid #22c55e;}
+.mc span.front{display:none;}
+.mc.flipped span.front,.mc.matched span.front{display:block;}
+.mc.flipped span.back,.mc.matched span.back{display:none;}
+
+/* SEQUENCE GAME */
+.seq-emojis{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;font-size:32px;margin:16px 0;min-height:50px;}
+.seq-options{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:16px 0;}
+.seq-opt{padding:12px 20px;border-radius:12px;font-size:24px;cursor:pointer;border:3px solid #e2e8f0;background:#fff;transition:all 0.2s;}
+.seq-opt:hover{background:#f0fdf4;border-color:#22c55e;transform:scale(1.08);}
+.seq-opt.correct{background:#dcfce7;border-color:#22c55e;}
+.seq-opt.wrong{background:#fee2e2;border-color:#ef4444;}
+
+/* COLORING */
+.coloring-area{background:#fff;border-radius:20px;padding:28px;border:2px solid #bbf7d0;margin:24px 0;}
+canvas{border-radius:12px;cursor:crosshair;touch-action:none;display:block;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,0.1);}
+.color-palette{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0;justify-content:center;}
+.color-swatch{
+  width:36px;height:36px;border-radius:50%;cursor:pointer;
+  border:3px solid transparent;transition:all 0.2s;
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
+}
+.color-swatch.active{border-color:#1e293b;transform:scale(1.2);}
+.brush-sizes{display:flex;gap:8px;align-items:center;justify-content:center;margin:8px 0;}
+.brush-btn{border-radius:50%;background:#1e293b;cursor:pointer;transition:all 0.2s;border:2px solid transparent;}
+.brush-btn.active{border-color:#22c55e;transform:scale(1.2);}
+
+/* TRACKER */
+.tracker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:8px;margin:20px 0;}
+.tracker-day{
+  width:44px;height:44px;border-radius:10px;
+  border:2px solid #bbf7d0;background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;color:#94a3b8;cursor:pointer;
+  transition:all 0.2s;
+}
+.tracker-day.done{background:linear-gradient(135deg,#22c55e,#16a34a);border-color:#22c55e;color:#fff;}
+.tracker-day.today{border-color:#f97316;box-shadow:0 0 0 3px rgba(249,115,22,0.2);}
+
+/* PROGRESS */
+.progress-bar{height:12px;background:#bbf7d0;border-radius:50px;overflow:hidden;margin:12px 0;}
+.progress-fill{height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);border-radius:50px;transition:width 0.5s;}
+
+/* REWARD */
+.reward-popup{display:none;text-align:center;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #86efac;border-radius:20px;padding:32px;margin:16px 0;}
+.reward-popup.show{display:block;animation:pop 0.4s cubic-bezier(0.34,1.56,0.64,1);}
+@keyframes pop{from{transform:scale(0.8);opacity:0;}to{transform:scale(1);opacity:1;}}
+
+@media print{.topbar,.tab-nav{display:none;}.section{display:block!important;}body{background:#fff;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span style="font-size:24px;">🎨</span>
+    <div>
+      <div class="topbar-logo">30 Atividades em Família</div>
+      <div style="font-size:11px;opacity:0.7;">Bônus 03 · TDAH + Vínculo Familiar</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <a href="index.html" class="btn btn-back">← Entregáveis</a>
+    <a href="bonus_03_atividades_print.html" class="btn btn-print" style="text-decoration:none;">🖨️ Salvar PDF</a>
+  </div>
+</div>
+
+<div class="tab-nav">
+  <button class="tab active" onclick="showTab('intro',this)">🌿 Introdução</button>
+  <button class="tab" onclick="showTab('atividades',this)">📅 30 Atividades</button>
+  <button class="tab" onclick="showTab('jogos',this)">🎮 Jogos Interativos</button>
+  <button class="tab" onclick="showTab('colorir',this)">🎨 Colorir & Desenhar</button>
+  <button class="tab" onclick="showTab('tracker',this)">🏆 Tracker de Conquistas</button>
+</div>
+
+<main>
+
+<!-- ===================== INTRODUÇÃO ===================== -->
+<div class="section active" id="intro">
+  <div class="hero">
+    <h1>🎨 30 Atividades em Família</h1>
+    <p>Um mês inteiro de momentos especiais que fortalecem o vínculo familiar enquanto treinam foco, memória e funções executivas do cérebro TDAH</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">30</div><div class="hero-stat-label">Atividades</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">6</div><div class="hero-stat-label">Categorias</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">5+</div><div class="hero-stat-label">Jogos Digitais</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">∞</div><div class="hero-stat-label">Memórias</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#22c55e;">🧠 Por Que Atividades em Família São Terapêuticas?</h2>
+    <p>Para crianças com TDAH, o maior fator de proteção — além do tratamento — é o <strong>vínculo familiar seguro</strong>. Quando pais e filhos passam tempo de qualidade juntos, o cérebro da criança libera ocitocina, que reduz o cortisol (hormônio do estresse) e melhora a regulação emocional.</p>
+    <p>Além disso, estas atividades foram escolhidas especificamente para treinar as <strong>funções executivas</strong> que são mais desafiadas no TDAH:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0;">
+      <div style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;margin-bottom:6px;">🎯</div>
+        <div style="font-weight:800;color:#166534;font-size:13px;">Atenção Sustentada</div>
+        <div style="font-size:12px;color:#14532d;">Manter o foco numa tarefa por mais tempo</div>
+      </div>
+      <div style="background:#eff6ff;border:2px solid #93c5fd;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;margin-bottom:6px;">🧩</div>
+        <div style="font-weight:800;color:#1e40af;font-size:13px;">Memória de Trabalho</div>
+        <div style="font-size:12px;color:#1e3a5f;">Guardar e usar informações na mente</div>
+      </div>
+      <div style="background:#fdf2f8;border:2px solid #f9a8d4;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;margin-bottom:6px;">⏸️</div>
+        <div style="font-weight:800;color:#9d174d;font-size:13px;">Controle de Impulsos</div>
+        <div style="font-size:12px;color:#831843;">Pensar antes de agir</div>
+      </div>
+      <div style="background:#fff7ed;border:2px solid #fed7aa;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;margin-bottom:6px;">🗂️</div>
+        <div style="font-weight:800;color:#c2410c;font-size:13px;">Organização</div>
+        <div style="font-size:12px;color:#7c2d12;">Planejar e executar em sequência</div>
+      </div>
+    </div>
+    <div class="highlight hi-green">
+      <strong>✅ A Regra de Ouro:</strong> Cada atividade deve ser <strong>divertida primeiro, terapêutica depois</strong>. Nunca corrija ou transforme em aula. O aprendizado acontece naturalmente através do brincar.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#22c55e;">🎭 As 6 Categorias de Atividades</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;">
+      <div style="padding:20px;background:#f0fdf4;border-radius:14px;border-left:5px solid #22c55e;">
+        <div style="font-size:24px;margin-bottom:6px;">🧘</div>
+        <div style="font-weight:800;color:#166534;margin-bottom:4px;">Mindfulness & Calma</div>
+        <div style="font-size:13px;color:#14532d;">Atividades que treinam atenção plena, regulação emocional e autocontrole de forma lúdica e acessível para crianças.</div>
+      </div>
+      <div style="padding:20px;background:#eff6ff;border-radius:14px;border-left:5px solid #3b82f6;">
+        <div style="font-size:24px;margin-bottom:6px;">🧩</div>
+        <div style="font-weight:800;color:#1e40af;margin-bottom:4px;">Cognição & Memória</div>
+        <div style="font-size:13px;color:#1e3a5f;">Jogos e desafios que fortalecem memória de trabalho, atenção e raciocínio lógico de forma divertida.</div>
+      </div>
+      <div style="padding:20px;background:#fdf2f8;border-radius:14px;border-left:5px solid #ec4899;">
+        <div style="font-size:24px;margin-bottom:6px;">🎨</div>
+        <div style="font-weight:800;color:#9d174d;margin-bottom:4px;">Arte & Expressão</div>
+        <div style="font-size:13px;color:#831843;">Desenho, pintura, colagem e criação — o cérebro TDAH ama expressão visual e aprende através da arte.</div>
+      </div>
+      <div style="padding:20px;background:#fff7ed;border-radius:14px;border-left:5px solid #f97316;">
+        <div style="font-size:24px;margin-bottom:6px;">🏃</div>
+        <div style="font-weight:800;color:#c2410c;margin-bottom:4px;">Movimento & Energia</div>
+        <div style="font-size:13px;color:#7c2d12;">Atividades físicas estruturadas que canalizam a energia do TDAH de forma saudável e prazerosa.</div>
+      </div>
+      <div style="padding:20px;background:#f5f3ff;border-radius:14px;border-left:5px solid #8b5cf6;">
+        <div style="font-size:24px;margin-bottom:6px;">🍳</div>
+        <div style="font-weight:800;color:#6d28d9;margin-bottom:4px;">Culinária & Ciência</div>
+        <div style="font-size:13px;color:#4c1d95;">Cozinhar é matemática, química e biologia — e o cérebro TDAH adora experimentos com resultados imediatos!</div>
+      </div>
+      <div style="padding:20px;background:#f0fdf4;border-radius:14px;border-left:5px solid #00d4aa;">
+        <div style="font-size:24px;margin-bottom:6px;">🌿</div>
+        <div style="font-weight:800;color:#065f46;margin-bottom:4px;">Natureza & Aventura</div>
+        <div style="font-size:13px;color:#064e3b;">Atividades ao ar livre que reduzem o estresse e melhoram o humor — a natureza é um antídoto natural para o TDAH.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 30 ATIVIDADES ===================== -->
+<div class="section" id="atividades">
+  <div class="card">
+    <h2 style="color:#22c55e;">📅 Suas 30 Atividades</h2>
+    <p>Clique em uma atividade para ver os detalhes e marcar como feita! Filtre por categoria:</p>
+    <div class="activities-filter">
+      <button class="filter-btn active" onclick="filterActivities('all',this)">Todas</button>
+      <button class="filter-btn" onclick="filterActivities('mindfulness',this)">🧘 Mindfulness</button>
+      <button class="filter-btn" onclick="filterActivities('cognitivo',this)">🧩 Cognição</button>
+      <button class="filter-btn" onclick="filterActivities('arte',this)">🎨 Arte</button>
+      <button class="filter-btn" onclick="filterActivities('movimento',this)">🏃 Movimento</button>
+      <button class="filter-btn" onclick="filterActivities('culinaria',this)">🍳 Culinária</button>
+      <button class="filter-btn" onclick="filterActivities('natureza',this)">🌿 Natureza</button>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="actProgress" style="width:0%"></div></div>
+    <p style="font-size:13px;color:#64748b;margin-top:8px;">Atividades feitas: <strong id="actDone">0</strong>/30</p>
+    <div class="activities-grid" id="activitiesGrid" style="margin-top:24px;"></div>
+  </div>
+</div>
+
+<!-- ===================== JOGOS INTERATIVOS ===================== -->
+<div class="section" id="jogos">
+  <div class="card">
+    <h2 style="color:#22c55e;">🎮 Jogos Interativos</h2>
+    <p>Jogue agora mesmo nesta página! Todos os jogos foram selecionados para treinar funções executivas.</p>
+  </div>
+
+  <!-- JOGO 1: MEMÓRIA ANIMAL -->
+  <div class="game-area">
+    <div class="game-title">🦁 Jogo da Memória Animal</div>
+    <p style="font-size:14px;color:#166534;margin-bottom:8px;">Encontre os pares! Clique em duas cartas — se forem o mesmo animal, ficam abertas!</p>
+    <div style="text-align:center;margin-bottom:12px;">
+      <span style="font-size:14px;font-weight:700;color:#166534;">Pares: <span id="memA_score">0</span>/8 · Tentativas: <span id="memA_att">0</span></span>
+    </div>
+    <div class="mem-grid" style="grid-template-columns:repeat(4,1fr);" id="memAnimalGrid"></div>
+    <div id="memAnimalReward" class="reward-popup">
+      <div style="font-size:64px;">🏆</div>
+      <div style="font-family:'Fredoka One',cursive;font-size:24px;color:#166534;margin:8px 0;">Memória Incrível!</div>
+      <p style="color:#14532d;">Todos os pares encontrados em <strong id="memA_finalAtt">0</strong> tentativas!</p>
+    </div>
+    <button class="game-btn" onclick="initMemAnimal()" style="margin-top:12px;">🔄 Novo Jogo</button>
+  </div>
+
+  <!-- JOGO 2: SIMON SAYS NATUREZA -->
+  <div class="game-area" style="background:#f0fdf4;border-color:#86efac;">
+    <div class="game-title" style="color:#166534;">🌿 Simon Says – Animais da Natureza</div>
+    <p style="font-size:14px;color:#166534;margin-bottom:16px;line-height:1.6;">
+      <strong>Versão digital do Simon Says!</strong> Observe os animais que iluminam em sequência e repita a ordem clicando neles.
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:280px;margin:0 auto 20px;">
+      <button class="mc" id="sa0" style="height:100px;border-radius:20px 4px 4px 4px;font-size:40px;background:linear-gradient(135deg,#22c55e,#16a34a);color:transparent;" onclick="saClick(0)">🐸</button>
+      <button class="mc" id="sa1" style="height:100px;border-radius:4px 20px 4px 4px;font-size:40px;background:linear-gradient(135deg,#f97316,#ef4444);color:transparent;" onclick="saClick(1)">🦋</button>
+      <button class="mc" id="sa2" style="height:100px;border-radius:4px 4px 4px 20px;font-size:40px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:transparent;" onclick="saClick(2)">🐦</button>
+      <button class="mc" id="sa3" style="height:100px;border-radius:4px 4px 20px 4px;font-size:40px;background:linear-gradient(135deg,#eab308,#d97706);color:transparent;" onclick="saClick(3)">🦁</button>
+    </div>
+    <div style="text-align:center;">
+      <p style="font-weight:800;color:#166534;margin-bottom:8px;" id="saStatus">Clique START para começar!</p>
+      <p style="font-size:13px;color:#22c55e;margin-bottom:12px;">Nível: <strong id="saLevel">0</strong> · Recorde: <strong id="saRecord">0</strong></p>
+      <button class="game-btn" onclick="startSA()">▶️ START</button>
+    </div>
+  </div>
+
+  <!-- JOGO 3: CAÇA AO TESOURO DAS LETRAS -->
+  <div class="game-area" style="background:#fdf2f8;border-color:#f9a8d4;">
+    <div class="game-title" style="color:#9d174d;">🔤 Sopa de Letras – Animais da Natureza</div>
+    <p style="font-size:14px;color:#9d174d;margin-bottom:12px;">Clique nas letras para selecionar as palavras escondidas na grade!</p>
+    <div class="ws-words2" id="wsWords2" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;"></div>
+    <div style="overflow-x:auto;text-align:center;">
+      <div id="wsGrid2" style="display:inline-grid;gap:4px;padding:12px;background:#fff;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.1);"></div>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:12px;">
+      <button class="game-btn" style="background:linear-gradient(135deg,#ec4899,#be185d);" onclick="initWS2()">🔄 Novo Jogo</button>
+      <span style="font-size:13px;color:#9d174d;font-weight:700;margin:auto 0;">Encontradas: <span id="wsFound2">0</span>/5</span>
+    </div>
+  </div>
+
+  <!-- JOGO 4: SEQUÊNCIA DE EMOÇÕES -->
+  <div class="game-area" style="background:linear-gradient(135deg,#fff7ed,#fef3c7);border-color:#fde68a;">
+    <div class="game-title" style="color:#d97706;">😊 Complete a Sequência de Emoções</div>
+    <p style="font-size:14px;color:#d97706;margin-bottom:16px;">Observe o padrão de emoções/emojis e escolha o que vem a seguir!</p>
+    <div class="seq-emojis" id="seqEmojis"></div>
+    <p style="text-align:center;font-weight:800;color:#d97706;margin-bottom:12px;">O que vem depois?</p>
+    <div class="seq-options" id="seqOptions"></div>
+    <div id="seqFeedback" style="display:none;padding:12px 20px;border-radius:12px;font-weight:700;text-align:center;margin:12px 0;"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+      <button class="game-btn orange" onclick="nextSeq()">⏭️ Próxima</button>
+      <span style="font-size:14px;font-weight:800;color:#d97706;margin:auto 0;">Acertos: <span id="seqScore">0</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== COLORIR ===================== -->
+<div class="section" id="colorir">
+  <div class="card">
+    <h2 style="color:#22c55e;">🎨 Arte Digital para TDAH</h2>
+    <p>Desenhe e pinte livremente! Estudos mostram que arte reduz ansiedade em até 75% em crianças com TDAH. Esta tela é livre — sem regras, sem erros!</p>
+  </div>
+
+  <div class="coloring-area">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+      <div>
+        <div style="font-family:'Fredoka One',cursive;font-size:18px;color:#166534;margin-bottom:4px;">🖌️ Tela Livre</div>
+        <div style="font-size:13px;color:#64748b;">Escolha a cor e o pincel e desenhe!</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="game-btn" onclick="clearCanvas()">🗑️ Limpar</button>
+        <button class="game-btn purple" onclick="downloadCanvas()">💾 Salvar</button>
+      </div>
+    </div>
+
+    <div class="color-palette" id="colorPalette"></div>
+    <div class="brush-sizes" id="brushSizes">
+      <span style="font-size:12px;font-weight:700;color:#64748b;margin-right:8px;">Pincel:</span>
+    </div>
+    <canvas id="drawCanvas" width="700" height="450" style="max-width:100%;"></canvas>
+  </div>
+
+  <div class="card" style="margin-top:24px;">
+    <h2 style="color:#22c55e;">🎨 Atividades de Arte para Fazer em Casa</h2>
+    <div style="display:grid;gap:16px;">
+      <div style="padding:20px;background:#f0fdf4;border-radius:16px;border-left:5px solid #22c55e;">
+        <div style="font-weight:800;font-size:15px;color:#166534;margin-bottom:8px;">🎨 Pintura com os Dedos</div>
+        <p style="font-size:14px;color:#14532d;line-height:1.6;">Use tinta guache (atóxica) e pintem com os dedos em papel kraft. A sensação tátil da tinta acalma o sistema nervoso e melhora a regulação sensorial. Tema: o jardim dos sonhos de vocês!</p>
+      </div>
+      <div style="padding:20px;background:#eff6ff;border-radius:16px;border-left:5px solid #3b82f6;">
+        <div style="font-weight:800;font-size:15px;color:#1e40af;margin-bottom:8px;">✂️ Colagem de Revistas</div>
+        <p style="font-size:14px;color:#1e3a5f;line-height:1.6;">Recorte imagens de revistas velhas e criem juntos um "Painel dos Sonhos" (vision board). A criança cola o que quer conquistar, fazer, visitar. Ótimo para trabalhar planejamento e sonhos.</p>
+      </div>
+      <div style="padding:20px;background:#fff7ed;border-radius:16px;border-left:5px solid #f97316;">
+        <div style="font-weight:800;font-size:15px;color:#c2410c;margin-bottom:8px;">🪨 Pedras Pintadas</div>
+        <p style="font-size:14px;color:#7c2d12;line-height:1.6;">Coletem pedrinhas lisas no parque. Pintem com tinta acrílica: mandalas, animais, palavras motivadoras. As pedras viraram "amuletos da sorte" — a criança pode levar para a escola como âncora emocional.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TRACKER ===================== -->
+<div class="section" id="tracker">
+  <div class="card">
+    <h2 style="color:#22c55e;">🏆 Tracker de Conquistas</h2>
+    <p>Marque os dias em que você fez uma atividade em família! Cada dia marcado é uma conquista real.</p>
+    <div class="progress-bar"><div class="progress-fill" id="trackerProgress" style="width:0%"></div></div>
+    <p style="font-size:13px;color:#64748b;margin-top:8px;margin-bottom:24px;">
+      Dias ativos: <strong id="trackerDone">0</strong>/30 · 
+      Sequência atual: <strong id="trackerStreak">0</strong> dias 🔥
+    </p>
+    <div class="tracker-grid" id="trackerGrid"></div>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#22c55e;">🌟 Medalhas e Conquistas</h2>
+    <div id="medalsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;"></div>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#22c55e;">💬 Reflexões da Semana</h2>
+    <p>Registre os momentos mais especiais da semana com seu filho!</p>
+    <div id="reflectionGrid" style="display:grid;gap:16px;"></div>
+  </div>
+</div>
+
+</main>
+
+<script>
+// ===================== TABS =====================
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ===================== ACTIVITIES =====================
+const activities = [
+  {d:1,emoji:'🌬️',title:'Respiração do Dragão',cat:'mindfulness',time:'10 min',mat:'Nenhum',desc:'Inspirem fundo juntos e soltam o ar devagar como dragões jogando fogo (bufando bem forte). Façam 5 rodadas. A criança vai adorar fazer barulhão!',benefit:'Ativa o sistema nervoso parassimpático'},
+  {d:2,emoji:'🧩',title:'Torre dos Copos',cat:'cognitivo',time:'15 min',mat:'Copos de plástico',desc:'Com 20+ copos, tentem construir a torre mais alta possível sem ela cair. A criança planeja, executa e aprende a lidar com a frustração quando cai.',benefit:'Treina planejamento e tolerância à frustração'},
+  {d:3,emoji:'🎨',title:'Pintura de Mandalas',cat:'arte',time:'20 min',mat:'Papel, lápis/canetas',desc:'Desenhem círculos concêntricos e preencham com padrões geométricos. A repetição dos padrões é meditativa e treina atenção ao detalhe.',benefit:'Mindfulness + coordenação motora fina'},
+  {d:4,emoji:'🏃',title:'Caça ao Tesouro da Casa',cat:'movimento',time:'20 min',mat:'Post-its, caneta',desc:'Esconda pistas pela casa. Cada pista leva à próxima. O tesouro final pode ser uma sobremesa saudável ou um tempo especial de tela. A criança lê, interpreta e resolve.',benefit:'Leitura + raciocínio + exercício físico'},
+  {d:5,emoji:'🍳',title:'Pizza Saudável',cat:'culinaria',time:'30 min',mat:'Pão integral, molho, queijo, vegetais',desc:'Monte a pizza juntos. A criança escolhe os ingredientes e os distribui. Ensine as frações: metade com queijo, um quarto com brócolis, etc.',benefit:'Matemática + criatividade + autoconfiança'},
+  {d:6,emoji:'🌿',title:'Trilha na Natureza',cat:'natureza',time:'30-60 min',mat:'Tênis, água',desc:'Vão a um parque ou área verde. Peçam para a criança coletar 5 coisas da natureza (folhas, pedras, gravetos). Depois criem uma história com os objetos coletados.',benefit:'Atenção plena + criatividade + sensorial'},
+  {d:7,emoji:'🧘',title:'Yoga dos Animais',cat:'mindfulness',time:'15 min',mat:'Tapete ou toalha',desc:'Façam poses de yoga temáticas: cobra, cachorro, leão, árvore, guerreiro. Cada pose tem um nome de animal e a criança faz o som do animal enquanto mantém a pose.',benefit:'Equilíbrio + foco + regulação corporal'},
+  {d:8,emoji:'🎵',title:'Orquestra Caseira',cat:'arte',time:'20 min',mat:'Objetos domésticos',desc:'Usem potes, colheres, garrafas com água em diferentes níveis para criar instrumentos. Criem uma música juntos e "gravem" com o celular. Ouçam depois.',benefit:'Criatividade + sequenciamento + processamento auditivo'},
+  {d:9,emoji:'🧩',title:'Jogo dos 20 Objetos',cat:'cognitivo',time:'15 min',mat:'20 objetos variados',desc:'Coloquem 20 objetos numa bandeja. A criança observa por 1 minuto. Cubram. Ela tenta lembrar o máximo de objetos. Aumentem progressivamente.',benefit:'Memória de trabalho + atenção'},
+  {d:10,emoji:'🌿',title:'Jardim de Sementes',cat:'natureza',time:'20 min',mat:'Sementes, terra, copinhos',desc:'Plantem sementes de feijão ou tomate em copinhos de plástico. A criança cuida todos os dias, rega, observa o crescimento. Aprendem sobre paciência e responsabilidade.',benefit:'Paciência + responsabilidade + ciência'},
+  {d:11,emoji:'🍳',title:'Smoothie Científico',cat:'culinaria',time:'15 min',mat:'Frutas, liquidificador, medidores',desc:'Criem uma receita de smoothie JUNTOS do zero. A criança escolhe as frutas, mede as quantidades (xícaras, colheres). Batam, provem, ajustem. Ensine que não tem erro — só experimento!',benefit:'Medidas + autonomia + funções executivas'},
+  {d:12,emoji:'🎭',title:'Teatro de Marionetes',cat:'arte',time:'30 min',mat:'Meias velhas, botões, cola',desc:'Transformem meias velhas em marionetes: collem botões (olhos), retalhos de lã (cabelo). Depois criem uma história e apresentem. A criança escolhe o tema.',benefit:'Criatividade + linguagem + narração'},
+  {d:13,emoji:'🏃',title:'Circuito de Habilidades',cat:'movimento',time:'20 min',mat:'Almofadas, cadeiras, fita',desc:'Monte um circuito com estações: pular almofadas, passar por debaixo da cadeira, equilibrar na fita no chão. A criança passa pelo circuito e tenta bater seu próprio recorde.',benefit:'Coordenação + planejamento + superação pessoal'},
+  {d:14,emoji:'🧘',title:'Jar da Calma',cat:'mindfulness',time:'20 min',mat:'Pote transparente, glitter, água, cola',desc:'Façam juntos um "pote da calma": encheem com água morna, cola de glitter e glitter colorido. Quando a criança ficar agitada, agita o pote e observa o glitter assentar — representando pensamentos se acalmando.',benefit:'Regulação emocional + metáfora visual'},
+  {d:15,emoji:'🎨',title:'Arte com Elementos da Natureza',cat:'arte',time:'20 min',mat:'Folhas, flores, tinta',desc:'Usem folhas cobertas de tinta guache para fazer carimbos em papel. Flores prensadas viram arte. Galhinhos viram pincel. A natureza como ferramenta artística.',benefit:'Criatividade + sensorial + conexão com natureza'},
+  {d:16,emoji:'🧩',title:'Desafio dos Tangrans',cat:'cognitivo',time:'15 min',mat:'Papel colorido ou papel impresso',desc:'Imprimam ou cortem peças de tangram (7 formas geométricas). Tentem montar animais, pessoas e objetos. A criança aprende que o todo é feito de partes.',benefit:'Raciocínio espacial + geometria + resolução de problemas'},
+  {d:17,emoji:'🌿',title:'Culinária ao Ar Livre',cat:'natureza',time:'30 min',mat:'Ingredientes para lanche',desc:'Preparem o lanche da tarde do lado de fora — no jardim, varanda ou parque. Espalhem uma toalha, montem juntos os lanches e comam ao ar livre. A mudança de ambiente é terapêutica.',benefit:'Sensorial + relaxamento + vínculo'},
+  {d:18,emoji:'🏃',title:'Dança Livre',cat:'movimento',time:'15 min',mat:'Música!',desc:'Criem uma playlist JUNTOS com as músicas favoritas da criança (pode misturar!). Dancem livremente, sem julgamento, sem passos certos. Depois, dancem musica lenta para encerrar.',benefit:'Expressão corporal + alegria + conexão'},
+  {d:19,emoji:'🍳',title:'Cookies de Banana e Aveia',cat:'culinaria',time:'25 min',mat:'2 bananas, 1 xícara de aveia, chips de chocolate amargo',desc:'Amassem as bananas, misturem a aveia e chips. Façam bolinhas, amassem em discos e asssem por 15 min a 180°C. Receita simples, deliciosa e saudável. A criança pode fazer quase tudo.',benefit:'Sequenciamento + matemática + autonomia'},
+  {d:20,emoji:'🧘',title:'Caminhada Mindful',cat:'mindfulness',time:'15 min',mat:'Nenhum',desc:'Saiam para caminhar muito devagar, prestando atenção em cada passo. A criança conta 5 coisas que vê, 4 que ouve, 3 que pode tocar, 2 que cheira, 1 que gosta. É a técnica "5-4-3-2-1"!',benefit:'Atenção plena + regulação sensorial + ancoragem'},
+  {d:21,emoji:'🎨',title:'Livro Ilustrado',cat:'arte',time:'30 min',mat:'Papel, canetas',desc:'Criem um livro em conjunto: a criança inventa a história, você escreve enquanto ela ilustra. Grampeiem as páginas. Ela terá um livro com SEU nome de autora/autor. Leia para a família!',benefit:'Linguagem + narrativa + autoestima'},
+  {d:22,emoji:'🧩',title:'Quebra-Cabeça Gigante',cat:'cognitivo',time:'20 min',mat:'Quebra-cabeça ou impresso',desc:'Monte um quebra-cabeça de 100-200 peças juntos. Se não tiver, imprima uma imagem grande e cortem em pedaços irregulares. A criança aprende a identificar padrões e trabalhar com persistência.',benefit:'Atenção sustentada + resolução de problemas'},
+  {d:23,emoji:'🌿',title:'Observação das Estrelas',cat:'natureza',time:'20 min',mat:'Coberta, lanterna vermelha',desc:'Em uma noite clara, deitem juntos em coberta e observem o céu estrelado. Use um app gratuito como Star Walk para identificar constelações. A quietude da noite é profundamente calmante.',benefit:'Atenção + curiosidade + conexão'},
+  {d:24,emoji:'🏃',title:'Esportes com Balão',cat:'movimento',time:'15 min',mat:'Balão(ões)',desc:'Joguem com balão: mantenha no ar sem deixar cair, vôlei de balão, beisebol de balão. Os balões são imprevisíveis (ótimo para TDAH!) e seguros. Depois, encham de água e joguem na varanda!',benefit:'Coordenação + reatividade + diversão'},
+  {d:25,emoji:'🍳',title:'Limonada Criativa',cat:'culinaria',time:'15 min',mat:'Limões, água, mel, frutas',desc:'Façam limonada juntos: espremer limão, medir mel, adicionar água. Depois, criem versões criativas: limonada de morango, de hortelã, de gengibre. A criança nomeia as criações.',benefit:'Criatividade + medidas + autonomia'},
+  {d:26,emoji:'🧘',title:'Massagem nas Costas',cat:'mindfulness',time:'10 min',mat:'Óleo de amêndoa (opcional)',desc:'Uma sessão de massagem nas costas com as palmas das mãos. Pode ser com chuva (dedos batendo suavemente) ou círculos. Depois trocam! O toque terapêutico libera ocitocina e reduz cortisol.',benefit:'Regulação sensorial + vínculo + ocitocina'},
+  {d:27,emoji:'🎨',title:'Escultura de Massinha',cat:'arte',time:'20 min',mat:'Massinha caseira ou comprada',desc:'Façam massinha caseira juntos (farinha + sal + água + óleo + corante). Depois esculpam animais favoritos, comidas, personagens. A sensação tátil da massinha é muito regulatória para TDAH.',benefit:'Sensorial + criatividade + regulação'},
+  {d:28,emoji:'🧩',title:'Caça ao Erro',cat:'cognitivo',time:'15 min',mat:'Papel impresso ou desenhado',desc:'Desenhem a mesma cena duas vezes com 10 diferenças. Troquem. Cada um acha as diferenças no desenho do outro. Imagens simples (parque, quarto, cozinha) funcionam muito bem.',benefit:'Atenção ao detalhe + raciocínio visual'},
+  {d:29,emoji:'🌿',title:'Piquenique no Parque',cat:'natureza',time:'60 min',mat:'Mochila, lanches, toalha',desc:'Planejem JUNTOS um piquenique: a criança ajuda a escolher o cardápio, fazer os lanches e montar a mochila. No parque, sem telas! Contem histórias, observem a natureza, brinquem livremente.',benefit:'Planejamento + responsabilidade + natureza'},
+  {d:30,emoji:'🎉',title:'Festa da Conquista!',cat:'cognitivo',time:'60 min',mat:'Materiais para decoração, lanches favoritos',desc:'PARABÉNS! Vocês chegaram ao Dia 30! Celebrem com uma festa pequena em casa: decorem juntos, façam os snacks favoritos, olhem fotos e memórias do mês. Conversem sobre o que aprenderam juntos.',benefit:'Autoestima + celebração + vínculo familiar'},
+];
+
+let currentFilter = 'all';
+
+function filterActivities(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderActivities();
+}
+
+function renderActivities() {
+  const done = JSON.parse(localStorage.getItem('activities_done') || '[]');
+  const filtered = currentFilter === 'all' ? activities : activities.filter(a => a.cat === currentFilter);
+  const catColors = {
+    mindfulness: {bg:'#f0fdf4',border:'#86efac',tag:'#dcfce7',tagText:'#166534'},
+    cognitivo: {bg:'#eff6ff',border:'#93c5fd',tag:'#dbeafe',tagText:'#1e40af'},
+    arte: {bg:'#fdf2f8',border:'#f9a8d4',tag:'#fce7f3',tagText:'#9d174d'},
+    movimento: {bg:'#fff7ed',border:'#fed7aa',tag:'#ffedd5',tagText:'#c2410c'},
+    culinaria: {bg:'#f5f3ff',border:'#ddd6fe',tag:'#ede9fe',tagText:'#6d28d9'},
+    natureza: {bg:'#f0fdfa',border:'#99f6e4',tag:'#ccfbf1',tagText:'#065f46'},
+  };
+  const catEmojis = {mindfulness:'🧘',cognitivo:'🧩',arte:'🎨',movimento:'🏃',culinaria:'🍳',natureza:'🌿'};
+  
+  let html = '';
+  filtered.forEach(act => {
+    const c = catColors[act.cat];
+    const isDone = done.includes(act.d);
+    html += `<div class="activity-card${isDone?' done':''}" style="border-color:${isDone?'#22c55e':c.border}">
+      <div class="activity-thumb" style="background:${c.bg};">
+        <div class="activity-num">${act.d}</div>
+        <span style="font-size:56px;">${act.emoji}</span>
+        <div class="activity-cat">${catEmojis[act.cat]} ${act.cat.charAt(0).toUpperCase()+act.cat.slice(1)}</div>
+        <div class="activity-check-overlay">✅</div>
+      </div>
+      <div class="activity-body">
+        <div class="activity-day">Dia ${act.d}</div>
+        <div class="activity-title">${act.title}</div>
+        <div class="activity-desc">${act.desc.substring(0,100)}...</div>
+        <div class="activity-meta">
+          <span class="meta-badge" style="background:${c.tag};color:${c.tagText};">⏱ ${act.time}</span>
+          <span class="meta-badge" style="background:#f8fafc;color:#64748b;">📦 ${act.mat}</span>
+        </div>
+      </div>
+      <div class="activity-footer">
+        <span style="font-size:12px;color:#64748b;">🧠 ${act.benefit}</span>
+        <button class="mark-btn" style="background:${isDone?'#22c55e':'#f0fdf4'};color:${isDone?'#fff':'#22c55e'};border:2px solid ${isDone?'#22c55e':'#86efac'};" onclick="toggleActivity(${act.d},this)">
+          ${isDone?'✓ Feita':'Marcar'}
+        </button>
+      </div>
+    </div>`;
+  });
+  document.getElementById('activitiesGrid').innerHTML = html;
+  updateActProgress();
+}
+
+function toggleActivity(d, btn) {
+  const done = JSON.parse(localStorage.getItem('activities_done') || '[]');
+  const idx = done.indexOf(d);
+  if (idx > -1) done.splice(idx, 1);
+  else done.push(d);
+  localStorage.setItem('activities_done', JSON.stringify(done));
+  renderActivities();
+  updateTrackerGrid();
+}
+
+function updateActProgress() {
+  const done = JSON.parse(localStorage.getItem('activities_done') || '[]');
+  const pct = Math.round(done.length / 30 * 100);
+  document.getElementById('actProgress').style.width = pct + '%';
+  document.getElementById('actDone').textContent = done.length;
+}
+
+// ===================== MEM ANIMAL =====================
+const animalPairs = ['🐸','🦋','🐦','🦁','🐘','🦊','🐬','🦄'];
+let memA_flipped=[], memA_matched=[], memA_att=0;
+
+function initMemAnimal() {
+  memA_flipped=[]; memA_matched=[]; memA_att=0;
+  document.getElementById('memA_score').textContent='0';
+  document.getElementById('memA_att').textContent='0';
+  document.getElementById('memAnimalReward').classList.remove('show');
+  const cards=[...animalPairs,...animalPairs].sort(()=>Math.random()-0.5);
+  const grid=document.getElementById('memAnimalGrid');
+  grid.style.gridTemplateColumns='repeat(4,1fr)';
+  grid.innerHTML='';
+  cards.forEach((emoji,i)=>{
+    const div=document.createElement('div');
+    div.className='mc';
+    div.dataset.val=emoji;
+    div.innerHTML=`<span class="back" style="font-size:24px;">🌿</span><span class="front">${emoji}</span>`;
+    div.onclick=()=>flipMemA(div);
+    grid.appendChild(div);
+  });
+}
+
+function flipMemA(card) {
+  if(card.classList.contains('matched')||card.classList.contains('flipped')||memA_flipped.length>=2) return;
+  card.classList.add('flipped');
+  memA_flipped.push(card);
+  if(memA_flipped.length===2){
+    memA_att++;
+    document.getElementById('memA_att').textContent=memA_att;
+    const [a,b]=memA_flipped;
+    if(a.dataset.val===b.dataset.val){
+      setTimeout(()=>{
+        a.classList.add('matched'); b.classList.add('matched');
+        memA_matched.push(a,b);
+        document.getElementById('memA_score').textContent=memA_matched.length/2;
+        if(memA_matched.length===animalPairs.length*2){
+          document.getElementById('memA_finalAtt').textContent=memA_att;
+          document.getElementById('memAnimalReward').classList.add('show');
+        }
+        memA_flipped=[];
+      },400);
+    } else {
+      setTimeout(()=>{a.classList.remove('flipped');b.classList.remove('flipped');memA_flipped=[];},700);
+    }
+  }
+}
+
+// ===================== SIMON ANIMALS =====================
+let saSeq=[], saPlayerSeq=[], saLevel_val=0, saRecord_val=0, saWaiting=false;
+const saColors=[
+  {base:'linear-gradient(135deg,#22c55e,#16a34a)',bright:'linear-gradient(135deg,#4ade80,#22c55e)',emoji:'🐸'},
+  {base:'linear-gradient(135deg,#f97316,#ef4444)',bright:'linear-gradient(135deg,#fb923c,#f97316)',emoji:'🦋'},
+  {base:'linear-gradient(135deg,#3b82f6,#1d4ed8)',bright:'linear-gradient(135deg,#60a5fa,#3b82f6)',emoji:'🐦'},
+  {base:'linear-gradient(135deg,#eab308,#d97706)',bright:'linear-gradient(135deg,#facc15,#eab308)',emoji:'🦁'},
+];
+
+function startSA(){
+  saSeq=[]; saLevel_val=0; addSAStep();
+}
+function addSAStep(){
+  saSeq.push(Math.floor(Math.random()*4));
+  saLevel_val++;
+  document.getElementById('saLevel').textContent=saLevel_val;
+  document.getElementById('saStatus').textContent='Observe...';
+  saPlayerSeq=[];
+  saWaiting=false;
+  playSASeq();
+}
+function playSASeq(){
+  let i=0;
+  const play=()=>{
+    if(i>=saSeq.length){saWaiting=true;document.getElementById('saStatus').textContent='Sua vez! Repita!';return;}
+    flashSA(saSeq[i]);
+    i++;
+    setTimeout(play,900);
+  };
+  setTimeout(play,600);
+}
+function flashSA(idx){
+  const btn=document.getElementById('sa'+idx);
+  btn.style.background=saColors[idx].bright;
+  btn.style.color='black';
+  setTimeout(()=>{btn.style.background=saColors[idx].base;btn.style.color='transparent';},500);
+}
+function saClick(idx){
+  if(!saWaiting) return;
+  flashSA(idx);
+  saPlayerSeq.push(idx);
+  const pos=saPlayerSeq.length-1;
+  if(saPlayerSeq[pos]!==saSeq[pos]){
+    document.getElementById('saStatus').textContent='❌ Errou! Pressione START.';
+    saWaiting=false;
+    if(saLevel_val-1>saRecord_val){saRecord_val=saLevel_val-1;document.getElementById('saRecord').textContent=saRecord_val;}
+    return;
+  }
+  if(saPlayerSeq.length===saSeq.length){
+    document.getElementById('saStatus').textContent='✅ Incrível! Próximo nível!';
+    saWaiting=false;
+    setTimeout(addSAStep,1000);
+  }
+}
+
+// ===================== WORD SEARCH 2 =====================
+const wsWords2_data=['GATO','PATO','BOLA','CASA','AMOR'];
+let wsGrid2_data=[], wsFoundWords2=[], wsStartCell2=null, wsSelectedCells2=[];
+
+function initWS2(){
+  wsFoundWords2=[];
+  const size=8;
+  wsGrid2_data=Array.from({length:size},()=>Array(size).fill(''));
+  const dirs=[[0,1],[1,0]];
+  wsWords2_data.forEach(word=>{
+    let placed=false;
+    for(let t=0;t<200&&!placed;t++){
+      const [dr,dc]=dirs[Math.floor(Math.random()*dirs.length)];
+      const maxR=size-word.length*(dr>0?1:0);
+      const maxC=size-word.length*(dc>0?1:0);
+      if(maxR<=0||maxC<=0) continue;
+      const r=Math.floor(Math.random()*maxR);
+      const c=Math.floor(Math.random()*maxC);
+      if([...word].every((_,i)=>!wsGrid2_data[r+i*dr]?.[c+i*dc]||wsGrid2_data[r+i*dr][c+i*dc]===word[i])){
+        [...word].forEach((ch,i)=>{wsGrid2_data[r+i*dr][c+i*dc]=ch;});
+        placed=true;
+      }
+    }
+  });
+  for(let r=0;r<size;r++) for(let c=0;c<size;c++) if(!wsGrid2_data[r][c]) wsGrid2_data[r][c]='ABCDEFGHIJKLMNOPQRSTUVWXYZ'[Math.floor(Math.random()*26)];
+  
+  const g=document.getElementById('wsGrid2');
+  g.style.gridTemplateColumns=`repeat(${size},34px)`;
+  g.innerHTML='';
+  wsGrid2_data.forEach((row,r)=>row.forEach((ch,c)=>{
+    const cell=document.createElement('div');
+    cell.style.cssText='width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:all 0.15s;background:#f8fafc;color:#1e293b;';
+    cell.textContent=ch;
+    cell.dataset.r=r; cell.dataset.c=c; cell.dataset.ch=ch;
+    cell.onclick=()=>selectWS2Cell(cell,r,c,ch);
+    g.appendChild(cell);
+  }));
+  
+  const wordsEl=document.getElementById('wsWords2');
+  wordsEl.innerHTML='';
+  wsWords2_data.forEach(w=>{
+    const span=document.createElement('span');
+    span.id='wsw2-'+w;
+    span.style.cssText='padding:4px 12px;border-radius:50px;border:2px solid #bbf7d0;font-weight:700;font-size:13px;color:#64748b;';
+    span.textContent=w;
+    wordsEl.appendChild(span);
+  });
+  document.getElementById('wsFound2').textContent='0';
+  wsSelectedCells2=[];
+}
+
+function selectWS2Cell(cell,r,c,ch) {
+  wsSelectedCells2.push({cell,r,c,ch});
+  cell.style.background='#fce7f3';
+  cell.style.borderColor='#ec4899';
+  
+  if(wsSelectedCells2.length===2) {
+    const [start,end]=wsSelectedCells2;
+    // Build selected word
+    const dr=Math.sign(end.r-start.r), dc=Math.sign(end.c-start.c);
+    let word='', cells=[];
+    let cr=start.r, cc=start.c;
+    for(let i=0;i<10;i++){
+      if(cr<0||cr>=8||cc<0||cc>=8) break;
+      cells.push({r:cr,c:cc});
+      const c2=document.querySelector(`#wsGrid2 [data-r="${cr}"][data-c="${cc}"]`);
+      if(c2) word+=c2.dataset.ch;
+      if(cr===end.r&&cc===end.c) break;
+      cr+=dr; cc+=dc;
+    }
+    
+    if(wsWords2_data.includes(word)&&!wsFoundWords2.includes(word)){
+      wsFoundWords2.push(word);
+      cells.forEach(({r,c})=>{
+        const cell=document.querySelector(`#wsGrid2 [data-r="${r}"][data-c="${c}"]`);
+        if(cell){cell.style.background='#bbf7d0';cell.style.borderColor='#22c55e';}
+      });
+      const wEl=document.getElementById('wsw2-'+word);
+      if(wEl){wEl.style.background='#dcfce7';wEl.style.borderColor='#22c55e';wEl.style.textDecoration='line-through';wEl.style.color='#166534';}
+      document.getElementById('wsFound2').textContent=wsFoundWords2.length;
+    } else {
+      wsSelectedCells2.forEach(({cell})=>{cell.style.background='#f8fafc';cell.style.borderColor='transparent';});
+    }
+    wsSelectedCells2=[];
+  }
+}
+
+// ===================== SEQUENCE EMOTIONS =====================
+const seqPatterns2=[
+  {seq:['😊','😢','😊','😢','😊'],answer:'😢',wrong:['😊','😡','😮']},
+  {seq:['😡','😊','😡','😊','😡'],answer:'😊',wrong:['😢','😮','😡']},
+  {seq:['😮','😮','😊','😮','😮'],answer:'😊',wrong:['😮','😢','😡']},
+  {seq:['🌟','🌙','🌟','🌙','🌟'],answer:'🌙',wrong:['🌟','☀️','⭐']},
+  {seq:['🐸','🦋','🐸','🦋','🐸'],answer:'🦋',wrong:['🐸','🦁','🐦']},
+  {seq:['❤️','💚','💛','❤️','💚'],answer:'💛',wrong:['❤️','💙','💚']},
+];
+let seqIdx2=0, seqScore2=0;
+
+function nextSeq(){
+  const p=seqPatterns2[seqIdx2%seqPatterns2.length]; seqIdx2++;
+  document.getElementById('seqEmojis').textContent=p.seq.join(' ') + ' ?';
+  document.getElementById('seqFeedback').style.display='none';
+  const opts=[p.answer,...p.wrong].sort(()=>Math.random()-0.5);
+  const el=document.getElementById('seqOptions');
+  el.innerHTML='';
+  opts.forEach(o=>{
+    const btn=document.createElement('button');
+    btn.className='seq-opt';
+    btn.textContent=o;
+    btn.onclick=()=>{
+      const fb=document.getElementById('seqFeedback');
+      fb.style.display='block';
+      document.querySelectorAll('.seq-opt').forEach(b=>b.style.pointerEvents='none');
+      if(o===p.answer){
+        btn.classList.add('correct');
+        seqScore2++;
+        document.getElementById('seqScore').textContent=seqScore2;
+        fb.style.cssText='display:block;padding:12px 20px;border-radius:12px;font-weight:700;text-align:center;background:#dcfce7;color:#166534;';
+        fb.textContent='🎉 Correto! Você descobriu o padrão!';
+      } else {
+        btn.classList.add('wrong');
+        fb.style.cssText='display:block;padding:12px 20px;border-radius:12px;font-weight:700;text-align:center;background:#fee2e2;color:#991b1b;';
+        fb.textContent=`A resposta é ${p.answer}! Tente a próxima!`;
+      }
+      setTimeout(()=>{document.querySelectorAll('.seq-opt').forEach(b=>b.style.pointerEvents='auto');nextSeq();},1500);
+    };
+    el.appendChild(btn);
+  });
+}
+
+// ===================== CANVAS =====================
+const palette=['#ef4444','#f97316','#eab308','#22c55e','#3b82f6','#8b5cf6','#ec4899','#1e293b','#ffffff','#94a3b8','#00d4aa','#f59e0b'];
+let currentColor='#22c55e', brushSize=8, drawing=false, lastX=0, lastY=0;
+
+function initCanvas(){
+  const cp=document.getElementById('colorPalette');
+  cp.innerHTML='';
+  palette.forEach(color=>{
+    const sw=document.createElement('div');
+    sw.className='color-swatch'+(color===currentColor?' active':'');
+    sw.style.background=color;
+    sw.onclick=()=>{currentColor=color;document.querySelectorAll('.color-swatch').forEach(s=>s.classList.remove('active'));sw.classList.add('active');};
+    cp.appendChild(sw);
+  });
+  const bs=document.getElementById('brushSizes');
+  [4,8,14,22].forEach(size=>{
+    const btn=document.createElement('div');
+    btn.className='brush-btn'+(size===brushSize?' active':'');
+    btn.style.cssText=`width:${size}px;height:${size}px;border-radius:50%;background:#1e293b;cursor:pointer;transition:all 0.2s;border:2px solid transparent;margin-right:4px;`;
+    btn.onclick=()=>{brushSize=size;document.querySelectorAll('.brush-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');};
+    bs.appendChild(btn);
+  });
+  
+  const canvas=document.getElementById('drawCanvas');
+  const ctx=canvas.getContext('2d');
+  ctx.fillStyle='#fff';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  
+  canvas.addEventListener('mousedown',e=>{drawing=true;[lastX,lastY]=getPos(e,canvas);});
+  canvas.addEventListener('mousemove',e=>{if(drawing) draw(e,canvas,ctx);});
+  canvas.addEventListener('mouseup',()=>drawing=false);
+  canvas.addEventListener('mouseleave',()=>drawing=false);
+  canvas.addEventListener('touchstart',e=>{e.preventDefault();drawing=true;[lastX,lastY]=getPos(e.touches[0],canvas);});
+  canvas.addEventListener('touchmove',e=>{e.preventDefault();if(drawing) draw(e.touches[0],canvas,ctx);});
+  canvas.addEventListener('touchend',()=>drawing=false);
+}
+
+function getPos(e,canvas){
+  const rect=canvas.getBoundingClientRect();
+  const scaleX=canvas.width/rect.width;
+  const scaleY=canvas.height/rect.height;
+  return [(e.clientX-rect.left)*scaleX, (e.clientY-rect.top)*scaleY];
+}
+
+function draw(e,canvas,ctx){
+  const [x,y]=getPos(e,canvas);
+  ctx.beginPath();
+  ctx.moveTo(lastX,lastY);
+  ctx.lineTo(x,y);
+  ctx.strokeStyle=currentColor;
+  ctx.lineWidth=brushSize;
+  ctx.lineCap='round';
+  ctx.lineJoin='round';
+  ctx.stroke();
+  [lastX,lastY]=[x,y];
+}
+
+function clearCanvas(){
+  const canvas=document.getElementById('drawCanvas');
+  const ctx=canvas.getContext('2d');
+  ctx.fillStyle='#fff';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+}
+
+function downloadCanvas(){
+  const canvas=document.getElementById('drawCanvas');
+  const link=document.createElement('a');
+  link.download='minha_arte_tdah.png';
+  link.href=canvas.toDataURL();
+  link.click();
+}
+
+// ===================== TRACKER =====================
+const medals=[
+  {id:'first',emoji:'🌱',title:'Primeira Atividade!',desc:'Fez a primeira atividade em família',req:1},
+  {id:'week1',emoji:'⭐',title:'Uma Semana!',desc:'7 dias de atividades completos',req:7},
+  {id:'half',emoji:'🎯',title:'Metade do Caminho!',desc:'15 atividades feitas',req:15},
+  {id:'week3',emoji:'🏅',title:'Três Semanas!',desc:'21 atividades completas',req:21},
+  {id:'complete',emoji:'🏆',title:'CAMPEÃO! 30 Dias!',desc:'Todas as 30 atividades concluídas!',req:30},
+];
+
+function initTracker(){
+  const done = JSON.parse(localStorage.getItem('activities_done') || '[]');
+  const grid=document.getElementById('trackerGrid');
+  grid.innerHTML='';
+  for(let d=1;d<=30;d++){
+    const div=document.createElement('div');
+    div.className='tracker-day'+(done.includes(d)?' done':'');
+    div.textContent=d;
+    div.onclick=()=>{
+      const d2=JSON.parse(localStorage.getItem('activities_done')||'[]');
+      const idx=d2.indexOf(d);
+      if(idx>-1) d2.splice(idx,1); else d2.push(d);
+      localStorage.setItem('activities_done',JSON.stringify(d2));
+      div.classList.toggle('done');
+      updateTrackerProgress();
+      renderMedals();
+    };
+    grid.appendChild(div);
+  }
+  updateTrackerProgress();
+  renderMedals();
+  renderReflections();
+}
+
+function updateTrackerProgress(){
+  const done=JSON.parse(localStorage.getItem('activities_done')||'[]');
+  const pct=Math.round(done.length/30*100);
+  document.getElementById('trackerProgress').style.width=pct+'%';
+  document.getElementById('trackerDone').textContent=done.length;
+  // streak
+  let streak=0;
+  for(let d=30;d>=1;d--){if(done.includes(d)) streak++; else break;}
+  document.getElementById('trackerStreak').textContent=streak;
+}
+
+function renderMedals(){
+  const done=JSON.parse(localStorage.getItem('activities_done')||'[]');
+  const grid=document.getElementById('medalsGrid');
+  grid.innerHTML='';
+  medals.forEach(m=>{
+    const earned=done.length>=m.req;
+    const div=document.createElement('div');
+    div.style.cssText=`padding:20px;border-radius:16px;text-align:center;border:2px solid;background:${earned?'#f0fdf4':'#f8fafc'};border-color:${earned?'#86efac':'#e2e8f0'};transition:all 0.3s;`;
+    div.innerHTML=`<div style="font-size:${earned?'48':'36'}px;margin-bottom:8px;filter:${earned?'none':'grayscale(1) opacity(0.3)'};">${m.emoji}</div>
+      <div style="font-weight:800;font-size:13px;color:${earned?'#166534':'#94a3b8'};margin-bottom:4px;">${m.title}</div>
+      <div style="font-size:11px;color:${earned?'#14532d':'#cbd5e1'};">${m.desc}</div>
+      ${earned?'<div style="margin-top:8px;font-size:10px;background:#22c55e;color:#fff;padding:3px 10px;border-radius:50px;font-weight:800;">CONQUISTADO!</div>':''}`;
+    grid.appendChild(div);
+  });
+}
+
+function renderReflections(){
+  const weeks=['Semana 1','Semana 2','Semana 3','Semana 4'];
+  const grid=document.getElementById('reflectionGrid');
+  grid.innerHTML='';
+  weeks.forEach((wk,i)=>{
+    const div=document.createElement('div');
+    div.style.cssText='background:#fff;border:2px solid #bbf7d0;border-radius:16px;padding:20px;';
+    div.innerHTML=`<div style="font-weight:800;font-size:15px;color:#166534;margin-bottom:12px;">${wk}</div>
+      <div style="display:grid;gap:12px;">
+        <div>
+          <label style="font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:6px;">🌟 Momento mais especial:</label>
+          <textarea style="width:100%;padding:10px;border:2px solid #bbf7d0;border-radius:10px;font-family:Nunito,sans-serif;font-size:13px;resize:none;outline:none;height:60px;" placeholder="Descreva aqui..."></textarea>
+        </div>
+        <div>
+          <label style="font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:6px;">💚 O que meu filho mais gostou:</label>
+          <textarea style="width:100%;padding:10px;border:2px solid #bbf7d0;border-radius:10px;font-family:Nunito,sans-serif;font-size:13px;resize:none;outline:none;height:60px;" placeholder="Descreva aqui..."></textarea>
+        </div>
+      </div>`;
+    grid.appendChild(div);
+  });
+}
+
+function updateTrackerGrid(){
+  const done=JSON.parse(localStorage.getItem('activities_done')||'[]');
+  document.querySelectorAll('.tracker-day').forEach((el,i)=>{
+    el.className='tracker-day'+(done.includes(i+1)?' done':'');
+  });
+  updateTrackerProgress();
+  renderMedals();
+}
+
+window.addEventListener('load',()=>{
+  renderActivities();
+  initMemAnimal();
+  initWS2();
+  nextSeq();
+  initCanvas();
+  initTracker();
+  // SA button fix
+  for(let i=0;i<4;i++){
+    const btn=document.getElementById('sa'+i);
+    if(btn){btn.style.border='none';btn.style.cursor='pointer';}
+  }
+});
+</script>
+</body>
+</html>

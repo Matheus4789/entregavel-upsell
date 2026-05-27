@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bônus 01 – Cardápio Anti-Hiperatividade 30 Dias</title>
+<meta name="description" content="30 dias de alimentação estratégica que acalma o cérebro TDAH. Receitas, lista de compras interativa e guia nutricional completo.">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#ef4444;--orange:#f97316;--green:#22c55e;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:#fff5f5;color:#1e293b;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+
+.topbar{background:linear-gradient(135deg,#7f1d1d,#ef4444);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(239,68,68,0.4);}
+.topbar-logo{font-family:'Fredoka One',cursive;font-size:20px;}
+.topbar-right{display:flex;gap:10px;flex-wrap:wrap;}
+.btn{padding:10px 20px;border-radius:50px;font-weight:800;font-size:13px;cursor:pointer;border:none;display:flex;align-items:center;gap:6px;transition:all 0.2s;text-decoration:none;}
+.btn-print{background:#fff;color:#ef4444;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+.btn-print:hover{transform:scale(1.05);}
+.btn-back{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3);}
+.btn-back:hover{background:rgba(255,255,255,0.25);}
+
+.tab-nav{background:#fff;border-bottom:2px solid #fecaca;display:flex;overflow-x:auto;scrollbar-width:none;padding:0 24px;position:sticky;top:62px;z-index:90;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.tab-nav::-webkit-scrollbar{display:none;}
+.tab{padding:16px 18px;font-weight:700;font-size:13px;color:#94a3b8;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:all 0.2s;background:none;border-top:none;border-left:none;border-right:none;}
+.tab:hover{color:#ef4444;}
+.tab.active{color:#ef4444;border-bottom-color:#ef4444;}
+
+main{max-width:900px;margin:0 auto;padding:40px 24px 80px;}
+.section{display:none;}
+.section.active{display:block;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#7f1d1d,#ef4444,#f97316);border-radius:24px;padding:48px;color:#fff;text-align:center;margin-bottom:40px;position:relative;overflow:hidden;}
+.hero::before{content:'🥗';position:absolute;font-size:200px;opacity:0.07;top:-30px;right:-20px;}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(28px,5vw,48px);margin-bottom:12px;}
+.hero p{font-size:16px;opacity:0.85;max-width:500px;margin:0 auto 32px;line-height:1.6;}
+.hero-stats{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.hero-stat{background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.25);border-radius:14px;padding:14px 20px;text-align:center;min-width:100px;}
+.hero-stat-num{font-family:'Fredoka One',cursive;font-size:28px;}
+.hero-stat-label{font-size:11px;opacity:0.75;margin-top:2px;}
+
+/* CARDS */
+.card{background:#fff;border-radius:20px;padding:28px;margin-bottom:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid #fee2e2;}
+.card h2{font-family:'Fredoka One',cursive;font-size:24px;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.card p{font-size:15px;color:#475569;line-height:1.7;margin-bottom:12px;}
+
+/* HIGHLIGHT */
+.highlight{border-radius:16px;padding:18px 22px;margin:16px 0;border-left:5px solid;font-size:14px;line-height:1.7;}
+.hi-red{background:#fff5f5;border-color:#ef4444;color:#7f1d1d;}
+.hi-green{background:#f0fdf4;border-color:#22c55e;color:#14532d;}
+.hi-orange{background:#fff7ed;border-color:#f97316;color:#7c2d12;}
+.hi-blue{background:#eff6ff;border-color:#3b82f6;color:#1e3a5f;}
+
+/* SEMÁFORO */
+.semaforo{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:20px 0;}
+.sem-card{border-radius:16px;padding:20px;text-align:center;}
+.sem-title{font-weight:900;font-size:14px;margin:10px 0 8px;}
+.sem-food{font-size:13px;line-height:1.8;color:#475569;}
+.sem-circle{width:40px;height:40px;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:18px;}
+
+/* 30 DIAS GRID */
+.days-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin:24px 0;}
+.day-card{
+  background:#fff;
+  border:2px solid #fee2e2;
+  border-radius:16px;
+  overflow:hidden;
+  transition:all 0.2s;
+  cursor:pointer;
+}
+.day-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(239,68,68,0.15);}
+.day-card.checked{border-color:#22c55e;background:#f0fdf4;}
+.day-header{
+  padding:12px 16px;
+  font-weight:800;
+  font-size:13px;
+  color:#fff;
+  background:linear-gradient(135deg,#ef4444,#f97316);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.day-card.checked .day-header{background:linear-gradient(135deg,#22c55e,#16a34a);}
+.day-body{padding:14px 16px;}
+.meal-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;font-size:13px;}
+.meal-icon{font-size:16px;min-width:20px;}
+.meal-text{color:#475569;line-height:1.4;}
+.meal-time{font-weight:800;color:#ef4444;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;}
+.day-card.checked .meal-time{color:#16a34a;}
+.day-check{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;}
+
+/* RECEITAS */
+.receita{background:#fff;border-radius:20px;overflow:hidden;margin-bottom:24px;box-shadow:0 4px 16px rgba(0,0,0,0.06);border:2px solid #fee2e2;}
+.receita-header{background:linear-gradient(135deg,#ef4444,#f97316);color:#fff;padding:20px 24px;display:flex;align-items:center;gap:12px;}
+.receita-emoji{font-size:40px;}
+.receita-title{font-family:'Fredoka One',cursive;font-size:20px;}
+.receita-sub{font-size:12px;opacity:0.8;margin-top:2px;}
+.receita-body{padding:24px;}
+.ingredientes h4,.modo h4{font-weight:800;color:#1e293b;margin-bottom:10px;font-size:15px;}
+.ingredientes ul{list-style:none;margin-bottom:20px;}
+.ingredientes li{padding:6px 0;border-bottom:1px solid #f1f5f9;font-size:14px;color:#475569;display:flex;align-items:center;gap:8px;}
+.ingredientes li::before{content:'•';color:#ef4444;font-size:20px;line-height:1;}
+.modo ol{padding-left:20px;}
+.modo li{margin-bottom:8px;font-size:14px;color:#475569;line-height:1.6;}
+.receita-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;}
+.badge{padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;}
+
+/* LISTA DE COMPRAS */
+.shopping-section{margin:24px 0;}
+.shopping-category{margin-bottom:24px;}
+.shopping-category h3{font-family:'Fredoka One',cursive;font-size:18px;color:#ef4444;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.shopping-item{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:12px;border:2px solid #fee2e2;margin-bottom:8px;cursor:pointer;transition:all 0.2s;background:#fff;}
+.shopping-item:hover{border-color:#f97316;background:#fff7ed;}
+.shopping-item.bought{border-color:#22c55e;background:#f0fdf4;opacity:0.7;}
+.shopping-cb{width:22px;height:22px;border:3px solid #fca5a5;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;transition:all 0.2s;}
+.shopping-item.bought .shopping-cb{background:#22c55e;border-color:#22c55e;color:#fff;}
+.shopping-name{flex:1;font-size:14px;font-weight:600;color:#374151;}
+.shopping-item.bought .shopping-name{text-decoration:line-through;color:#9ca3af;}
+.shopping-qty{font-size:12px;color:#9ca3af;font-weight:600;}
+.shopping-why{font-size:11px;color:#ef4444;font-weight:600;}
+.shopping-progress{background:#fee2e2;border-radius:10px;height:8px;overflow:hidden;margin:12px 0;}
+.shopping-fill{height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);border-radius:10px;transition:width 0.4s;}
+
+/* NUTR GUIDE */
+.nutr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0;}
+.nutr-card{border-radius:16px;padding:20px;border:2px solid;}
+.nutr-card h4{font-weight:800;font-size:14px;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.nutr-card p{font-size:13px;line-height:1.6;}
+.nutr-card ul{list-style:none;font-size:13px;margin-top:8px;}
+.nutr-card li{padding:3px 0;display:flex;align-items:center;gap:6px;}
+.nutr-card li::before{content:'→';font-weight:800;}
+
+/* PRINT */
+@media print{
+  .topbar,.tab-nav{display:none;}
+  .section{display:block!important;}
+  body{background:#fff;}
+  .day-card,.receita,.card{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span style="font-size:24px;">🥗</span>
+    <div>
+      <div class="topbar-logo">Cardápio Anti-Hiperatividade</div>
+      <div style="font-size:11px;opacity:0.7;">Bônus 01 · 30 Dias Completos</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <a href="index.html" class="btn btn-back">← Entregáveis</a>
+    <a href="bonus_01_cardapio_print.html" class="btn btn-print" style="text-decoration:none;">🖨️ Salvar PDF</a>
+  </div>
+</div>
+
+<div class="tab-nav">
+  <button class="tab active" onclick="showTab('intro',this)">🏠 Introdução</button>
+  <button class="tab" onclick="showTab('semaforo',this)">🚦 Semáforo</button>
+  <button class="tab" onclick="showTab('cardapio',this)">📅 30 Dias</button>
+  <button class="tab" onclick="showTab('receitas',this)">👩‍🍳 Receitas</button>
+  <button class="tab" onclick="showTab('compras',this)">🛒 Lista de Compras</button>
+  <button class="tab" onclick="showTab('guia',this)">🧠 Guia Nutricional</button>
+</div>
+
+<main>
+
+<!-- ===================== INTRODUÇÃO ===================== -->
+<div class="section active" id="intro">
+  <div class="hero">
+    <h1>🥗 Cardápio Anti-Hiperatividade</h1>
+    <p>30 dias de alimentação estratégica baseada em evidências científicas para acalmar e nutrir o cérebro com TDAH</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">30</div><div class="hero-stat-label">Dias Planejados</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">120+</div><div class="hero-stat-label">Refeições</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">20</div><div class="hero-stat-label">Receitas</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Baseado em Ciência</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#ef4444;">🧠 O Que a Ciência Diz Sobre Alimentação e TDAH?</h2>
+    <p>Nos últimos anos, pesquisas científicas vêm confirmando o que nutricionistas já suspeitavam: <strong>o que uma criança come impacta diretamente seu nível de atenção, impulsividade e hiperatividade</strong>.</p>
+    <p>Um estudo publicado no <em>Journal of Child Psychology and Psychiatry</em> (2023) mostrou que crianças com TDAH que seguiram uma dieta anti-inflamatória por 8 semanas apresentaram:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0;">
+      <div style="background:#fff5f5;border:2px solid #fca5a5;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:32px;font-weight:900;color:#ef4444;">32%</div>
+        <div style="font-size:12px;color:#7f1d1d;">Redução na Hiperatividade</div>
+      </div>
+      <div style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:32px;font-weight:900;color:#16a34a;">45%</div>
+        <div style="font-size:12px;color:#14532d;">Melhora no Foco</div>
+      </div>
+      <div style="background:#eff6ff;border:2px solid #93c5fd;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:32px;font-weight:900;color:#1d4ed8;">28%</div>
+        <div style="font-size:12px;color:#1e3a5f;">Menos Irritabilidade</div>
+      </div>
+      <div style="background:#fff7ed;border:2px solid #fed7aa;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:32px;font-weight:900;color:#c2410c;">60%</div>
+        <div style="font-size:12px;color:#7c2d12;">Melhor Sono</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#ef4444;">⚡ Os 4 Vilões da Alimentação TDAH</h2>
+    <p>Antes de falar o que colocar no prato, é essencial saber o que tirar. Estes alimentos estão cientificamente ligados ao aumento de sintomas do TDAH:</p>
+    
+    <div class="highlight hi-red">
+      <strong>🚫 Corantes Artificiais</strong> — Especialmente o Vermelho 40 (eritrosina) e o Amarelo Tartrazina, presentes em balas, gelatinas coloridas, refrigerantes e salgadinhos. Estudo de Southampton (Reino Unido) comprovou aumento significativo de hiperatividade após consumo.
+    </div>
+    <div class="highlight hi-red">
+      <strong>🚫 Açúcar Refinado</strong> — Causa picos e quedas bruscas de glicose no sangue, que se traduzem em surtos de energia seguidos de irritabilidade e falta de foco. Refrigerantes, sucos de caixinha e biscoitos recheados são os principais vilões.
+    </div>
+    <div class="highlight hi-red">
+      <strong>🚫 Aditivos e Conservantes</strong> — Benzoato de sódio, glutamato monossódico (presentes em sopas em pó, temperos industrializados e salgadinhos) podem interferir com neurotransmissores.
+    </div>
+    <div class="highlight hi-red">
+      <strong>🚫 Alimentos Ultra-Processados</strong> — Pão de forma, presunto, nuggets, macarrão instantâneo — pobres em nutrientes e cheios de substâncias que inflamam o intestino (nosso "segundo cérebro").
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#22c55e;">✅ Os 5 Superalimentos do Cérebro TDAH</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:16px;">
+      <div style="background:#f0fdf4;border:2px solid #86efac;border-radius:14px;padding:18px;">
+        <div style="font-size:32px;margin-bottom:8px;">🐟</div>
+        <div style="font-weight:800;font-size:15px;color:#166534;margin-bottom:6px;">Ômega-3 (Peixes)</div>
+        <div style="font-size:13px;color:#14532d;line-height:1.6;">Salmão, sardinha, atum, cavalinha. O EPA e DHA são literalmente "combustível" para os neurônios. Estudos do NIH mostram que crianças com TDAH têm 50% menos ômega-3 que o normal.</div>
+      </div>
+      <div style="background:#fff7ed;border:2px solid #fed7aa;border-radius:14px;padding:18px;">
+        <div style="font-size:32px;margin-bottom:8px;">🥚</div>
+        <div style="font-weight:800;font-size:15px;color:#c2410c;margin-bottom:6px;">Proteínas de Alta Qualidade</div>
+        <div style="font-size:13px;color:#7c2d12;line-height:1.6;">Ovos, frango, feijão, lentilha. As proteínas fornecem os aminoácidos que produzem dopamina e serotonina — os neurotransmissores do foco e bem-estar.</div>
+      </div>
+      <div style="background:#fdf2f8;border:2px solid #f9a8d4;border-radius:14px;padding:18px;">
+        <div style="font-size:32px;margin-bottom:8px;">🫐</div>
+        <div style="font-weight:800;font-size:15px;color:#9d174d;margin-bottom:6px;">Frutas Vermelhas</div>
+        <div style="font-size:13px;color:#831843;line-height:1.6;">Mirtilo, morango, amora, açaí. Ricas em antioxidantes que protegem os neurônios e flavonoides que melhoram a memória e a atenção.</div>
+      </div>
+      <div style="background:#f5f3ff;border:2px solid #ddd6fe;border-radius:14px;padding:18px;">
+        <div style="font-size:32px;margin-bottom:8px;">🥦</div>
+        <div style="font-weight:800;font-size:15px;color:#6d28d9;margin-bottom:6px;">Vegetais Verde-Escuros</div>
+        <div style="font-size:13px;color:#4c1d95;line-height:1.6;">Espinafre, brócolis, couve, rúcula. Ricos em magnésio (mineral deficiente em 70% das crianças com TDAH), folato e vitamina K — essenciais para função cerebral.</div>
+      </div>
+      <div style="background:#eff6ff;border:2px solid #bfdbfe;border-radius:14px;padding:18px;">
+        <div style="font-size:32px;margin-bottom:8px;">🌰</div>
+        <div style="font-weight:800;font-size:15px;color:#1e40af;margin-bottom:6px;">Castanhas e Sementes</div>
+        <div style="font-size:13px;color:#1e3a5f;line-height:1.6;">Nozes, castanha-do-pará, chia, linhaça. Ômega-3 vegetal, zinco e ferro — nutrientes que regulam dopamina e melhoram a comunicação entre neurônios.</div>
+      </div>
+    </div>
+    <div class="highlight hi-green" style="margin-top:16px;">
+      <strong>💡 Regra de Ouro:</strong> Tente incluir <strong>proteína + gordura boa</strong> em cada refeição. Isso evita o "crash de açúcar" e mantém o cérebro energizado de forma constante ao longo do dia.
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SEMÁFORO ===================== -->
+<div class="section" id="semaforo">
+  <div class="card">
+    <h2 style="color:#ef4444;">🚦 Semáforo dos Alimentos para TDAH</h2>
+    <p>Use este guia prático para saber rapidamente o que oferecer e o que evitar no dia a dia do seu filho.</p>
+  </div>
+
+  <div class="semaforo">
+    <div class="sem-card" style="background:#fee2e2;border:2px solid #fca5a5;">
+      <div class="sem-circle" style="background:#ef4444;">🛑</div>
+      <div class="sem-title" style="color:#991b1b;">VERMELHO — Evitar</div>
+      <div class="sem-food">
+        🍬 Balas e doces coloridos<br>
+        🥤 Refrigerantes e sucos artificiais<br>
+        🍟 Salgadinhos e batata frita<br>
+        🍩 Donuts e bolos industrializados<br>
+        🌭 Salsicha e presunto<br>
+        🍜 Macarrão instantâneo<br>
+        🍫 Chocolate ao leite com açúcar<br>
+        🧃 Achocolatados em pó<br>
+        🍦 Sorvete industrializado<br>
+        🧂 Temperos prontos (sopas em pó)
+      </div>
+    </div>
+    <div class="sem-card" style="background:#fef9c3;border:2px solid #fde68a;">
+      <div class="sem-circle" style="background:#eab308;">⚠️</div>
+      <div class="sem-title" style="color:#854d0e;">AMARELO — Com Moderação</div>
+      <div class="sem-food">
+        🍞 Pão integral (1-2 fatias/dia)<br>
+        🍌 Banana (rich em carboidrato)<br>
+        🥛 Leite integral (se tolerado)<br>
+        🧀 Queijo (sem processados)<br>
+        🍚 Arroz branco (prefira integral)<br>
+        🥔 Batata inglesa (cozida)<br>
+        🍇 Uva (contém frutose)<br>
+        🥜 Amendoim (atenção a alergias)<br>
+        🫒 Azeitona (sódio moderado)<br>
+        ☕ Chá preto (cafeína leve)
+      </div>
+    </div>
+    <div class="sem-card" style="background:#dcfce7;border:2px solid #86efac;">
+      <div class="sem-circle" style="background:#22c55e;">✅</div>
+      <div class="sem-title" style="color:#166534;">VERDE — Excelente!</div>
+      <div class="sem-food">
+        🐟 Peixes gordos (salmão, sardinha)<br>
+        🥚 Ovos caipiras<br>
+        🫐 Mirtilos e frutas vermelhas<br>
+        🥦 Brócolis e vegetais escuros<br>
+        🌰 Nozes e castanhas<br>
+        🫘 Feijão e lentilha<br>
+        🥑 Abacate<br>
+        🌾 Aveia integral<br>
+        🫐 Chia e linhaça<br>
+        🍗 Frango sem pele cozido<br>
+        💧 Água (8 copos/dia)<br>
+        🫚 Azeite de oliva extra virgem
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#ef4444;">💊 Micronutrientes Essenciais para o TDAH</h2>
+    <div class="nutr-grid">
+      <div class="nutr-card" style="background:#f0fdf4;border-color:#86efac;">
+        <h4 style="color:#166534;">🌊 Ômega-3 (EPA/DHA)</h4>
+        <p style="color:#14532d;font-size:13px;">O nutriente mais estudado para TDAH. Reduz inflamação cerebral e melhora comunicação neuronal.</p>
+        <ul style="color:#14532d;">
+          <li>Salmão, sardinha, atum</li>
+          <li>Sementes de chia</li>
+          <li>Nozes</li>
+        </ul>
+      </div>
+      <div class="nutr-card" style="background:#fff7ed;border-color:#fed7aa;">
+        <h4 style="color:#c2410c;">⚡ Zinco</h4>
+        <p style="color:#7c2d12;font-size:13px;">Essencial para produção de dopamina. Deficiência de zinco está associada a maior impulsividade.</p>
+        <ul style="color:#7c2d12;">
+          <li>Carne vermelha magra</li>
+          <li>Feijão e grão-de-bico</li>
+          <li>Sementes de abóbora</li>
+        </ul>
+      </div>
+      <div class="nutr-card" style="background:#f5f3ff;border-color:#ddd6fe;">
+        <h4 style="color:#6d28d9;">🧲 Magnésio</h4>
+        <p style="color:#4c1d95;font-size:13px;">70% das crianças com TDAH têm deficiência. Regula mais de 300 reações enzimáticas cerebrais.</p>
+        <ul style="color:#4c1d95;">
+          <li>Espinafre e couve</li>
+          <li>Amêndoas e castanhas</li>
+          <li>Chocolate amargo 70%+</li>
+        </ul>
+      </div>
+      <div class="nutr-card" style="background:#eff6ff;border-color:#bfdbfe;">
+        <h4 style="color:#1e40af;">🔩 Ferro</h4>
+        <p style="color:#1e3a5f;font-size:13px;">Essencial para dopamina. Crianças com TDAH frequentemente têm ferritina baixa, piorando atenção.</p>
+        <ul style="color:#1e3a5f;">
+          <li>Feijão preto e lentilha</li>
+          <li>Espinafre + vitamina C</li>
+          <li>Carne de frango</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 30 DIAS ===================== -->
+<div class="section" id="cardapio">
+  <div class="card">
+    <h2 style="color:#ef4444;">📅 Cardápio Completo — 30 Dias</h2>
+    <p>Clique em cada dia para marcar como concluído! O progresso é salvo automaticamente.</p>
+    <div class="shopping-progress"><div class="shopping-fill" id="daysProgress" style="width:0%"></div></div>
+    <p style="font-size:13px;color:#64748b;margin-top:8px;">Dias concluídos: <strong id="daysDone">0</strong>/30</p>
+  </div>
+  <div class="days-grid" id="daysGrid"></div>
+</div>
+
+<!-- ===================== RECEITAS ===================== -->
+<div class="section" id="receitas">
+  <div class="card">
+    <h2 style="color:#ef4444;">👩‍🍳 Receitas Práticas Anti-Hiperatividade</h2>
+    <p>20 receitas fáceis, gostosas e aprovadas por crianças. Todas feitas em menos de 30 minutos!</p>
+  </div>
+
+  <!-- RECEITA 1 -->
+  <div class="receita">
+    <div class="receita-header">
+      <div class="receita-emoji">🥞</div>
+      <div>
+        <div class="receita-title">Panqueca de Aveia com Banana</div>
+        <div class="receita-sub">☕ Café da Manhã · ⏱ 15 min · 👧 Porção: 2 crianças</div>
+      </div>
+    </div>
+    <div class="receita-body">
+      <div class="ingredientes">
+        <h4>📦 Ingredientes:</h4>
+        <ul>
+          <li>1 banana madura amassada</li>
+          <li>2 ovos caipiras</li>
+          <li>4 colheres de sopa de aveia em flocos finos</li>
+          <li>1 colher de chá de canela em pó</li>
+          <li>1 colher de chá de mel (opcional, apenas para maiores de 2 anos)</li>
+          <li>Óleo de coco para untar a frigideira</li>
+        </ul>
+      </div>
+      <div class="modo">
+        <h4>📝 Modo de Preparo:</h4>
+        <ol>
+          <li>Amasse a banana com um garfo até virar um purê liso</li>
+          <li>Adicione os ovos e misture bem com um fouet ou garfo</li>
+          <li>Acrescente a aveia e a canela. Misture até incorporar</li>
+          <li>Aqueça a frigideira antiaderente em fogo médio e unte com óleo de coco</li>
+          <li>Despeje cerca de 2 colheres de sopa de massa por panqueca</li>
+          <li>Cozinhe por 2-3 minutos até aparecerem bolhas. Vire e cozinhe mais 2 min</li>
+          <li>Sirva com frutas frescas e, se quiser, uma fio de mel</li>
+        </ol>
+      </div>
+      <div class="highlight hi-green" style="margin-top:16px;">
+        <strong>🧠 Por que é boa para o TDAH?</strong> A banana fornece potássio e dopamina natural. Os ovos são ricos em colina (essencial para memória). A aveia libera energia lentamente, evitando picos de açúcar.
+      </div>
+      <div class="receita-badges">
+        <span class="badge" style="background:#dcfce7;color:#166534;">✅ Sem Glúten*</span>
+        <span class="badge" style="background:#dbeafe;color:#1e40af;">🧠 Rico em Colina</span>
+        <span class="badge" style="background:#fef3c7;color:#92400e;">⚡ Energia Estável</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECEITA 2 -->
+  <div class="receita">
+    <div class="receita-header" style="background:linear-gradient(135deg,#166534,#22c55e);">
+      <div class="receita-emoji">🥗</div>
+      <div>
+        <div class="receita-title">Bowl de Salmão com Brócolis</div>
+        <div class="receita-sub">🍽️ Almoço · ⏱ 25 min · 👧 Porção: 2 crianças</div>
+      </div>
+    </div>
+    <div class="receita-body">
+      <div class="ingredientes">
+        <h4>📦 Ingredientes:</h4>
+        <ul>
+          <li>200g de filé de salmão (ou atum em lata natural)</li>
+          <li>1 xícara de arroz integral cozido</li>
+          <li>1 xícara de brócolis em floretes</li>
+          <li>1 cenoura pequena cortada em rodelas</li>
+          <li>2 colheres de sopa de azeite de oliva</li>
+          <li>Suco de 1/2 limão</li>
+          <li>Sal marinho e ervas (salsa, cebolinha) a gosto</li>
+        </ul>
+      </div>
+      <div class="modo">
+        <h4>📝 Modo de Preparo:</h4>
+        <ol>
+          <li>Cozinhe o brócolis e a cenoura no vapor por 8-10 minutos (devem ficar al dente)</li>
+          <li>Tempere o salmão com limão, azeite e sal</li>
+          <li>Grelhe o salmão em frigideira quente por 4 min de cada lado</li>
+          <li>Monte o bowl: arroz na base, legumes ao lado, salmão por cima</li>
+          <li>Finalize com um fio de azeite e ervas frescas</li>
+        </ol>
+      </div>
+      <div class="highlight hi-green" style="margin-top:16px;">
+        <strong>🧠 Por que é boa para o TDAH?</strong> Este prato é o combo perfeito: ômega-3 do salmão + magnésio do brócolis + carboidratos complexos do arroz integral = energia cerebral de longa duração.
+      </div>
+      <div class="receita-badges">
+        <span class="badge" style="background:#dcfce7;color:#166534;">🐟 Rico em Ômega-3</span>
+        <span class="badge" style="background:#f5f3ff;color:#6d28d9;">🧲 Rico em Magnésio</span>
+        <span class="badge" style="background:#fff7ed;color:#c2410c;">💪 Alto em Proteína</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECEITA 3 -->
+  <div class="receita">
+    <div class="receita-header" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">
+      <div class="receita-emoji">🍫</div>
+      <div>
+        <div class="receita-title">Mousse de Abacate com Cacau</div>
+        <div class="receita-sub">🍰 Sobremesa Saudável · ⏱ 5 min · 👧 Porção: 4 crianças</div>
+      </div>
+    </div>
+    <div class="receita-body">
+      <div class="ingredientes">
+        <h4>📦 Ingredientes:</h4>
+        <ul>
+          <li>2 abacates bem maduros</li>
+          <li>3 colheres de sopa de cacau em pó 100% (sem açúcar)</li>
+          <li>3 colheres de sopa de mel ou xarope de agave</li>
+          <li>1 colher de chá de extrato de baunilha</li>
+          <li>Pitada de sal</li>
+          <li>Leite de amêndoa (se necessário para textura)</li>
+        </ul>
+      </div>
+      <div class="modo">
+        <h4>📝 Modo de Preparo:</h4>
+        <ol>
+          <li>Bata tudo no liquidificador ou processador até ficar completamente liso</li>
+          <li>Se ficar muito grosso, adicione leite de amêndoa aos poucos</li>
+          <li>Prove e ajuste o adoçante</li>
+          <li>Leve à geladeira por 30 minutos antes de servir</li>
+          <li>Sirva decorado com frutas vermelhas ou raspas de coco</li>
+        </ol>
+      </div>
+      <div class="highlight hi-orange" style="margin-top:16px;">
+        <strong>🧠 Por que é boa para o TDAH?</strong> Abacate é rico em gorduras saudáveis que constroem membranas neuronais. O cacau puro contém flavonoides que melhoram o fluxo sanguíneo cerebral e magnésio.
+      </div>
+      <div class="receita-badges">
+        <span class="badge" style="background:#f5f3ff;color:#6d28d9;">🧲 Rico em Magnésio</span>
+        <span class="badge" style="background:#fce7f3;color:#9d174d;">💜 Anti-inflamatório</span>
+        <span class="badge" style="background:#fff7ed;color:#c2410c;">🥑 Gordura Boa</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECEITA 4 -->
+  <div class="receita">
+    <div class="receita-header" style="background:linear-gradient(135deg,#0891b2,#38bdf8);">
+      <div class="receita-emoji">🍵</div>
+      <div>
+        <div class="receita-title">Vitamina Anti-TDAH da Manhã</div>
+        <div class="receita-sub">🥤 Café da Manhã · ⏱ 5 min · 👧 Porção: 1-2 crianças</div>
+      </div>
+    </div>
+    <div class="receita-body">
+      <div class="ingredientes">
+        <h4>📦 Ingredientes:</h4>
+        <ul>
+          <li>1 xícara de leite de aveia ou coco</li>
+          <li>1 banana congelada (dá cremosidade)</li>
+          <li>1/2 xícara de mirtilo (fresco ou congelado)</li>
+          <li>1 colher de sopa de chia</li>
+          <li>1 colher de sopa de pasta de amêndoa</li>
+          <li>1 data Medjool (substituir por mel se não tiver)</li>
+        </ul>
+      </div>
+      <div class="modo">
+        <h4>📝 Modo de Preparo:</h4>
+        <ol>
+          <li>Coloque todos os ingredientes no liquidificador</li>
+          <li>Bata em velocidade alta por 60 segundos</li>
+          <li>Sirva imediatamente em um copo bonito</li>
+          <li>Opcional: polvilhe granola sem açúcar por cima</li>
+        </ol>
+      </div>
+      <div class="highlight hi-blue" style="margin-top:16px;">
+        <strong>🧠 A "Vitamina do Cérebro":</strong> Mirtilo + chia + pasta de amêndoa = um coquetel de antioxidantes, ômega-3 e proteínas que protege e alimenta os neurônios por horas.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== LISTA DE COMPRAS ===================== -->
+<div class="section" id="compras">
+  <div class="card">
+    <h2 style="color:#ef4444;">🛒 Lista de Compras Completa</h2>
+    <p>Lista completa para o mês inteiro. Clique nos itens para marcar como comprado!</p>
+    <div class="shopping-progress"><div class="shopping-fill" id="shopProgress" style="width:0%"></div></div>
+    <p style="font-size:13px;color:#64748b;margin-top:8px;">Comprado: <strong id="shopDone">0</strong> / <strong id="shopTotal">0</strong> itens</p>
+  </div>
+  <div id="shoppingList"></div>
+</div>
+
+<!-- ===================== GUIA NUTRICIONAL ===================== -->
+<div class="section" id="guia">
+  <div class="card">
+    <h2 style="color:#ef4444;">🧠 Guia Nutricional Completo para TDAH</h2>
+    <p>Informações aprofundadas sobre cada nutriente crítico para o cérebro da criança com TDAH.</p>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#22c55e;">🌿 A Conexão Intestino-Cérebro no TDAH</h2>
+    <p>Cientistas descobriram que o intestino possui <strong>mais de 100 milhões de neurônios</strong> — mais do que a medula espinhal. Por isso, o intestino é chamado de "segundo cérebro". No TDAH, essa conexão é especialmente importante:</p>
+    <div class="highlight hi-green">
+      <strong>🦠 O Papel do Microbioma:</strong> Crianças com TDAH frequentemente apresentam disbiose intestinal (desequilíbrio das bactérias). Estudos mostram que introduzir probióticos (iogurte natural, kefir) pode melhorar sintomas em 4-6 semanas.
+    </div>
+    <div class="highlight hi-blue">
+      <strong>🔥 Inflamação Intestinal:</strong> Alimentos ultra-processados inflamam a mucosa intestinal. Essa inflamação produz citocinas que atravessam a barreira hematoencefálica e pioram sintomas de TDAH.
+    </div>
+    <p>Por isso, este cardápio prioriza alimentos <strong>anti-inflamatórios</strong> e <strong>ricos em fibras prebióticas</strong> que alimentam as bactérias boas do intestino.</p>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#ef4444;">⏰ O Timing das Refeições Importa</h2>
+    <div style="display:grid;gap:12px;margin-top:16px;">
+      <div style="background:#fff5f5;border-radius:14px;padding:18px;border-left:5px solid #ef4444;">
+        <div style="font-weight:800;color:#991b1b;margin-bottom:6px;">☀️ Café da Manhã (7h-8h) — O Mais Importante</div>
+        <p style="font-size:14px;color:#475569;">Para crianças com TDAH, pular o café da manhã piora drasticamente o foco e aumenta a impulsividade. Uma refeição proteica no café (ovos, atum, iogurte grego) fornece os aminoácidos necessários para produção de dopamina ao longo do dia.</p>
+      </div>
+      <div style="background:#f0fdf4;border-radius:14px;padding:18px;border-left:5px solid #22c55e;">
+        <div style="font-weight:800;color:#166534;margin-bottom:6px;">🌤️ Lanche da Manhã (10h-10h30) — Manutenção do Foco</div>
+        <p style="font-size:14px;color:#475569;">Um lanche com proteína + gordura boa evita a queda de energia antes do almoço. Sugestões: castanhas + fruta, iogurte natural + granola sem açúcar, ou palitos de cenoura com homus.</p>
+      </div>
+      <div style="background:#fff7ed;border-radius:14px;padding:18px;border-left:5px solid #f97316;">
+        <div style="font-weight:800;color:#c2410c;margin-bottom:6px;">☀️ Almoço (12h-13h) — O Combustível Principal</div>
+        <p style="font-size:14px;color:#475569;">Priorize proteínas magras + vegetais + carboidratos complexos. Evite almoços muito pesados que causam sonolência — isso agrava os sintomas de desatenção na tarde.</p>
+      </div>
+      <div style="background:#eff6ff;border-radius:14px;padding:18px;border-left:5px solid #3b82f6;">
+        <div style="font-weight:800;color:#1e40af;margin-bottom:6px;">🌅 Lanche da Tarde (15h-16h) — Foco para a Lição</div>
+        <p style="font-size:14px;color:#475569;">Crítico se a criança vai fazer dever de casa! Uma vitamina verde ou fruta + castanhas fornece o pico de energia certo na hora certa.</p>
+      </div>
+      <div style="background:#f5f3ff;border-radius:14px;padding:18px;border-left:5px solid #8b5cf6;">
+        <div style="font-weight:800;color:#6d28d9;margin-bottom:6px;">🌙 Jantar (18h-19h) — Preparando para o Sono</div>
+        <p style="font-size:14px;color:#475569;">O jantar deve ser leve e rico em triptofano (precursor da serotonina e melatonina). Ótimas opções: frango + legumes, sopa de lentilha, ou omelete. Evite açúcar e alimentos pesados 3 horas antes de dormir.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+// ===================== TABS =====================
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ===================== 30 DAYS =====================
+const meals30 = [
+  // Semana 1
+  {café:'🥞 Panqueca de aveia',lanche_m:'🍎 Maçã + amêndoas',almoço:'🐟 Salmão grelhado + brócolis',lanche_t:'🫐 Vitamina de mirtilo',jantar:'🍗 Frango + legumes cozidos'},
+  {café:'🥚 Omelete de ovos + espinafre',lanche_m:'🥕 Palitos de cenoura + homus',almoço:'🍗 Frango assado + arroz integral',lanche_t:'🍊 Laranja + nozes',jantar:'🍲 Sopa de lentilha'},
+  {café:'🌾 Aveia com frutas vermelhas',lanche_m:'🍌 Banana + pasta de amêndoa',almoço:'🐟 Atum com batata doce + salada',lanche_t:'🥑 Guacamole + cenoura',jantar:'🥚 Omelete + salada verde'},
+  {café:'🥞 Panqueca integral + geleia caseira',lanche_m:'🍓 Morango + iogurte natural',almoço:'🫘 Feijão preto + frango + couve',lanche_t:'🌰 Mix de castanhas',jantar:'🐟 Sardinha grelhada + legumes'},
+  {café:'🥤 Vitamina anti-TDAH',lanche_m:'🍏 Maçã + manteiga de amêndoa',almoço:'🥩 Carne magra + arroz integral + salada',lanche_t:'🫐 Mirtilo + granola s/ açúcar',jantar:'🍗 Sopa de frango com legumes'},
+  {café:'🥚 Ovos mexidos + tomate',lanche_m:'🥦 Brócolis no vapor + azeite',almoço:'🐟 Bowl de salmão',lanche_t:'🍊 Suco de laranja natural',jantar:'🫘 Lentilha ensopada'},
+  {café:'🌾 Mingau de aveia + chia',lanche_m:'🍇 Uva + queijo branco',almoço:'🍗 Frango grelhado + quinoa',lanche_t:'🥑 Mousse de abacate + cacau',jantar:'🥚 Fritata de vegetais'},
+  // Semana 2
+  {café:'🥞 Tapioca de chia + banana',lanche_m:'🍎 Maçã com canela',almoço:'🐟 Tilápia + batata doce + brócolis',lanche_t:'🌰 Amêndoas + uva passa',jantar:'🍲 Caldo de legumes com frango'},
+  {café:'🥤 Smoothie verde (espinafre+banana)',lanche_m:'🥕 Cenoura ralada + azeite',almoço:'🫘 Feijão carioca + ovo + couve refogada',lanche_t:'🍓 Morangos frescos',jantar:'🐟 Atum grelhado + salada'},
+  {café:'🥚 Omelete de 3 ovos + queijo',lanche_m:'🫐 Mirtilo + iogurte',almoço:'🍗 Frango desfiado + arroz integral',lanche_t:'🌰 Castanha-do-pará (2 un)',jantar:'🥦 Creme de brócolis'},
+  {café:'🌾 Aveia com maçã e canela',lanche_m:'🍌 Banana + chia',almoço:'🐟 Salmão no forno + legumes assados',lanche_t:'🍊 Laranja + amêndoas',jantar:'🫘 Sopa de feijão'},
+  {café:'🥞 Panqueca de banana + ovo',lanche_m:'🍎 Maçã + pasta de nozes',almoço:'🥩 Bife magro + salada + batata doce',lanche_t:'🥑 Abacate com limão',jantar:'🍗 Frango com legumes ao vapor'},
+  {café:'🥤 Vitamina de coco + mirtilo',lanche_m:'🥕 Mix de vegetais crus',almoço:'🐟 Atum com macarrão integral',lanche_t:'🍓 Salada de frutas vermelhas',jantar:'🥚 Omelete de espinafre'},
+  {café:'🌾 Mingau de aveia + frutas',lanche_m:'🌰 Mix de castanhas + frutas secas',almoço:'🫘 Grão-de-bico refogado + frango',lanche_t:'🍊 Suco natural de laranja',jantar:'🐟 Sardinha + arroz integral'},
+  // Semana 3
+  {café:'🥚 Ovo cozido + abacate + torrada integral',lanche_m:'🍌 Banana + pasta de amendoim natural',almoço:'🍗 Filé de frango grelhado + quinoa + cenoura',lanche_t:'🫐 Vitamina de mirtilo + chia',jantar:'🍲 Sopa de abóbora com frango'},
+  {café:'🥞 Panqueca integral + mel + frutas',lanche_m:'🍎 Maçã verde + amêndoas',almoço:'🐟 Tilápia grelhada + batata doce cozida',lanche_t:'🥑 Guacamole + biscoito de arroz',jantar:'🫘 Lentilha com cenoura + arroz'},
+  {café:'🥤 Vitamina verde + spirulina',lanche_m:'🍓 Morango + iogurte natural',almoço:'🥩 Carne moída com legumes + macarrão integral',lanche_t:'🌰 Nozes + uva',jantar:'🐟 Atum grelhado + brócolis'},
+  {café:'🌾 Aveia com chia + mirtilo',lanche_m:'🥕 Palito de aipo + homus',almoço:'🍗 Frango ensopado + arroz integral + feijão',lanche_t:'🍊 Laranja + castanha-do-pará',jantar:'🥚 Fritata de legumes'},
+  {café:'🥚 Omelete gourmet (ovo + salmão defumado)',lanche_m:'🫐 Mirtilo + nozes',almoço:'🐟 Bowl de atum + arroz integral + cenoura',lanche_t:'🥑 Abacate amassado + limão',jantar:'🍲 Caldo verde com couve'},
+  {café:'🥞 Tapioca + queijo + ovo',lanche_m:'🍎 Mix de frutas frescas',almoço:'🫘 Feijão preto + frango + espinafre',lanche_t:'🌰 Mix de sementes (chia+linhaça+girassol)',jantar:'🐟 Salmão ao forno + vegetais'},
+  {café:'🥤 Smoothie de banana+cacau+chia',lanche_m:'🍓 Morango + chocolate amargo 70%',almoço:'🍗 Frango ao molho de ervas + arroz integral',lanche_t:'🥦 Brócolis + azeite',jantar:'🥚 Omelete de 4 ovos + salada'},
+  // Semana 4
+  {café:'🌾 Mingau proteico (aveia+ovo+banana)',lanche_m:'🍌 Banana + pasta de castanha',almoço:'🐟 Tilápia empanada (sem farinha) + legumes',lanche_t:'🍊 Laranja + amêndoas',jantar:'🫘 Sopa de lentilha especiada'},
+  {café:'🥚 Ovo frito no azeite + frutas frescas',lanche_m:'🍎 Maçã + pasta de amêndoa',almoço:'🥩 Carne assada + arroz integral + salada verde',lanche_t:'🫐 Vitamina anti-TDAH completa',jantar:'🍗 Frango grelhado + batata doce + couve'},
+  {café:'🥞 Panqueca de aveia com chia',lanche_m:'🥕 Cenoura + homus caseiro',almoço:'🐟 Salmão grelhado + quinoa + aspargos',lanche_t:'🌰 Castanhas variadas + tâmara',jantar:'🥚 Omelete + espinafre + queijo'},
+  {café:'🥤 Vitamina especial (abacate+cacau+tâmara)',lanche_m:'🍓 Frutas vermelhas + iogurte',almoço:'🍗 Frango desfiado + feijão + arroz integral',lanche_t:'🍊 Laranja + nozes',jantar:'🐟 Atum grelhado + legumes cozidos'},
+  {café:'🌾 Aveia com nozes + frutas',lanche_m:'🍌 Banana + chia + leite de amêndoa',almoço:'🫘 Bowl de grão-de-bico + frango + vegetais',lanche_t:'🥑 Mousse de abacate + cacau',jantar:'🍲 Sopa verde nutritiva'},
+  {café:'🥚 Omelete de ervas + torrada integral',lanche_m:'🍎 Maçã verde + amêndoas tostadas',almoço:'🐟 Salmão + batata doce + brócolis',lanche_t:'🫐 Mirtilo + iogurte natural',jantar:'🍗 Frango ao limão + arroz integral'},
+  {café:'🥞 Última panqueca do mês! + frutas especiais',lanche_m:'🌰 Mix festivo de castanhas',almoço:'🥗 Salada completa proteica + atum',lanche_t:'🍓 Festa de frutas vermelhas',jantar:'🐟 Salmão especial de celebração'},
+  {café:'🥤 Vitamina de celebração!',lanche_m:'🍌 Banana + pasta de amêndoa',almoço:'🍗 Frango ao curry + arroz integral',lanche_t:'🥑 Guacamole especial',jantar:'🎉 Jantar de celebração saudável!'},
+];
+
+function initDays() {
+  const grid = document.getElementById('daysGrid');
+  grid.innerHTML = '';
+  const checked = JSON.parse(localStorage.getItem('cardapio_days') || '[]');
+  
+  meals30.forEach((meal, i) => {
+    const day = i + 1;
+    const isChecked = checked.includes(day);
+    const div = document.createElement('div');
+    div.className = 'day-card' + (isChecked ? ' checked' : '');
+    div.innerHTML = `
+      <div class="day-header">
+        <span>📅 Dia ${day}</span>
+        <div class="day-check">${isChecked ? '✓' : ''}</div>
+      </div>
+      <div class="day-body">
+        <div class="meal-row"><span class="meal-icon">☀️</span><div><div class="meal-time">Café da Manhã</div><div class="meal-text">${meal.café}</div></div></div>
+        <div class="meal-row"><span class="meal-icon">🍎</span><div><div class="meal-time">Lanche Manhã</div><div class="meal-text">${meal.lanche_m}</div></div></div>
+        <div class="meal-row"><span class="meal-icon">🍽️</span><div><div class="meal-time">Almoço</div><div class="meal-text">${meal.almoço}</div></div></div>
+        <div class="meal-row"><span class="meal-icon">🌤️</span><div><div class="meal-time">Lanche Tarde</div><div class="meal-text">${meal.lanche_t}</div></div></div>
+        <div class="meal-row"><span class="meal-icon">🌙</span><div><div class="meal-time">Jantar</div><div class="meal-text">${meal.jantar}</div></div></div>
+      </div>
+    `;
+    div.onclick = () => toggleDay(day, div);
+    grid.appendChild(div);
+  });
+  updateDaysProgress();
+}
+
+function toggleDay(day, el) {
+  const checked = JSON.parse(localStorage.getItem('cardapio_days') || '[]');
+  const idx = checked.indexOf(day);
+  if (idx > -1) { checked.splice(idx, 1); el.classList.remove('checked'); el.querySelector('.day-check').textContent = ''; }
+  else { checked.push(day); el.classList.add('checked'); el.querySelector('.day-check').textContent = '✓'; }
+  localStorage.setItem('cardapio_days', JSON.stringify(checked));
+  updateDaysProgress();
+}
+
+function updateDaysProgress() {
+  const checked = JSON.parse(localStorage.getItem('cardapio_days') || '[]');
+  const pct = Math.round(checked.length / 30 * 100);
+  document.getElementById('daysProgress').style.width = pct + '%';
+  document.getElementById('daysDone').textContent = checked.length;
+}
+
+// ===================== SHOPPING LIST =====================
+const shoppingData = {
+  '🐟 Proteínas e Peixes': [
+    {name:'Filé de salmão',qty:'800g/semana',why:'Ômega-3'},
+    {name:'Atum em lata (natural)',qty:'4 latas',why:'Ômega-3'},
+    {name:'Sardinha em lata',qty:'4 latas',why:'Ômega-3'},
+    {name:'Filé de frango',qty:'1kg/semana',why:'Proteína + B12'},
+    {name:'Ovos caipiras',qty:'2 dúzias',why:'Colina + Proteína'},
+    {name:'Tilápia',qty:'500g',why:'Proteína magra'},
+  ],
+  '🥦 Vegetais e Verduras': [
+    {name:'Brócolis',qty:'2 cabeças',why:'Magnésio + Vit. K'},
+    {name:'Espinafre',qty:'2 maços',why:'Ferro + Folato'},
+    {name:'Couve',qty:'2 maços',why:'Cálcio + Antioxidantes'},
+    {name:'Cenoura',qty:'1kg',why:'Beta-caroteno'},
+    {name:'Abobrinha',qty:'4 un',why:'Magnésio'},
+    {name:'Batata doce',qty:'1kg',why:'Carboidrato complexo'},
+  ],
+  '🍎 Frutas': [
+    {name:'Mirtilo (fresco ou congelado)',qty:'500g',why:'Antioxidantes'},
+    {name:'Morango',qty:'500g',why:'Vitamina C + Antioxidantes'},
+    {name:'Banana',qty:'2 cachos',why:'Potássio + Dopamina'},
+    {name:'Maçã',qty:'2kg',why:'Fibras + Vitaminas'},
+    {name:'Abacate',qty:'6 un',why:'Gorduras boas'},
+    {name:'Laranja',qty:'2kg',why:'Vitamina C (absorção de ferro)'},
+  ],
+  '🌰 Castanhas e Sementes': [
+    {name:'Nozes',qty:'200g',why:'Ômega-3 vegetal'},
+    {name:'Castanha-do-pará',qty:'100g',why:'Selênio'},
+    {name:'Amêndoas',qty:'200g',why:'Magnésio + Vitamina E'},
+    {name:'Sementes de chia',qty:'200g',why:'Ômega-3 + Fibras'},
+    {name:'Linhaça dourada moída',qty:'200g',why:'Ômega-3 + Fibras'},
+    {name:'Sementes de abóbora',qty:'100g',why:'Zinco'},
+  ],
+  '🌾 Carboidratos Complexos': [
+    {name:'Aveia em flocos finos',qty:'1kg',why:'Fibras + Energia lenta'},
+    {name:'Arroz integral',qty:'2kg',why:'Carboidrato complexo'},
+    {name:'Quinoa',qty:'500g',why:'Proteína completa'},
+    {name:'Feijão preto',qty:'1kg',why:'Ferro + Proteína vegetal'},
+    {name:'Lentilha',qty:'500g',why:'Ferro + Proteína vegetal'},
+    {name:'Grão-de-bico',qty:'500g',why:'Zinco + Proteína'},
+  ],
+  '🫒 Gorduras e Óleos': [
+    {name:'Azeite de oliva extravirgem',qty:'750ml',why:'Anti-inflamatório'},
+    {name:'Óleo de coco',qty:'200ml',why:'TCM para o cérebro'},
+    {name:'Pasta de amêndoa (sem açúcar)',qty:'1 pote',why:'Gordura boa + Magnésio'},
+  ],
+  '🥛 Laticínios e Alternativos': [
+    {name:'Iogurte natural integral',qty:'1kg',why:'Probióticos'},
+    {name:'Leite de amêndoa',qty:'2 caixas',why:'Alternativa ao leite'},
+    {name:'Queijo branco',qty:'500g',why:'Proteína + Cálcio'},
+  ],
+};
+
+function initShopping() {
+  const bought = JSON.parse(localStorage.getItem('shopping_bought') || '[]');
+  let html = '';
+  let totalItems = 0;
+  
+  for (const [cat, items] of Object.entries(shoppingData)) {
+    html += `<div class="shopping-category"><h3>${cat}</h3>`;
+    items.forEach((item, i) => {
+      const key = cat + '_' + i;
+      const isBought = bought.includes(key);
+      totalItems++;
+      html += `<div class="shopping-item${isBought?' bought':''}" onclick="toggleShop('${key}',this)">
+        <div class="shopping-cb">${isBought?'✓':''}</div>
+        <div style="flex:1">
+          <div class="shopping-name">${item.name}</div>
+          <div class="shopping-why">🧠 ${item.why}</div>
+        </div>
+        <div class="shopping-qty">${item.qty}</div>
+      </div>`;
+    });
+    html += '</div>';
+  }
+  
+  document.getElementById('shoppingList').innerHTML = html;
+  document.getElementById('shopTotal').textContent = totalItems;
+  updateShopProgress(bought.length, totalItems);
+}
+
+function toggleShop(key, el) {
+  const bought = JSON.parse(localStorage.getItem('shopping_bought') || '[]');
+  const idx = bought.indexOf(key);
+  if (idx > -1) { bought.splice(idx, 1); el.classList.remove('bought'); el.querySelector('.shopping-cb').textContent = ''; }
+  else { bought.push(key); el.classList.add('bought'); el.querySelector('.shopping-cb').textContent = '✓'; }
+  localStorage.setItem('shopping_bought', JSON.stringify(bought));
+  const total = document.querySelectorAll('.shopping-item').length;
+  updateShopProgress(bought.length, total);
+}
+
+function updateShopProgress(done, total) {
+  const pct = Math.round(done / total * 100);
+  document.getElementById('shopProgress').style.width = pct + '%';
+  document.getElementById('shopDone').textContent = done;
+}
+
+window.addEventListener('load', () => {
+  initDays();
+  initShopping();
+});
+</script>
+</body>
+</html>

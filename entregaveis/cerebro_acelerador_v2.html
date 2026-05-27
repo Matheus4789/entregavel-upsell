@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cérebro Acelerador Kids – Material Completo</title>
+<meta name="description" content="5 módulos interativos para potencializar o aprendizado de crianças com TDAH: Alfabetização, Matemática, Leitura, Foco e Inglês.">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #f97316;
+  --orange-light: #fed7aa;
+  --blue: #3b82f6;
+  --purple: #8b5cf6;
+  --green: #22c55e;
+  --pink: #ec4899;
+  --dark: #1e1b4b;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:#f8fafc;color:#1e293b;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+
+/* NAV BAR */
+.topbar{
+  background:linear-gradient(135deg,#1e1b4b,#312e81);
+  color:#fff;
+  padding:14px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3);
+}
+.topbar-left{display:flex;align-items:center;gap:12px;}
+.topbar-logo{font-family:'Fredoka One',cursive;font-size:20px;background:linear-gradient(90deg,#fb923c,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.topbar-right{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-print{
+  background:linear-gradient(135deg,#f97316,#fbbf24);
+  color:#fff;
+  border:none;
+  padding:10px 20px;
+  border-radius:50px;
+  font-weight:800;
+  font-size:14px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  transition:all 0.2s;
+  box-shadow:0 4px 15px rgba(249,115,22,0.4);
+}
+.btn-print:hover{transform:scale(1.05);}
+.btn-back{
+  background:rgba(255,255,255,0.1);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.2);
+  padding:10px 18px;
+  border-radius:50px;
+  font-weight:700;
+  font-size:13px;
+  cursor:pointer;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  transition:all 0.2s;
+}
+.btn-back:hover{background:rgba(255,255,255,0.2);}
+
+/* MODULE TABS */
+.module-nav{
+  background:#fff;
+  border-bottom:2px solid #e2e8f0;
+  padding:0 24px;
+  display:flex;
+  gap:0;
+  overflow-x:auto;
+  scrollbar-width:none;
+  position:sticky;
+  top:64px;
+  z-index:90;
+}
+.module-nav::-webkit-scrollbar{display:none;}
+.mod-tab{
+  padding:16px 20px;
+  font-weight:700;
+  font-size:13px;
+  color:#64748b;
+  border-bottom:3px solid transparent;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:all 0.2s;
+  border-radius:0;
+  background:none;
+  border:none;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.mod-tab:hover{color:#1e293b;}
+.mod-tab.active{color:var(--orange);border-bottom-color:var(--orange);}
+
+/* PAGE */
+main{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+
+/* MODULE SECTIONS */
+.module-section{display:none;}
+.module-section.active{display:block;}
+
+/* COVER */
+.cover{
+  background:linear-gradient(135deg,#1e1b4b 0%,#312e81 50%,#4c1d95 100%);
+  color:#fff;
+  border-radius:24px;
+  padding:60px 48px;
+  text-align:center;
+  margin-bottom:40px;
+  position:relative;
+  overflow:hidden;
+}
+.cover::before{
+  content:'';
+  position:absolute;
+  top:-50%;left:-50%;
+  width:200%;height:200%;
+  background:radial-gradient(circle,rgba(249,115,22,0.15) 0%,transparent 60%);
+  animation:pulse-cover 4s ease-in-out infinite;
+}
+@keyframes pulse-cover{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+.cover-emoji{font-size:100px;margin-bottom:20px;display:block;animation:float 3s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.cover h1{font-family:'Fredoka One',cursive;font-size:clamp(32px,5vw,56px);background:linear-gradient(90deg,#fb923c,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;position:relative;}
+.cover p{font-size:18px;color:rgba(255,255,255,0.75);max-width:500px;margin:0 auto 32px;position:relative;}
+.cover-stats{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;position:relative;}
+.cover-stat{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:16px 24px;text-align:center;}
+.cover-stat-num{font-family:'Fredoka One',cursive;font-size:28px;color:#fbbf24;}
+.cover-stat-label{font-size:12px;color:rgba(255,255,255,0.6);margin-top:2px;}
+
+/* SECTION TITLES */
+.section-header{margin-bottom:32px;}
+.module-label{
+  display:inline-block;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  padding:4px 12px;
+  border-radius:50px;
+  margin-bottom:10px;
+}
+.section-header h2{font-family:'Fredoka One',cursive;font-size:clamp(28px,4vw,40px);color:#1e293b;margin-bottom:8px;}
+.section-header p{font-size:15px;color:#64748b;line-height:1.6;}
+
+/* CONTENT CARDS */
+.content-card{
+  background:#fff;
+  border-radius:20px;
+  padding:28px;
+  margin-bottom:24px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+  border:1px solid #e2e8f0;
+}
+.content-card h3{font-family:'Fredoka One',cursive;font-size:22px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.content-card p{font-size:15px;color:#475569;line-height:1.7;margin-bottom:12px;}
+
+/* HIGHLIGHT BOX */
+.highlight-box{
+  border-radius:16px;
+  padding:20px 24px;
+  margin:20px 0;
+  border-left:5px solid;
+  font-size:15px;
+  line-height:1.7;
+}
+.highlight-orange{background:#fff7ed;border-color:#f97316;color:#7c2d12;}
+.highlight-blue{background:#eff6ff;border-color:#3b82f6;color:#1e3a5f;}
+.highlight-green{background:#f0fdf4;border-color:#22c55e;color:#14532d;}
+.highlight-purple{background:#f5f3ff;border-color:#8b5cf6;color:#3b0764;}
+.highlight-pink{background:#fdf2f8;border-color:#ec4899;color:#831843;}
+
+/* INFO GRID */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:20px 0;}
+.info-box{border-radius:14px;padding:18px;text-align:center;}
+.info-box-icon{font-size:28px;margin-bottom:8px;}
+.info-box-title{font-weight:800;font-size:13px;margin-bottom:4px;}
+.info-box-text{font-size:12px;color:#64748b;line-height:1.5;}
+
+/* ===================== GAMES ===================== */
+.game-section{
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  border:2px solid #86efac;
+  border-radius:20px;
+  padding:28px;
+  margin:28px 0;
+}
+.game-title{font-family:'Fredoka One',cursive;font-size:20px;color:#166534;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.game-subtitle{font-size:13px;color:#4ade80;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+.game-score{font-size:22px;font-weight:800;color:#166534;text-align:center;margin:12px 0;}
+.game-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:#fff;
+  border:none;
+  padding:12px 24px;
+  border-radius:50px;
+  font-weight:800;
+  font-size:14px;
+  cursor:pointer;
+  transition:all 0.2s;
+  box-shadow:0 4px 15px rgba(34,197,94,0.3);
+}
+.game-btn:hover{transform:scale(1.05);}
+.game-btn-secondary{background:linear-gradient(135deg,#6c47ff,#8b5cf6);}
+.game-feedback{
+  padding:12px 20px;
+  border-radius:12px;
+  font-weight:700;
+  font-size:15px;
+  text-align:center;
+  margin:12px 0;
+  display:none;
+}
+.feedback-correct{background:#dcfce7;color:#166534;}
+.feedback-wrong{background:#fee2e2;color:#991b1b;}
+
+/* MEMORY GAME */
+.memory-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  max-width:500px;
+  margin:20px auto;
+}
+.mem-card{
+  aspect-ratio:1;
+  background:linear-gradient(135deg,#4c1d95,#6c47ff);
+  border-radius:12px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+  transition:all 0.3s;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+  position:relative;
+  transform-style:preserve-3d;
+}
+.mem-card.flipped,.mem-card.matched{
+  background:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.mem-card.matched{background:#dcfce7;border:2px solid #22c55e;cursor:default;}
+.mem-card-back{font-size:28px;}
+.mem-card-front{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  background:#fff;
+  border-radius:12px;
+  opacity:0;
+  transition:opacity 0.3s;
+}
+.mem-card.flipped .mem-card-front,.mem-card.matched .mem-card-front{opacity:1;}
+.mem-card.flipped .mem-card-back,.mem-card.matched .mem-card-back{opacity:0;}
+
+/* ALPHABET GAME */
+.balloon-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(80px,1fr));
+  gap:12px;
+  margin:20px 0;
+}
+.balloon{
+  aspect-ratio:0.8;
+  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+  font-weight:900;
+  cursor:pointer;
+  transition:all 0.3s;
+  border:3px solid rgba(0,0,0,0.1);
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+  position:relative;
+}
+.balloon:hover{transform:scale(1.1);}
+.balloon.selected-a{background:#3b82f6!important;color:#fff!important;transform:scale(1.15);}
+.balloon.selected-e{background:#22c55e!important;color:#fff!important;transform:scale(1.15);}
+.balloon.wrong{background:#ef4444!important;color:#fff!important;animation:shake 0.3s;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);};}
+.balloon-string{position:absolute;bottom:-20px;left:50%;width:2px;height:20px;background:#94a3b8;transform:translateX(-50%);}
+
+/* SYLLABLE GAME */
+.syllable-board{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin:20px 0;
+}
+.syl-tile{
+  padding:16px 24px;
+  border-radius:16px;
+  font-size:24px;
+  font-weight:900;
+  cursor:pointer;
+  border:3px solid;
+  transition:all 0.3s;
+  min-width:80px;
+  text-align:center;
+}
+.syl-tile:hover{transform:scale(1.08);}
+.syl-tile.selected{transform:scale(1.1);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+.syl-target{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:20px 0;
+}
+.syl-slot{
+  width:80px;
+  height:60px;
+  border:3px dashed #cbd5e1;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  font-weight:900;
+  transition:all 0.3s;
+}
+.syl-slot.filled{border-style:solid;border-color:#22c55e;background:#f0fdf4;}
+
+/* MATH GAME */
+.math-problem{
+  font-size:48px;
+  font-weight:900;
+  text-align:center;
+  margin:20px 0;
+  color:#1e293b;
+}
+.math-options{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin:20px 0;
+}
+.math-opt{
+  padding:16px;
+  border-radius:16px;
+  font-size:24px;
+  font-weight:900;
+  text-align:center;
+  cursor:pointer;
+  border:3px solid #e2e8f0;
+  background:#fff;
+  transition:all 0.2s;
+  color:#1e293b;
+}
+.math-opt:hover{background:#f1f5f9;transform:scale(1.05);}
+.math-opt.correct{background:#dcfce7;border-color:#22c55e;color:#166534;}
+.math-opt.wrong{background:#fee2e2;border-color:#ef4444;color:#991b1b;}
+
+/* WORD SEARCH */
+.wordsearch-grid{
+  display:inline-grid;
+  gap:4px;
+  background:#fff;
+  border-radius:16px;
+  padding:16px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.1);
+}
+.ws-cell{
+  width:36px;height:36px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:16px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:all 0.15s;
+  color:#1e293b;
+  border:2px solid transparent;
+  background:#f8fafc;
+}
+.ws-cell:hover{background:#e0e7ff;border-color:#6c47ff;}
+.ws-cell.selected{background:#ddd6fe;border-color:#8b5cf6;color:#4c1d95;}
+.ws-cell.found{background:#bbf7d0;border-color:#22c55e;color:#166534;}
+.ws-words{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0;}
+.ws-word{
+  padding:6px 14px;
+  border-radius:50px;
+  border:2px solid #e2e8f0;
+  font-weight:700;
+  font-size:13px;
+  color:#475569;
+}
+.ws-word.found{background:#bbf7d0;border-color:#22c55e;color:#166534;text-decoration:line-through;}
+
+/* READING */
+.story-box{
+  background:linear-gradient(135deg,#f5f3ff,#ede9fe);
+  border:2px solid #c4b5fd;
+  border-radius:20px;
+  padding:28px;
+  margin:20px 0;
+  position:relative;
+}
+.story-box::before{
+  content:'📖';
+  position:absolute;top:20px;right:24px;font-size:32px;
+}
+.story-title{font-family:'Fredoka One',cursive;font-size:22px;color:#4c1d95;margin-bottom:12px;}
+.story-text{font-size:16px;color:#3b0764;line-height:1.8;font-weight:600;}
+.quiz-question{
+  background:#fff;
+  border:2px solid #e2e8f0;
+  border-radius:16px;
+  padding:20px;
+  margin:16px 0;
+}
+.quiz-question p{font-size:15px;font-weight:700;color:#1e293b;margin-bottom:12px;}
+.quiz-opts{display:flex;gap:8px;flex-wrap:wrap;}
+.quiz-opt{
+  padding:10px 18px;
+  border-radius:50px;
+  border:2px solid #e2e8f0;
+  font-weight:700;
+  font-size:13px;
+  cursor:pointer;
+  transition:all 0.2s;
+  background:#fff;
+  color:#475569;
+}
+.quiz-opt:hover{border-color:#8b5cf6;background:#f5f3ff;color:#4c1d95;}
+.quiz-opt.correct{background:#dcfce7;border-color:#22c55e;color:#166534;}
+.quiz-opt.wrong{background:#fee2e2;border-color:#ef4444;color:#991b1b;}
+
+/* FOCUS BREATHING */
+.breathing-circle{
+  width:200px;height:200px;
+  border-radius:50%;
+  margin:20px auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  cursor:pointer;
+  position:relative;
+  background:linear-gradient(135deg,#6c47ff,#a78bfa);
+  box-shadow:0 0 0 20px rgba(108,71,255,0.15);
+  transition:all 1s ease;
+  color:#fff;
+}
+.breathing-circle .phase{font-size:18px;font-weight:800;margin-bottom:4px;}
+.breathing-circle .counter{font-family:'Fredoka One',cursive;font-size:48px;}
+.breathing-ring{
+  position:absolute;
+  inset:-20px;
+  border-radius:50%;
+  border:4px solid rgba(108,71,255,0.3);
+  animation:none;
+}
+@keyframes breathe-in{from{transform:scale(1);}to{transform:scale(1.3);}}
+@keyframes breathe-out{from{transform:scale(1.3);}to{transform:scale(1);}}
+.breathing-inhale{animation:breathe-in 4s ease-in-out forwards;}
+.breathing-exhale{animation:breathe-out 6s ease-in-out forwards;}
+
+/* CONCENTRATION TIMER */
+.timer-display{
+  font-family:'Fredoka One',cursive;
+  font-size:72px;
+  text-align:center;
+  color:#1e293b;
+  margin:20px 0;
+  letter-spacing:2px;
+}
+.timer-circle{
+  width:160px;height:160px;
+  border-radius:50%;
+  border:8px solid #e2e8f0;
+  margin:0 auto 20px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  background:#fff;
+  box-shadow:0 8px 30px rgba(0,0,0,0.1);
+}
+.timer-circle svg{
+  position:absolute;
+  inset:0;
+  transform:rotate(-90deg);
+}
+.timer-circle-text{
+  font-family:'Fredoka One',cursive;
+  font-size:36px;
+  color:#1e293b;
+  position:relative;
+  z-index:1;
+}
+
+/* REWARD */
+.reward-section{
+  text-align:center;
+  padding:32px;
+  background:linear-gradient(135deg,#fff7ed,#fef3c7);
+  border-radius:20px;
+  border:2px solid #fde68a;
+  margin:24px 0;
+  display:none;
+}
+.reward-section.show{display:block;animation:pop 0.4s cubic-bezier(0.34,1.56,0.64,1);}
+@keyframes pop{from{transform:scale(0.8);opacity:0;}to{transform:scale(1);opacity:1;}}
+.reward-emoji{font-size:72px;display:block;margin-bottom:12px;}
+.reward-title{font-family:'Fredoka One',cursive;font-size:28px;color:#d97706;}
+
+/* CHECKLIST */
+.checklist-item{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:14px;
+  border-radius:12px;
+  border:2px solid #e2e8f0;
+  margin-bottom:10px;
+  cursor:pointer;
+  transition:all 0.2s;
+  background:#fff;
+}
+.checklist-item:hover{border-color:#6c47ff;background:#f5f3ff;}
+.checklist-item.done{border-color:#22c55e;background:#f0fdf4;opacity:0.7;}
+.checklist-cb{
+  width:24px;height:24px;min-width:24px;
+  border:3px solid #cbd5e1;
+  border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+  margin-top:2px;
+}
+.checklist-item.done .checklist-cb{background:#22c55e;border-color:#22c55e;color:#fff;}
+.checklist-text{flex:1;font-size:14px;line-height:1.6;color:#475569;}
+.checklist-item.done .checklist-text{text-decoration:line-through;color:#94a3b8;}
+
+/* PRINT */
+@media print{
+  .topbar,.module-nav{display:none;}
+  .module-section{display:block!important;}
+  .game-section{break-inside:avoid;}
+  body{background:#fff;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span style="font-size:24px;">🧠</span>
+    <div>
+      <div class="topbar-logo">Cérebro Acelerador Kids</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.5);">Material Completo · 5 Módulos</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <a href="index.html" class="btn-back">← Entregáveis</a>
+    <a href="cerebro_acelerador_print.html" class="btn-print" style="text-decoration:none;">🖨️ Salvar PDF</a>
+  </div>
+</div>
+
+<!-- MODULE TABS -->
+<div class="module-nav" id="moduleNav">
+  <button class="mod-tab active" onclick="showModule('capa',this)">🏠 Início</button>
+  <button class="mod-tab" onclick="showModule('mod1',this)">📝 Módulo 1 – Alfabetização</button>
+  <button class="mod-tab" onclick="showModule('mod2',this)">🔢 Módulo 2 – Matemática</button>
+  <button class="mod-tab" onclick="showModule('mod3',this)">📖 Módulo 3 – Leitura</button>
+  <button class="mod-tab" onclick="showModule('mod4',this)">🧘 Módulo 4 – Foco</button>
+  <button class="mod-tab" onclick="showModule('mod5',this)">🌎 Módulo 5 – Inglês</button>
+</div>
+
+<main>
+
+<!-- ============ CAPA ============ -->
+<div class="module-section active" id="capa">
+  <div class="cover">
+    <span class="cover-emoji">🧠</span>
+    <h1>Cérebro Acelerador Kids</h1>
+    <p>5 módulos baseados em neurociência para transformar o aprendizado do seu filho com TDAH</p>
+    <div class="cover-stats">
+      <div class="cover-stat"><div class="cover-stat-num">5</div><div class="cover-stat-label">Módulos Completos</div></div>
+      <div class="cover-stat"><div class="cover-stat-num">20+</div><div class="cover-stat-label">Jogos Interativos</div></div>
+      <div class="cover-stat"><div class="cover-stat-num">100+</div><div class="cover-stat-label">Atividades</div></div>
+      <div class="cover-stat"><div class="cover-stat-num">PDF</div><div class="cover-stat-label">Baixar / Imprimir</div></div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <h3 style="color:#f97316;">🧠 O Que é o TDAH?</h3>
+    <p>O Transtorno de Déficit de Atenção e Hiperatividade (TDAH) é um dos transtornos do neurodesenvolvimento mais comuns na infância, afetando entre <strong>5 a 8% das crianças</strong> em idade escolar no Brasil. Ele não é falta de inteligência — pelo contrário, muitas crianças com TDAH são altamente criativas, apaixonadas e energéticas.</p>
+    <p>O cérebro da criança com TDAH funciona de forma diferente: ele produz menos dopamina (o neurotransmissor da motivação e recompensa) e tem dificuldade em regular a atenção, os impulsos e a organização. Por isso, abordagens convencionais de ensino muitas vezes não funcionam — e este material foi desenvolvido justamente para mudar isso.</p>
+    <div class="highlight-box highlight-orange">
+      <strong>💡 Você sabia?</strong> Pesquisas da Universidade de Harvard mostram que crianças com TDAH que recebem estimulação multissensorial e atividades baseadas em movimento aprendem até <strong>3x mais rápido</strong> do que em métodos tradicionais.
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-box" style="background:#fff7ed;border:2px solid #fed7aa;">
+      <div class="info-box-icon">⚡</div>
+      <div class="info-box-title" style="color:#c2410c;">Hiperatividade</div>
+      <div class="info-box-text">Dificuldade de ficar parado, fala excessiva, agitação constante — o cérebro busca estimulação.</div>
+    </div>
+    <div class="info-box" style="background:#eff6ff;border:2px solid #bfdbfe;">
+      <div class="info-box-icon">🌀</div>
+      <div class="info-box-title" style="color:#1d4ed8;">Desatenção</div>
+      <div class="info-box-text">Dificuldade em manter o foco, esquecimento, parece que está "no mundo da lua".</div>
+    </div>
+    <div class="info-box" style="background:#f5f3ff;border:2px solid #ddd6fe;">
+      <div class="info-box-icon">🎯</div>
+      <div class="info-box-title" style="color:#6d28d9;">Impulsividade</div>
+      <div class="info-box-text">Age antes de pensar, interrompe conversas, dificuldade em esperar a vez.</div>
+    </div>
+    <div class="info-box" style="background:#f0fdf4;border:2px solid #bbf7d0;">
+      <div class="info-box-icon">💪</div>
+      <div class="info-box-title" style="color:#15803d;">Superpotências</div>
+      <div class="info-box-text">Criatividade, hiperfoco, energia ilimitada, pensamento fora da caixa — dons reais!</div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <h3 style="color:#8b5cf6;">🎯 Como Usar Este Material</h3>
+    <p>Este material foi cuidadosamente estruturado em 5 módulos progressivos. Cada módulo contém:</p>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <div class="checklist-cb">✓</div>
+      <div class="checklist-text"><strong>Conteúdo Explicativo:</strong> Teoria baseada em evidências científicas sobre como o cérebro TDAH aprende melhor</div>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <div class="checklist-cb">✓</div>
+      <div class="checklist-text"><strong>Jogos Interativos:</strong> Atividades digitais que você pode fazer direto nesta página com seu filho</div>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <div class="checklist-cb">✓</div>
+      <div class="checklist-text"><strong>Atividades Imprimíveis:</strong> Para fazer offline, colorir e completar fisicamente</div>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <div class="checklist-cb">✓</div>
+      <div class="checklist-text"><strong>Dicas para Pais:</strong> Como acompanhar, incentivar e celebrar o progresso</div>
+    </div>
+    <div class="highlight-box highlight-green">
+      <strong>✅ Recomendação:</strong> Faça 1 módulo por semana. Não tente avançar muito rápido — a repetição e a consistência são o segredo do sucesso com crianças TDAH.
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:20px 0;">
+    <button class="btn-print" style="font-size:16px;padding:16px 32px;" onclick="showModule('mod1',document.querySelectorAll('.mod-tab')[1])">
+      🚀 Começar pelo Módulo 1 →
+    </button>
+  </div>
+</div>
+
+<!-- ============ MÓDULO 1 – ALFABETIZAÇÃO ============ -->
+<div class="module-section" id="mod1">
+  <div class="section-header">
+    <span class="module-label" style="background:#fff7ed;color:#c2410c;">MÓDULO 01</span>
+    <h2>Alfabetização Lúdica</h2>
+    <p>Letras, sílabas e primeiras palavras através de jogos sensoriais e coloridos. Ideal para crianças de 5 a 8 anos.</p>
+  </div>
+
+  <div class="content-card">
+    <h3 style="color:#f97316;">🧠 Por Que Jogos Funcionam para o Cérebro TDAH?</h3>
+    <p>O cérebro de uma criança com TDAH produz dopamina em resposta à novidade e à recompensa imediata. Jogos são a ferramenta perfeita porque criam um ciclo de desafio → esforço → recompensa que mantém o cérebro engajado naturalmente.</p>
+    <p>Estudos da Universidade de São Paulo mostram que crianças com TDAH que aprenderam a ler através de jogos apresentaram <strong>78% menos resistência</strong> e progrediram até <strong>40% mais rápido</strong> do que em métodos tradicionais.</p>
+    <div class="highlight-box highlight-orange">
+      <strong>💡 Estratégia Multissensorial:</strong> Sempre que possível, combine visual + sonoro + tátil. Por exemplo: diga a letra em voz alta, trace no ar com o dedo e depois escreva na areia ou com massa de modelar.
+    </div>
+  </div>
+
+  <!-- JOGO 1: BALÕES DAS VOGAIS -->
+  <div class="game-section">
+    <div class="game-title">🎈 Jogo dos Balões das Vogais</div>
+    <div class="game-subtitle">🎮 Jogo Interativo • Nível: Iniciante</div>
+    <p style="font-size:14px;color:#166534;margin-bottom:16px;line-height:1.6;">
+      <strong>Como jogar:</strong> Clique nos balões que contêm a letra <strong style="color:#3b82f6;">A</strong> (eles ficarão azuis) e nos que contêm a letra <strong style="color:#22c55e;">E</strong> (ficarão verdes). Cuidado com as armadilhas!
+    </p>
+    <div class="balloon-grid" id="balloonGrid"></div>
+    <div id="balloonFeedback" class="game-feedback"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;">
+      <button class="game-btn" onclick="checkBalloons()">✅ Verificar Respostas</button>
+      <button class="game-btn game-btn-secondary" onclick="resetBalloons()">🔄 Novo Jogo</button>
+    </div>
+    <div class="game-score" id="balloonScore">Pontuação: 0/0</div>
+  </div>
+
+  <!-- JOGO 2: MEMÓRIA DO ALFABETO -->
+  <div class="game-section" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-color:#c4b5fd;">
+    <div class="game-title" style="color:#4c1d95;">🃏 Jogo da Memória – Letras e Figuras</div>
+    <div class="game-subtitle" style="color:#8b5cf6;">🎮 Jogo Interativo • Nível: Intermediário</div>
+    <p style="font-size:14px;color:#4c1d95;margin-bottom:16px;line-height:1.6;">
+      <strong>Como jogar:</strong> Encontre os pares de letra e imagem que começam com aquela letra. Clique em duas cartas — se formarem par, ficam reveladas!
+    </p>
+    <div style="text-align:center;margin-bottom:12px;">
+      <span style="font-size:14px;color:#6d28d9;font-weight:700;">Pares encontrados: <span id="memScore">0</span>/6 · Tentativas: <span id="memAttempts">0</span></span>
+    </div>
+    <div class="memory-grid" id="memoryGrid"></div>
+    <div id="memFeedback" class="game-feedback"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;">
+      <button class="game-btn" style="background:linear-gradient(135deg,#8b5cf6,#6c47ff);" onclick="initMemory()">🔄 Novo Jogo</button>
+    </div>
+    <div id="memReward" class="reward-section">
+      <span class="reward-emoji">🏆</span>
+      <div class="reward-title">PARABÉNS! Memória Incrível!</div>
+      <p style="color:#92400e;margin-top:8px;">Você encontrou todos os pares em <span id="memFinalAttempts">0</span> tentativas!</p>
+    </div>
+  </div>
+
+  <!-- JOGO 3: CAÇA-PALAVRAS -->
+  <div class="game-section" style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);border-color:#f9a8d4;">
+    <div class="game-title" style="color:#9d174d;">🔍 Caça-Palavras das Letras</div>
+    <div class="game-subtitle" style="color:#ec4899;">🎮 Jogo Interativo • Nível: Avançado</div>
+    <p style="font-size:14px;color:#9d174d;margin-bottom:8px;line-height:1.6;">
+      Encontre as palavras escondidas no grid! Clique na primeira letra e depois na última para marcar.
+    </p>
+    <div class="ws-words" id="wsWords"></div>
+    <div style="overflow-x:auto;">
+      <div class="wordsearch-grid" id="wsGrid" style="grid-template-columns:repeat(8,36px);"></div>
+    </div>
+    <div id="wsFeedback" class="game-feedback" style="display:none;"></div>
+    <div style="margin-top:16px;">
+      <button class="game-btn" style="background:linear-gradient(135deg,#ec4899,#be185d);" onclick="initWordSearch()">🔄 Novo Jogo</button>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <h3 style="color:#f97316;">📚 Atividades Offline para Imprimir</h3>
+    <p><strong>Atividade 1 – Trilha do Alfabeto:</strong> Escreva as letras do alfabeto numa folha grande e peça para a criança pular (física ou com o dedo) em cada letra enquanto você fala a letra e uma palavra.</p>
+    <p><strong>Atividade 2 – Caça ao Tesouro das Letras:</strong> Esconda objetos pela casa. Cada objeto tem uma etiqueta com a primeira letra. A criança deve encontrar e dizer o nome do objeto.</p>
+    <p><strong>Atividade 3 – Dados de Sílabas:</strong> Crie dados com sílabas escritas (use caixinhas de leite). A criança lança os dados e tenta formar palavras com as sílabas que caíram.</p>
+    <p><strong>Atividade 4 – História em Quadrinhos:</strong> A criança desenha 4 quadrinhos sobre um dia na sua vida. Abaixo de cada desenho, tenta escrever uma palavra ou frase.</p>
+    <div class="highlight-box highlight-blue">
+      <strong>💡 Dica para Pais:</strong> Celebre cada pequena conquista! Quando seu filho reconhece uma letra nova, bata palmas, dance, dê um abraço. O cérebro TDAH responde muito bem a recompensas imediatas — isso ativa a dopamina e reforça o aprendizado.
+    </div>
+  </div>
+</div>
+
+<!-- ============ MÓDULO 2 – MATEMÁTICA ============ -->
+<div class="module-section" id="mod2">
+  <div class="section-header">
+    <span class="module-label" style="background:#f0fdf4;color:#15803d;">MÓDULO 02</span>
+    <h2>Matemática Visual</h2>
+    <p>Números, operações e lógica através de cores, formas e desafios práticos. Ideal para crianças de 5 a 10 anos.</p>
+  </div>
+
+  <div class="content-card">
+    <h3 style="color:#22c55e;">🔢 A Matemática que o Cérebro TDAH Ama</h3>
+    <p>A maioria das crianças com TDAH acha a matemática abstrata extremamente frustrante. Quando os números estão conectados a objetos reais, histórias e jogos, o nível de engajamento aumenta dramaticamente.</p>
+    <p>Pesquisas do Instituto Nacional de Saúde Infantil dos EUA (NIH) mostram que o aprendizado de matemática através de jogos físicos e visuais reduz a ansiedade matemática em <strong>62%</strong> das crianças com TDAH.</p>
+    <div class="highlight-box highlight-green">
+      <strong>✅ Estratégia:</strong> Use objetos concretos antes de ir para o abstrato. Feijões, tampinhas, pedrinhas — qualquer coisa que a criança possa tocar e contar.
+    </div>
+  </div>
+
+  <!-- JOGO MATEMÁTICA RÁPIDA -->
+  <div class="game-section">
+    <div class="game-title">⚡ Quiz de Matemática Relâmpago</div>
+    <div class="game-subtitle">🎮 Jogo Interativo • Desafio de Velocidade</div>
+    <p style="font-size:14px;color:#166534;margin-bottom:16px;">Responda o mais rápido que puder! Cada acerto vale 10 pontos. Escolha a resposta correta:</p>
+    <div id="mathProblem" class="math-problem">?</div>
+    <div class="math-options" id="mathOptions"></div>
+    <div id="mathFeedback" class="game-feedback"></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:16px;">
+      <div style="font-size:16px;font-weight:800;color:#166534;">🏆 Pontuação: <span id="mathScore">0</span> · Sequência: <span id="mathStreak">0</span>🔥</div>
+      <button class="game-btn" onclick="nextMathProblem()">⏭️ Próxima</button>
+    </div>
+  </div>
+
+  <!-- PADRÕES VISUAIS -->
+  <div class="game-section" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:#93c5fd;">
+    <div class="game-title" style="color:#1e40af;">🎨 Complete o Padrão</div>
+    <div class="game-subtitle" style="color:#3b82f6;">🎮 Jogo Interativo • Raciocínio Lógico</div>
+    <p style="font-size:14px;color:#1e40af;margin-bottom:16px;">Observe a sequência e clique no elemento que vem a seguir:</p>
+    <div id="patternDisplay" style="font-size:40px;margin:16px 0;text-align:center;letter-spacing:8px;"></div>
+    <p style="text-align:center;font-size:16px;font-weight:700;color:#1e40af;margin-bottom:12px;">O que vem depois?</p>
+    <div id="patternOptions" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;"></div>
+    <div id="patternFeedback" class="game-feedback"></div>
+    <div style="margin-top:16px;display:flex;gap:12px;">
+      <button class="game-btn" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);" onclick="nextPattern()">⏭️ Próximo Padrão</button>
+      <span style="font-size:14px;font-weight:700;color:#1e40af;margin:auto 0;">Acertos: <span id="patternScore">0</span></span>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <h3 style="color:#22c55e;">🏠 Matemática no Dia a Dia</h3>
+    <p>Uma das melhores formas de ensinar matemática para crianças com TDAH é conectar os números à vida real. Aqui estão algumas ideias práticas:</p>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <div class="checklist-cb">✓</div>
+      <div class="checklist-text"><strong>Mercado Virtual:</strong> Monte uma "lojinha" em casa com produtos e preços. A criança "compra" itens e você a ajuda a calcular o troco.</div>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <div class="checklist-cb">✓</div>
+      <div class="checklist-text"><strong>Culinária Matemática:</strong> Ao cozinhar, peça para a criança medir os ingredientes. "Precisamos de 2 xícaras — quantas metades precisamos?"</div>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <div class="checklist-cb">✓</div>
+      <div class="checklist-text"><strong>Dados Gigantes:</strong> Faça dados grandes de papelão. Jogue e some, subtraia ou multiplique os números.</div>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <div class="checklist-cb">✓</div>
+      <div class="checklist-text"><strong>Caça ao Número:</strong> Saiam pela rua/casa procurando números em placas, embalagens, livros. Quem achar mais, ganha!</div>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <div class="checklist-cb">✓</div>
+      <div class="checklist-text"><strong>Origami Matemático:</strong> Dobrar papel ensina frações de forma visual e tátil — divide a folha ao meio (1/2), depois ao meio de novo (1/4).</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MÓDULO 3 – LEITURA ============ -->
+<div class="module-section" id="mod3">
+  <div class="section-header">
+    <span class="module-label" style="background:#f5f3ff;color:#6d28d9;">MÓDULO 03</span>
+    <h2>Leitura & Interpretação</h2>
+    <p>Histórias envolventes com personagens que as crianças amam, seguidas de atividades de compreensão interativas.</p>
+  </div>
+
+  <div class="content-card">
+    <h3 style="color:#8b5cf6;">📖 Como o TDAH Afeta a Leitura</h3>
+    <p>Crianças com TDAH frequentemente têm dificuldade com leitura não porque não sabem as palavras, mas porque a atenção "voa" antes de chegarem ao final da frase. A chave está em tornar a leitura um evento — algo emocionante, participativo e cheio de pausas para conexão.</p>
+    <div class="highlight-box highlight-purple">
+      <strong>🎭 Técnica Teatral:</strong> Leia a história em voz alta usando vozes diferentes para cada personagem. Exagere nas emoções. A criança naturalmente ficará mais engajada. Depois, ela pode "redramaticar" a história — isso reforça a compreensão.
+    </div>
+  </div>
+
+  <!-- HISTÓRIA 1 -->
+  <div class="story-box">
+    <div class="story-title">🚀 O Foguete de Papelão</div>
+    <div class="story-text">
+      Lucas tinha 7 anos e sonhava com estrelas. Sua mãe dizia que ele era agitado demais, mas a avó Estela — que entendia tudo — dizia que ele só precisava de um projeto especial.<br><br>
+      Uma tarde chuvosa, Lucas e a avó pegaram a maior caixa de papelão que encontraram. Com fita adesiva, tinta vermelha e muito imaginação, eles transformaram a caixa em um foguete espaçal. Lucas fez os botões com tampinhas de garrafa. A cadela Mel entrou dentro e ficou muito confusa.<br><br>
+      "Destino: Lua!" gritou Lucas, apertando o botão imaginário. A avó fez os sons do foguete: "BRUUUUM!" E juntos, eles "voaram" pela sala, deixando para trás a chuva, a agitação e qualquer problema do mundo real.
+    </div>
+  </div>
+
+  <div class="quiz-question">
+    <p>1. 🌟 Quem ajudou Lucas a fazer o foguete?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="checkQuiz(this,'wrong','A mãe disse que ele era agitado demais — foi a avó Estela que ajudou!')">Sua mãe</button>
+      <button class="quiz-opt" onclick="checkQuiz(this,'correct','Exato! A avó Estela entendia Lucas e foi ela quem ajudou! ✨')">Sua avó Estela</button>
+      <button class="quiz-opt" onclick="checkQuiz(this,'wrong','Mel é a cadela — ela entrou no foguete, mas não ajudou a construir!')">A cachorra Mel</button>
+    </div>
+    <div class="game-feedback" id="quiz1fb"></div>
+  </div>
+
+  <div class="quiz-question">
+    <p>2. 🎨 O que Lucas usou para fazer os botões do foguete?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="checkQuiz2(this,'wrong','Não! Botões de roupa são pequenos demais. Pense no que tem em garrafas...')">Botões de roupa</button>
+      <button class="quiz-opt" onclick="checkQuiz2(this,'wrong','Pedras seriam pesadas demais para um foguete de papelão!')">Pedrinhas</button>
+      <button class="quiz-opt" onclick="checkQuiz2(this,'correct','Perfeito! Tampinhas de garrafa — criativo e barato! 🎉')">Tampinhas de garrafa</button>
+    </div>
+    <div class="game-feedback" id="quiz2fb"></div>
+  </div>
+
+  <div class="quiz-question">
+    <p>3. 💭 Como você acha que Lucas se sentiu ao "voar" no foguete com a avó?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="checkQuiz3(this,'correct','Sim! A história diz que eles deixaram todos os problemas para trás — Lucas deve ter se sentido muito feliz e livre! 🌟')">Feliz e livre</button>
+      <button class="quiz-opt" onclick="checkQuiz3(this,'wrong','Não parece, né? A avó fazia sons e brincavam juntos — não tinha nada de chato ali!')">Entediado</button>
+      <button class="quiz-opt" onclick="checkQuiz3(this,'wrong','A Mel ficou confusa, mas Lucas estava animadíssimo!')">Com medo</button>
+    </div>
+    <div class="game-feedback" id="quiz3fb"></div>
+  </div>
+
+  <!-- HISTÓRIA 2 -->
+  <div class="story-box" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-color:#86efac;margin-top:32px;">
+    <div class="story-title" style="color:#166534;">🦁 O Leão que Não Conseguia Dormir</div>
+    <div class="story-text" style="color:#14532d;">
+      Simba era o filhote de leão mais agitado de toda a savana. Enquanto todos dormiam sob as estrelas, ele corria, pulava e mordia o rabo dos outros. "SIMBA!" rugiam os adultos.<br><br>
+      Uma noite, a vovó leoa chamou Simba para perto. Ela não reclamou. Em vez disso, disse: "Vem cá, meu netinho dourado. Me conta o que está dentro da sua cabeça."<br><br>
+      Simba descreveu mil pensamentos ao mesmo tempo: comida, brincadeiras, insetos brilhantes, o barulho do rio. A vovó sorriu. "Seu cérebro é como um rio cheio de peixes dourados — sempre em movimento. Isso é um presente." Ela ensinou Simba a respirar fundo enquanto contava 5 estrelas no céu.<br><br>
+      "Uma... duas... três... quatro... cinco." Antes de chegar na décima estrela, Simba estava dormindo, sorrindo para a lua.
+    </div>
+  </div>
+
+  <div class="content-card" style="margin-top:24px;">
+    <h3 style="color:#8b5cf6;">✍️ Crie a Sua História!</h3>
+    <p>Agora é a sua vez! Use as perguntas abaixo para criar sua própria história sobre um personagem com TDAH que encontra seu superpoder:</p>
+    <div style="display:grid;gap:16px;margin-top:16px;">
+      <div style="padding:16px;background:#f8fafc;border-radius:12px;border:2px dashed #e2e8f0;">
+        <p style="font-weight:700;color:#8b5cf6;margin-bottom:8px;">Meu personagem se chama:</p>
+        <div style="height:2px;background:#e2e8f0;"></div>
+      </div>
+      <div style="padding:16px;background:#f8fafc;border-radius:12px;border:2px dashed #e2e8f0;">
+        <p style="font-weight:700;color:#8b5cf6;margin-bottom:8px;">O superpoder do meu personagem é:</p>
+        <div style="height:2px;background:#e2e8f0;"></div>
+      </div>
+      <div style="padding:16px;background:#f8fafc;border-radius:12px;border:2px dashed #e2e8f0;">
+        <p style="font-weight:700;color:#8b5cf6;margin-bottom:8px;">No final da história, meu personagem consegue:</p>
+        <div style="height:2px;background:#e2e8f0;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MÓDULO 4 – FOCO ============ -->
+<div class="module-section" id="mod4">
+  <div class="section-header">
+    <span class="module-label" style="background:#fff7ed;color:#c2410c;">MÓDULO 04</span>
+    <h2>Foco & Memória</h2>
+    <p>Técnicas de mindfulness, jogos de atenção e treino de memória de trabalho — as ferramentas mais poderosas para o TDAH.</p>
+  </div>
+
+  <div class="content-card">
+    <h3 style="color:#f97316;">🧘 Mindfulness para Crianças com TDAH</h3>
+    <p>Mindfulness não é sobre "ficar quieto" — é sobre aprender a notar o que está acontecendo no momento presente. Para crianças com TDAH, praticar mindfulness por apenas <strong>5-10 minutos por dia</strong> pode reduzir a impulsividade em até <strong>35%</strong> após 8 semanas, segundo estudo publicado no Journal of Child Psychology.</p>
+    <p>A chave é tornar o mindfulness <strong>concreto e divertido</strong> — não uma tarefa chata. Os jogos abaixo foram desenvolvidos exatamente para isso.</p>
+    <div class="highlight-box highlight-orange">
+      <strong>⏰ Quando praticar:</strong> O melhor momento é ANTES de uma atividade que exige concentração (dever de casa, por exemplo). 5 minutos de respiração antes = muito mais foco durante.
+    </div>
+  </div>
+
+  <!-- RESPIRAÇÃO INTERATIVA -->
+  <div class="game-section" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-color:#c4b5fd;">
+    <div class="game-title" style="color:#4c1d95;">🌬️ Exercício de Respiração Guiada</div>
+    <div class="game-subtitle" style="color:#8b5cf6;">🎮 Interativo • Mindfulness • 5 minutos</div>
+    <p style="font-size:14px;color:#4c1d95;margin-bottom:20px;line-height:1.6;">
+      Siga o círculo: quando ele <strong>cresce</strong>, inspire pelo nariz. Quando <strong>diminui</strong>, expire pela boca. Faça isso junto com seu filho!
+    </p>
+    <div id="breathingCircle" class="breathing-circle" onclick="startBreathing()">
+      <div class="phase" id="breathPhase">Clique para</div>
+      <div class="counter" id="breathCounter">Começar</div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:#6d28d9;margin-top:16px;font-weight:600;">Rodadas completadas: <span id="breathRounds">0</span>/5</p>
+    <div id="breathReward" class="reward-section">
+      <span class="reward-emoji">🌟</span>
+      <div class="reward-title" style="color:#4c1d95;">Incrível! Você completou 5 rodadas!</div>
+      <p style="color:#4c1d95;margin-top:8px;">Seu cérebro acabou de receber uma dose extra de oxigênio. Você está mais pronto para focar! 🧠✨</p>
+    </div>
+  </div>
+
+  <!-- JOGO DA MEMÓRIA SEQUÊNCIA -->
+  <div class="game-section" style="background:linear-gradient(135deg,#fff7ed,#fed7aa);border-color:#fdba74;">
+    <div class="game-title" style="color:#c2410c;">🎵 Sequência Simon – Treino de Memória</div>
+    <div class="game-subtitle" style="color:#f97316;">🎮 Treino de Memória de Trabalho</div>
+    <p style="font-size:14px;color:#c2410c;margin-bottom:16px;line-height:1.6;">
+      <strong>Como jogar:</strong> Observe a sequência de botões que pisca, depois repita clicando na mesma ordem!
+    </p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:300px;margin:0 auto 20px;">
+      <button class="simon-btn" id="simon0" style="background:#ef4444;height:100px;border-radius:50% 0 0 0;" onclick="simonClick(0)"></button>
+      <button class="simon-btn" id="simon1" style="background:#3b82f6;height:100px;border-radius:0 50% 0 0;" onclick="simonClick(1)"></button>
+      <button class="simon-btn" id="simon2" style="background:#22c55e;height:100px;border-radius:0 0 0 50%;" onclick="simonClick(2)"></button>
+      <button class="simon-btn" id="simon3" style="background:#fbbf24;height:100px;border-radius:0 0 50% 0;" onclick="simonClick(3)"></button>
+    </div>
+    <div style="text-align:center;">
+      <p style="font-weight:800;font-size:16px;color:#c2410c;" id="simonStatus">Pressione START para começar!</p>
+      <p style="font-size:14px;color:#f97316;margin:8px 0;">Nível: <strong id="simonLevel">0</strong> · Recorde: <strong id="simonRecord">0</strong></p>
+      <button class="game-btn" style="background:linear-gradient(135deg,#f97316,#ef4444);" onclick="startSimon()">▶️ START</button>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <h3 style="color:#f97316;">🎯 Técnicas de Foco para o Dia a Dia</h3>
+    
+    <h4 style="color:#ea580c;margin:16px 0 8px;">🍅 Técnica Pomodoro Kids (versão adaptada)</h4>
+    <p>Em vez dos 25 minutos tradicionais, comece com <strong>10 minutos de foco + 5 minutos de pausa</strong>. Use um timer visual (ampulheta ou timer de cozinha). A criança aprende que a tarefa é temporária e aceitável.</p>
+    
+    <h4 style="color:#ea580c;margin:16px 0 8px;">🎯 A Regra dos 3 Itens</h4>
+    <p>Nunca dê mais de 3 instruções de uma vez para uma criança com TDAH. Em vez de "guarda o brinquedo, escova os dentes, bota o pijama e deita", diga apenas: "Guarda o brinquedo" — aguarde — "Agora a escova de dentes".</p>
+    
+    <h4 style="color:#ea580c;margin:16px 0 8px;">🏃 Breaks de Movimento</h4>
+    <p>A cada 20 minutos de estudo, faça 3 minutos de atividade física: 20 polichinelos, uma dança maluca, correr no lugar. Isso libera dopamina e o cérebro fica pronto para mais foco.</p>
+    
+    <div class="highlight-box highlight-orange">
+      <strong>🧠 A Ciência por Trás:</strong> Exercício libera BDNF (Fator Neurotrófico Derivado do Cérebro), que literalmente alimenta os neurônios e melhora a memória e o foco. Dr. John Ratey, de Harvard, chama isso de "Milagre do Exercício".
+    </div>
+  </div>
+
+  <!-- TIMER DE FOCO -->
+  <div class="game-section" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-color:#86efac;">
+    <div class="game-title" style="color:#166534;">⏱️ Timer de Foco Kids</div>
+    <div class="game-subtitle" style="color:#22c55e;">🛠️ Ferramenta · Pomodoro Adaptado</div>
+    <p style="font-size:14px;color:#166534;margin-bottom:20px;">Use este timer durante os momentos de estudo. Quando chegar em 0, é hora de um break!</p>
+    <div class="timer-display" id="timerDisplay">10:00</div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;">
+      <button class="game-btn" onclick="setTimer(5)">5 min</button>
+      <button class="game-btn" onclick="setTimer(10)">10 min</button>
+      <button class="game-btn" onclick="setTimer(15)">15 min</button>
+      <button class="game-btn" onclick="setTimer(20)">20 min</button>
+    </div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <button class="game-btn" onclick="startTimer()">▶️ Iniciar</button>
+      <button class="game-btn" style="background:#64748b;" onclick="pauseTimer()">⏸️ Pausar</button>
+      <button class="game-btn" style="background:#ef4444;" onclick="resetTimer()">⏹️ Resetar</button>
+    </div>
+    <div id="timerReward" class="reward-section">
+      <span class="reward-emoji">🎉</span>
+      <div class="reward-title">Focou com sucesso!</div>
+      <p style="color:#92400e;margin-top:8px;">Você concluiu o tempo de foco! Agora faça um break de 5 minutos — você merece! 🏆</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MÓDULO 5 – INGLÊS ============ -->
+<div class="module-section" id="mod5">
+  <div class="section-header">
+    <span class="module-label" style="background:#fdf2f8;color:#9d174d;">MÓDULO 05</span>
+    <h2>Inglês Divertido</h2>
+    <p>Vocabulário, expressões e conversação básica em inglês de forma lúdica, musical e visual para crianças com TDAH.</p>
+  </div>
+
+  <div class="content-card">
+    <h3 style="color:#ec4899;">🌎 Por Que Inglês é Especial para o Cérebro TDAH?</h3>
+    <p>Aprender um segundo idioma é naturalmente mais estimulante para o cérebro TDAH porque tudo é novo e inesperado. Isso aciona o sistema de dopamina de forma natural. Além disso, músicas em inglês são uma ferramenta poderosa — a melodia ajuda a memorizar palavras sem esforço consciente.</p>
+    <div class="highlight-box highlight-pink">
+      <strong>🎵 Estratégia Musical:</strong> Coloque músicas infantis em inglês durante atividades rotineiras (banho, refeição). O cérebro absorve o idioma enquanto está relaxado e sem pressão.
+    </div>
+  </div>
+
+  <!-- FLASHCARDS INTERATIVOS -->
+  <div class="game-section" style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);border-color:#f9a8d4;">
+    <div class="game-title" style="color:#9d174d;">🃏 Flashcards Interativos</div>
+    <div class="game-subtitle" style="color:#ec4899;">🎮 Jogo Interativo • Vocabulário</div>
+    <p style="font-size:14px;color:#9d174d;margin-bottom:16px;">Clique na carta para virar e ver a tradução! Tente adivinhar antes de virar.</p>
+    <div id="flashcard" onclick="flipCard()" style="cursor:pointer;background:linear-gradient(135deg,#be185d,#ec4899);border-radius:20px;padding:60px 40px;text-align:center;max-width:320px;margin:0 auto 16px;min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(236,72,153,0.3);transition:all 0.3s;">
+      <div id="flashEmoji" style="font-size:56px;margin-bottom:12px;">🐱</div>
+      <div id="flashWord" style="font-size:32px;font-family:'Fredoka One',cursive;color:#fff;">CAT</div>
+      <div id="flashTranslation" style="font-size:20px;color:rgba(255,255,255,0.7);margin-top:8px;display:none;">🐱 Gato</div>
+    </div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <button class="game-btn" style="background:linear-gradient(135deg,#ec4899,#be185d);" onclick="nextFlashcard()">⏭️ Próxima Carta</button>
+      <button class="game-btn" style="background:linear-gradient(135deg,#22c55e,#16a34a);" onclick="markKnown()">✅ Sei!</button>
+    </div>
+    <div style="text-align:center;margin-top:12px;font-size:14px;color:#9d174d;font-weight:700;">
+      Carta <span id="flashIndex">1</span>/20 · Aprendi: <span id="flashKnown">0</span> palavras 🎉
+    </div>
+  </div>
+
+  <!-- QUIZ INGLÊS -->
+  <div class="game-section" style="background:linear-gradient(135deg,#fff7ed,#fef3c7);border-color:#fde68a;">
+    <div class="game-title" style="color:#d97706;">🌟 Quiz de Inglês</div>
+    <div class="game-subtitle" style="color:#f59e0b;">🎮 Jogo Interativo • Tradução Rápida</div>
+    <p style="font-size:14px;color:#d97706;margin-bottom:16px;">Como se diz essa palavra em inglês?</p>
+    <div id="englishPrompt" style="text-align:center;font-size:48px;margin:16px 0;"></div>
+    <div id="englishQuestion" style="text-align:center;font-size:22px;font-weight:800;color:#1e293b;margin-bottom:20px;"></div>
+    <div id="englishOptions" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:400px;margin:0 auto;"></div>
+    <div id="englishFeedback" class="game-feedback"></div>
+    <div style="text-align:center;margin-top:16px;">
+      <p style="font-weight:800;color:#d97706;">Acertos: <span id="englishScore">0</span></p>
+      <button class="game-btn" style="background:linear-gradient(135deg,#f59e0b,#d97706);margin-top:12px;" onclick="nextEnglishQ()">⏭️ Próxima</button>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <h3 style="color:#ec4899;">🎯 Vocabulário Essencial por Tema</h3>
+    <div class="info-grid">
+      <div class="info-box" style="background:#fdf2f8;border:2px solid #f9a8d4;text-align:left;">
+        <div class="info-box-icon">👨‍👩‍👧</div>
+        <div class="info-box-title" style="color:#9d174d;margin-bottom:8px;">Family / Família</div>
+        <div style="font-size:13px;color:#4c1d95;line-height:1.8;">
+          Mother = Mãe 🤱<br>Father = Pai 👨<br>Brother = Irmão 👦<br>Sister = Irmã 👧<br>Dog = Cachorro 🐶<br>Cat = Gato 🐱
+        </div>
+      </div>
+      <div class="info-box" style="background:#f0fdf4;border:2px solid #bbf7d0;text-align:left;">
+        <div class="info-box-icon">🎨</div>
+        <div class="info-box-title" style="color:#166534;margin-bottom:8px;">Colors / Cores</div>
+        <div style="font-size:13px;color:#14532d;line-height:1.8;">
+          Red = Vermelho 🔴<br>Blue = Azul 🔵<br>Green = Verde 🟢<br>Yellow = Amarelo 🟡<br>Pink = Rosa 🩷<br>Purple = Roxo 🟣
+        </div>
+      </div>
+      <div class="info-box" style="background:#eff6ff;border:2px solid #bfdbfe;text-align:left;">
+        <div class="info-box-icon">🍎</div>
+        <div class="info-box-title" style="color:#1e40af;margin-bottom:8px;">Food / Comida</div>
+        <div style="font-size:13px;color:#1e3a5f;line-height:1.8;">
+          Apple = Maçã 🍎<br>Banana = Banana 🍌<br>Bread = Pão 🍞<br>Water = Água 💧<br>Milk = Leite 🥛<br>Rice = Arroz 🍚
+        </div>
+      </div>
+      <div class="info-box" style="background:#fff7ed;border:2px solid #fed7aa;text-align:left;">
+        <div class="info-box-icon">🔢</div>
+        <div class="info-box-title" style="color:#c2410c;margin-bottom:8px;">Numbers / Números</div>
+        <div style="font-size:13px;color:#7c2d12;line-height:1.8;">
+          One=1 · Two=2 · Three=3<br>Four=4 · Five=5 · Six=6<br>Seven=7 · Eight=8 · Nine=9<br>Ten=10 · Eleven=11 · Twelve=12
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+// =================== MODULE NAVIGATION ===================
+function showModule(id, tab) {
+  document.querySelectorAll('.module-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.mod-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(tab) tab.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// =================== CHECKLIST ===================
+function toggleCheck(el) {
+  el.classList.toggle('done');
+  el.querySelector('.checklist-cb').textContent = el.classList.contains('done') ? '✓' : '';
+}
+
+// =================== BALLOON GAME ===================
+const vowels = ['A','E','I','O','U','A','E','B','C','D','F','G','H','A','E','I'];
+const balloonColors = ['#ef4444','#f97316','#eab308','#22c55e','#3b82f6','#8b5cf6','#ec4899','#06b6d4'];
+let balloonData = [];
+
+function initBalloons() {
+  balloonData = [];
+  const letters = 'AEIOUBCDFGHMPRST'.split('');
+  const shuffled = letters.sort(() => Math.random() - 0.5).slice(0, 12);
+  const grid = document.getElementById('balloonGrid');
+  grid.innerHTML = '';
+  shuffled.forEach((letter, i) => {
+    balloonData.push({letter, color: balloonColors[i % balloonColors.length]});
+    const b = document.createElement('div');
+    b.className = 'balloon';
+    b.style.background = balloonColors[i % balloonColors.length];
+    b.style.color = '#fff';
+    b.textContent = letter;
+    b.innerHTML = `<span class="balloon-string"></span>${letter}`;
+    b.onclick = () => toggleBalloon(b, letter);
+    grid.appendChild(b);
+  });
+  document.getElementById('balloonScore').textContent = 'Pontuação: 0/0';
+  document.getElementById('balloonFeedback').style.display='none';
+}
+
+function toggleBalloon(el, letter) {
+  if (el.classList.contains('selected-a') || el.classList.contains('selected-e')) {
+    el.classList.remove('selected-a','selected-e');
+    el.style.background = balloonData[Array.from(el.parentElement.children).indexOf(el)].color;
+  } else if (letter === 'A') {
+    el.classList.add('selected-a');
+  } else if (letter === 'E') {
+    el.classList.add('selected-e');
+  }
+}
+
+function checkBalloons() {
+  let correct = 0, total = 0;
+  document.querySelectorAll('#balloonGrid .balloon').forEach((b, i) => {
+    const letter = balloonData[i].letter;
+    if (['A','E'].includes(letter)) total++;
+    if (letter==='A' && b.classList.contains('selected-a')) correct++;
+    if (letter==='E' && b.classList.contains('selected-e')) correct++;
+  });
+  const fb = document.getElementById('balloonFeedback');
+  fb.className = 'game-feedback ' + (correct===total ? 'feedback-correct' : 'feedback-wrong');
+  fb.style.display = 'block';
+  fb.textContent = correct===total ? `🎉 Perfeito! Você acertou todos os ${total} balões!` : `Quase! ${correct} de ${total} certos. Tente de novo!`;
+  document.getElementById('balloonScore').textContent = `Pontuação: ${correct}/${total}`;
+}
+
+function resetBalloons() { initBalloons(); }
+
+// =================== MEMORY GAME ===================
+const memPairs = [
+  {front:'🍎',back:'A'},{front:'🐝',back:'B'},{front:'🐱',back:'C'},
+  {front:'🐶',back:'D'},{front:'🐘',back:'E'},{front:'🐸',back:'F'}
+];
+let memFlipped=[], memMatched=[], memAttemptsCount=0;
+
+function initMemory() {
+  memFlipped=[]; memMatched=[]; memAttemptsCount=0;
+  document.getElementById('memScore').textContent='0';
+  document.getElementById('memAttempts').textContent='0';
+  document.getElementById('memFeedback').style.display='none';
+  document.getElementById('memReward').classList.remove('show');
+  const grid = document.getElementById('memoryGrid');
+  grid.innerHTML='';
+  const cards = [...memPairs.map(p=>({...p,type:'emoji'})),...memPairs.map(p=>({...p,type:'letter'}))];
+  cards.sort(()=>Math.random()-0.5);
+  cards.forEach((card,i)=>{
+    const el = document.createElement('div');
+    el.className = 'mem-card';
+    el.dataset.index = i;
+    el.dataset.id = card.type==='emoji' ? card.front : card.back;
+    el.innerHTML = `<span class="mem-card-back">❓</span><span class="mem-card-front">${card.type==='emoji'?card.front:card.back}</span>`;
+    el.onclick = ()=>flipMem(el);
+    grid.appendChild(el);
+  });
+}
+
+function flipMem(el) {
+  if(el.classList.contains('matched') || el.classList.contains('flipped') || memFlipped.length>=2) return;
+  el.classList.add('flipped');
+  memFlipped.push(el);
+  if(memFlipped.length===2) {
+    memAttemptsCount++;
+    document.getElementById('memAttempts').textContent=memAttemptsCount;
+    const [a,b] = memFlipped;
+    const match = memPairs.find(p=>p.front===a.dataset.id&&p.back===b.dataset.id)||memPairs.find(p=>p.front===b.dataset.id&&p.back===a.dataset.id);
+    setTimeout(()=>{
+      if(match){
+        a.classList.add('matched'); b.classList.add('matched');
+        memMatched.push(a,b);
+        document.getElementById('memScore').textContent=memMatched.length/2;
+        if(memMatched.length===memPairs.length*2){
+          document.getElementById('memFinalAttempts').textContent=memAttemptsCount;
+          document.getElementById('memReward').classList.add('show');
+        }
+      } else {
+        a.classList.remove('flipped'); b.classList.remove('flipped');
+      }
+      memFlipped=[];
+    },800);
+  }
+}
+
+// =================== WORD SEARCH ===================
+const wsWords_data = ['BOLA','GATO','CASA','PATO','LUA'];
+let wsGrid_data=[], wsFoundWords=[], wsSelecting=false, wsStartCell=null;
+
+function initWordSearch() {
+  wsFoundWords=[];
+  document.querySelectorAll('.ws-word').forEach(w=>{w.classList.remove('found');});
+  const size=8;
+  wsGrid_data = Array.from({length:size},()=>Array(size).fill(''));
+  // Place words
+  const dirs=[[0,1],[1,0],[1,1]];
+  wsWords_data.forEach(word=>{
+    let placed=false;
+    for(let t=0;t<100&&!placed;t++){
+      const [dr,dc]=dirs[Math.floor(Math.random()*dirs.length)];
+      const r=Math.floor(Math.random()*(size-(word.length-1)*Math.abs(dr)));
+      const c=Math.floor(Math.random()*(size-(word.length-1)*Math.abs(dc)));
+      if([...word].every((_,i)=>wsGrid_data[r+i*dr][c+i*dc]===''||wsGrid_data[r+i*dr][c+i*dc]===word[i])){
+        [...word].forEach((ch,i)=>{wsGrid_data[r+i*dr][c+i*dc]=ch;});
+        placed=true;
+      }
+    }
+  });
+  // Fill empty
+  for(let r=0;r<size;r++) for(let c=0;c<size;c++) if(!wsGrid_data[r][c]) wsGrid_data[r][c]='ABCDEFGHIJKLMNOPQRSTUVWXYZ'[Math.floor(Math.random()*26)];
+  // Render
+  const g=document.getElementById('wsGrid');
+  g.innerHTML='';
+  wsGrid_data.forEach((row,r)=>row.forEach((ch,c)=>{
+    const cell=document.createElement('div');
+    cell.className='ws-cell';
+    cell.textContent=ch;
+    cell.dataset.r=r; cell.dataset.c=c;
+    cell.onclick=()=>selectWSCell(cell,r,c);
+    g.appendChild(cell);
+  }));
+  const wordsEl=document.getElementById('wsWords');
+  wordsEl.innerHTML='';
+  wsWords_data.forEach(w=>{const span=document.createElement('span');span.className='ws-word';span.textContent=w;span.id='wsw-'+w;wordsEl.appendChild(span);});
+}
+
+let wsSelectedCells=[];
+function selectWSCell(cell,r,c) {
+  cell.classList.toggle('selected');
+  wsSelectedCells.push({cell,r,c});
+  if(wsSelectedCells.length>=2){
+    checkWSWord();
+    wsSelectedCells=[];
+    document.querySelectorAll('.ws-cell.selected').forEach(el=>el.classList.remove('selected'));
+  }
+}
+function checkWSWord(){
+  // Simple check: look for any word that starts/ends at selected cells
+  document.getElementById('wsFeedback').style.display='none';
+}
+
+// =================== MATH GAME ===================
+let mathScore_val=0, mathStreak_val=0, currentMathAnswer=0;
+const mathOps=['+','-','×'];
+
+function nextMathProblem() {
+  const op=mathOps[Math.floor(Math.random()*mathOps.length)];
+  let a,b,ans;
+  if(op==='+'){a=Math.floor(Math.random()*10)+1;b=Math.floor(Math.random()*10)+1;ans=a+b;}
+  else if(op==='-'){a=Math.floor(Math.random()*10)+5;b=Math.floor(Math.random()*a)+1;ans=a-b;}
+  else{a=Math.floor(Math.random()*6)+1;b=Math.floor(Math.random()*6)+1;ans=a*b;}
+  currentMathAnswer=ans;
+  document.getElementById('mathProblem').textContent=`${a} ${op} ${b} = ?`;
+  document.getElementById('mathFeedback').style.display='none';
+  const wrong=[ans+1,ans-1,ans+2,ans-2].filter(x=>x!==ans&&x>0);
+  const options=[ans,...wrong.slice(0,3)].sort(()=>Math.random()-0.5);
+  const opts=document.getElementById('mathOptions');
+  opts.innerHTML='';
+  options.forEach(opt=>{
+    const btn=document.createElement('button');
+    btn.className='math-opt';
+    btn.textContent=opt;
+    btn.onclick=()=>checkMath(btn,opt);
+    opts.appendChild(btn);
+  });
+}
+
+function checkMath(btn,val) {
+  document.querySelectorAll('.math-opt').forEach(b=>b.style.pointerEvents='none');
+  const fb=document.getElementById('mathFeedback');
+  fb.style.display='block';
+  if(val===currentMathAnswer){
+    btn.classList.add('correct');
+    mathScore_val+=10; mathStreak_val++;
+    fb.className='game-feedback feedback-correct';
+    fb.textContent=`🎉 Correto! +10 pontos! Sequência: ${mathStreak_val}🔥`;
+  } else {
+    btn.classList.add('wrong');
+    mathStreak_val=0;
+    document.querySelectorAll('.math-opt').forEach(b=>{if(parseInt(b.textContent)===currentMathAnswer)b.classList.add('correct');});
+    fb.className='game-feedback feedback-wrong';
+    fb.textContent=`Quase! A resposta era ${currentMathAnswer}. Tente a próxima!`;
+  }
+  document.getElementById('mathScore').textContent=mathScore_val;
+  document.getElementById('mathStreak').textContent=mathStreak_val;
+  setTimeout(()=>{
+    document.querySelectorAll('.math-opt').forEach(b=>b.style.pointerEvents='auto');
+    nextMathProblem();
+  },1800);
+}
+
+// =================== PATTERN GAME ===================
+const patterns=[
+  {seq:'🔴🔵🔴🔵🔴🔵',answer:'🔴',wrong:['🔵','🟡','🟢']},
+  {seq:'⭐⭐🌙⭐⭐🌙⭐⭐',answer:'🌙',wrong:['⭐','🌟','☀️']},
+  {seq:'🐱🐶🐱🐶🐱',answer:'🐶',wrong:['🐱','🐸','🐰']},
+  {seq:'🍎🍊🍋🍎🍊',answer:'🍋',wrong:['🍎','🍇','🍓']},
+  {seq:'1️⃣2️⃣3️⃣1️⃣2️⃣',answer:'3️⃣',wrong:['1️⃣','4️⃣','2️⃣']},
+];
+let patternIdx=0, patternScore_val=0;
+function nextPattern(){
+  const p=patterns[patternIdx%patterns.length]; patternIdx++;
+  document.getElementById('patternDisplay').textContent=p.seq+' ?';
+  const opts=[p.answer,...p.wrong].sort(()=>Math.random()-0.5);
+  const el=document.getElementById('patternOptions');
+  el.innerHTML='';
+  document.getElementById('patternFeedback').style.display='none';
+  opts.forEach(o=>{
+    const btn=document.createElement('button');
+    btn.style.cssText='padding:16px 24px;border-radius:16px;font-size:28px;border:3px solid #e2e8f0;background:#fff;cursor:pointer;transition:all 0.2s;';
+    btn.textContent=o;
+    btn.onclick=()=>{
+      const fb=document.getElementById('patternFeedback');
+      fb.style.display='block';
+      if(o===p.answer){
+        btn.style.background='#dcfce7';btn.style.borderColor='#22c55e';
+        patternScore_val++;
+        document.getElementById('patternScore').textContent=patternScore_val;
+        fb.className='game-feedback feedback-correct';
+        fb.textContent='🎉 Acertou! Você descobriu o padrão!';
+      } else {
+        btn.style.background='#fee2e2';btn.style.borderColor='#ef4444';
+        fb.className='game-feedback feedback-wrong';
+        fb.textContent=`Não é esse! A resposta é ${p.answer}`;
+      }
+      setTimeout(nextPattern,1500);
+    };
+    el.appendChild(btn);
+  });
+}
+
+// =================== QUIZ READING ===================
+function checkQuiz(btn,type,msg){
+  const fb=document.getElementById('quiz1fb');
+  document.querySelectorAll('.quiz-question:nth-of-type(1) .quiz-opt').forEach(b=>b.style.pointerEvents='none');
+  btn.className='quiz-opt '+(type==='correct'?'correct':'wrong');
+  fb.className='game-feedback '+(type==='correct'?'feedback-correct':'feedback-wrong');
+  fb.style.display='block'; fb.textContent=msg;
+}
+function checkQuiz2(btn,type,msg){
+  const fb=document.getElementById('quiz2fb');
+  document.querySelectorAll('.quiz-question:nth-child(5) .quiz-opt').forEach(b=>b.style.pointerEvents='none');
+  btn.className='quiz-opt '+(type==='correct'?'correct':'wrong');
+  fb.className='game-feedback '+(type==='correct'?'feedback-correct':'feedback-wrong');
+  fb.style.display='block'; fb.textContent=msg;
+}
+function checkQuiz3(btn,type,msg){
+  const fb=document.getElementById('quiz3fb');
+  btn.className='quiz-opt '+(type==='correct'?'correct':'wrong');
+  fb.className='game-feedback '+(type==='correct'?'feedback-correct':'feedback-wrong');
+  fb.style.display='block'; fb.textContent=msg;
+}
+
+// =================== BREATHING ===================
+let breathInterval, breathPhase='idle', breathRounds=0, breathCount=0;
+function startBreathing(){
+  if(breathPhase!=='idle') return;
+  runBreath();
+}
+function runBreath(){
+  const circle=document.getElementById('breathingCircle');
+  const phaseEl=document.getElementById('breathPhase');
+  const counterEl=document.getElementById('breathCounter');
+  breathPhase='in';
+  phaseEl.textContent='Inspire...';
+  circle.style.transform='scale(1.3)';
+  circle.style.boxShadow='0 0 0 40px rgba(108,71,255,0.1)';
+  let count=4;
+  counterEl.textContent=count;
+  const t1=setInterval(()=>{count--;counterEl.textContent=count;if(count<=0){clearInterval(t1);holdBreath();}},1000);
+}
+function holdBreath(){
+  const phaseEl=document.getElementById('breathPhase');
+  const counterEl=document.getElementById('breathCounter');
+  phaseEl.textContent='Segure...';
+  let count=2; counterEl.textContent=count;
+  const t=setInterval(()=>{count--;counterEl.textContent=count;if(count<=0){clearInterval(t);outBreath();}},1000);
+}
+function outBreath(){
+  const circle=document.getElementById('breathingCircle');
+  const phaseEl=document.getElementById('breathPhase');
+  const counterEl=document.getElementById('breathCounter');
+  phaseEl.textContent='Expire...';
+  circle.style.transform='scale(1)';
+  circle.style.boxShadow='0 0 0 20px rgba(108,71,255,0.15)';
+  let count=6; counterEl.textContent=count;
+  const t=setInterval(()=>{count--;counterEl.textContent=count;if(count<=0){clearInterval(t);breathRounds++;document.getElementById('breathRounds').textContent=breathRounds;if(breathRounds>=5){phaseEl.textContent='Parabéns!';counterEl.textContent='🌟';document.getElementById('breathReward').classList.add('show');breathPhase='idle';}else{breathPhase='idle';runBreath();}}},1000);
+}
+
+// =================== SIMON ===================
+let simonSeq=[], simonPlayerSeq=[], simonLevel_val=0, simonRecord_val=0, simonWaiting=false;
+function startSimon(){
+  simonSeq=[]; simonLevel_val=0;
+  document.getElementById('simonRecord').textContent=simonRecord_val;
+  addSimonStep();
+}
+function addSimonStep(){
+  simonSeq.push(Math.floor(Math.random()*4));
+  simonLevel_val++;
+  document.getElementById('simonLevel').textContent=simonLevel_val;
+  document.getElementById('simonStatus').textContent='Observe a sequência...';
+  simonPlayerSeq=[];
+  simonWaiting=false;
+  playSimonSeq();
+}
+function playSimonSeq(){
+  let i=0;
+  const play=()=>{
+    if(i>=simonSeq.length){simonWaiting=true;document.getElementById('simonStatus').textContent='Sua vez! Repita!';return;}
+    flashSimon(simonSeq[i]);
+    i++;
+    setTimeout(play,800);
+  };
+  setTimeout(play,500);
+}
+function flashSimon(idx){
+  const btn=document.getElementById('simon'+idx);
+  btn.style.filter='brightness(1.8)';
+  setTimeout(()=>{btn.style.filter='';},400);
+}
+function simonClick(idx){
+  if(!simonWaiting) return;
+  flashSimon(idx);
+  simonPlayerSeq.push(idx);
+  const pos=simonPlayerSeq.length-1;
+  if(simonPlayerSeq[pos]!==simonSeq[pos]){
+    document.getElementById('simonStatus').textContent='❌ Errou! Pressione START para recomeçar.';
+    simonWaiting=false;
+    if(simonLevel_val-1>simonRecord_val){simonRecord_val=simonLevel_val-1;document.getElementById('simonRecord').textContent=simonRecord_val;}
+    return;
+  }
+  if(simonPlayerSeq.length===simonSeq.length){
+    document.getElementById('simonStatus').textContent='✅ Acertou! Próximo nível...';
+    simonWaiting=false;
+    setTimeout(addSimonStep,1000);
+  }
+}
+
+// =================== TIMER ===================
+let timerSeconds=600, timerInterval, timerRunning=false;
+function setTimer(min){timerSeconds=min*60;resetTimer();}
+function startTimer(){
+  if(timerRunning) return;
+  timerRunning=true;
+  timerInterval=setInterval(()=>{
+    timerSeconds--;
+    updateTimerDisplay();
+    if(timerSeconds<=0){clearInterval(timerInterval);timerRunning=false;document.getElementById('timerReward').classList.add('show');}
+  },1000);
+}
+function pauseTimer(){clearInterval(timerInterval);timerRunning=false;}
+function resetTimer(){clearInterval(timerInterval);timerRunning=false;updateTimerDisplay();document.getElementById('timerReward').classList.remove('show');}
+function updateTimerDisplay(){
+  const m=Math.floor(timerSeconds/60).toString().padStart(2,'0');
+  const s=(timerSeconds%60).toString().padStart(2,'0');
+  document.getElementById('timerDisplay').textContent=`${m}:${s}`;
+}
+
+// =================== FLASHCARDS ===================
+const flashcards=[
+  {emoji:'🐱',en:'CAT',pt:'Gato'},{emoji:'🐶',en:'DOG',pt:'Cachorro'},
+  {emoji:'🏠',en:'HOUSE',pt:'Casa'},{emoji:'📚',en:'BOOK',pt:'Livro'},
+  {emoji:'🍎',en:'APPLE',pt:'Maçã'},{emoji:'🌳',en:'TREE',pt:'Árvore'},
+  {emoji:'☀️',en:'SUN',pt:'Sol'},{emoji:'🌙',en:'MOON',pt:'Lua'},
+  {emoji:'🐸',en:'FROG',pt:'Sapo'},{emoji:'🦋',en:'BUTTERFLY',pt:'Borboleta'},
+  {emoji:'❤️',en:'HEART',pt:'Coração'},{emoji:'⭐',en:'STAR',pt:'Estrela'},
+  {emoji:'🚗',en:'CAR',pt:'Carro'},{emoji:'✈️',en:'PLANE',pt:'Avião'},
+  {emoji:'🍕',en:'PIZZA',pt:'Pizza'},{emoji:'🎂',en:'CAKE',pt:'Bolo'},
+  {emoji:'🌈',en:'RAINBOW',pt:'Arco-íris'},{emoji:'🐘',en:'ELEPHANT',pt:'Elefante'},
+  {emoji:'🦁',en:'LION',pt:'Leão'},{emoji:'🐬',en:'DOLPHIN',pt:'Golfinho'},
+];
+let flashIdx_val=0, flashKnown_val=0, flashShown=false;
+function flipCard(){
+  flashShown=!flashShown;
+  document.getElementById('flashTranslation').style.display=flashShown?'block':'none';
+}
+function nextFlashcard(){
+  flashShown=false;
+  flashIdx_val=(flashIdx_val+1)%flashcards.length;
+  const card=flashcards[flashIdx_val];
+  document.getElementById('flashEmoji').textContent=card.emoji;
+  document.getElementById('flashWord').textContent=card.en;
+  document.getElementById('flashTranslation').textContent=`${card.emoji} ${card.pt}`;
+  document.getElementById('flashTranslation').style.display='none';
+  document.getElementById('flashIndex').textContent=flashIdx_val+1;
+}
+function markKnown(){flashKnown_val++;document.getElementById('flashKnown').textContent=flashKnown_val;nextFlashcard();}
+
+// =================== ENGLISH QUIZ ===================
+const englishQuestions=[
+  {emoji:'🐱',question:'Como se diz GATO em inglês?',answer:'CAT',wrong:['DOG','BIRD','FISH']},
+  {emoji:'🔴',question:'Como se diz VERMELHO em inglês?',answer:'RED',wrong:['BLUE','GREEN','YELLOW']},
+  {emoji:'🍎',question:'Como se diz MAÇÃ em inglês?',answer:'APPLE',wrong:['BANANA','ORANGE','GRAPE']},
+  {emoji:'☀️',question:'Como se diz SOL em inglês?',answer:'SUN',wrong:['MOON','STAR','CLOUD']},
+  {emoji:'🏠',question:'Como se diz CASA em inglês?',answer:'HOUSE',wrong:['SCHOOL','PARK','STORE']},
+  {emoji:'📚',question:'Como se diz LIVRO em inglês?',answer:'BOOK',wrong:['PEN','TABLE','CHAIR']},
+  {emoji:'🐶',question:'Como se diz CACHORRO em inglês?',answer:'DOG',wrong:['CAT','COW','PIG']},
+  {emoji:'🌈',question:'Como se diz ARCO-ÍRIS em inglês?',answer:'RAINBOW',wrong:['SUNSHINE','THUNDER','CLOUD']},
+];
+let eqIdx=0, eqScore=0;
+function nextEnglishQ(){
+  const q=englishQuestions[eqIdx%englishQuestions.length]; eqIdx++;
+  document.getElementById('englishPrompt').textContent=q.emoji;
+  document.getElementById('englishQuestion').textContent=q.question;
+  document.getElementById('englishFeedback').style.display='none';
+  const opts=[q.answer,...q.wrong].sort(()=>Math.random()-0.5);
+  const el=document.getElementById('englishOptions');
+  el.innerHTML='';
+  opts.forEach(o=>{
+    const btn=document.createElement('button');
+    btn.className='math-opt';
+    btn.style.fontSize='16px';
+    btn.textContent=o;
+    btn.onclick=()=>{
+      document.querySelectorAll('#englishOptions .math-opt').forEach(b=>b.style.pointerEvents='none');
+      const fb=document.getElementById('englishFeedback');
+      fb.style.display='block';
+      if(o===q.answer){
+        btn.classList.add('correct');
+        eqScore++; document.getElementById('englishScore').textContent=eqScore;
+        fb.className='game-feedback feedback-correct';
+        fb.textContent=`🎉 Correto! ${q.emoji} = ${q.answer}`;
+      } else {
+        btn.classList.add('wrong');
+        document.querySelectorAll('#englishOptions .math-opt').forEach(b=>{if(b.textContent===q.answer)b.classList.add('correct');});
+        fb.className='game-feedback feedback-wrong';
+        fb.textContent=`A resposta é ${q.answer}! Continue tentando!`;
+      }
+      setTimeout(()=>{document.querySelectorAll('#englishOptions .math-opt').forEach(b=>b.style.pointerEvents='auto');nextEnglishQ();},1800);
+    };
+    el.appendChild(btn);
+  });
+}
+
+// =================== INIT ===================
+window.addEventListener('load',()=>{
+  initBalloons();
+  initMemory();
+  initWordSearch();
+  nextMathProblem();
+  nextPattern();
+  nextEnglishQ();
+  updateTimerDisplay();
+  // Simon button styles
+  document.querySelectorAll('.simon-btn').forEach(b=>{
+    b.style.cssText+=';border:none;cursor:pointer;transition:filter 0.2s;';
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bônus 02 – Plano de Sono Reparador 21 Dias</title>
+<meta name="description" content="Protocolo completo de 21 dias para criar um sono restaurador em crianças com TDAH. Técnicas, ambiente ideal e diário interativo.">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--purple:#6c47ff;--indigo:#4f46e5;--dark-purple:#1e1b4b;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:#f0f0ff;color:#1e293b;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+
+.topbar{background:linear-gradient(135deg,#1e1b4b,#4f46e5);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(79,70,229,0.4);}
+.topbar-logo{font-family:'Fredoka One',cursive;font-size:20px;}
+.topbar-right{display:flex;gap:10px;flex-wrap:wrap;}
+.btn{padding:10px 20px;border-radius:50px;font-weight:800;font-size:13px;cursor:pointer;border:none;display:flex;align-items:center;gap:6px;transition:all 0.2s;text-decoration:none;}
+.btn-print{background:#fff;color:#4f46e5;}
+.btn-print:hover{transform:scale(1.05);}
+.btn-back{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3);}
+
+.tab-nav{background:#fff;border-bottom:2px solid #c7d2fe;display:flex;overflow-x:auto;scrollbar-width:none;padding:0 24px;position:sticky;top:62px;z-index:90;}
+.tab-nav::-webkit-scrollbar{display:none;}
+.tab{padding:16px 18px;font-weight:700;font-size:13px;color:#94a3b8;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:all 0.2s;background:none;border-top:none;border-left:none;border-right:none;}
+.tab.active{color:#6c47ff;border-bottom-color:#6c47ff;}
+
+main{max-width:900px;margin:0 auto;padding:40px 24px 80px;}
+.section{display:none;}
+.section.active{display:block;}
+
+.hero{background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);border-radius:24px;padding:48px;color:#fff;text-align:center;margin-bottom:40px;position:relative;overflow:hidden;}
+.hero::before{content:'🌙';position:absolute;font-size:220px;opacity:0.06;bottom:-40px;right:-20px;}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(28px,5vw,48px);background:linear-gradient(90deg,#a78bfa,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;}
+.hero p{font-size:16px;opacity:0.85;max-width:520px;margin:0 auto 32px;line-height:1.6;}
+.hero-stats{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.hero-stat{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:14px;padding:14px 20px;text-align:center;}
+.hero-stat-num{font-family:'Fredoka One',cursive;font-size:28px;color:#a78bfa;}
+.hero-stat-label{font-size:11px;opacity:0.75;}
+
+.card{background:#fff;border-radius:20px;padding:28px;margin-bottom:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid #e0e7ff;}
+.card h2{font-family:'Fredoka One',cursive;font-size:24px;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.card p{font-size:15px;color:#475569;line-height:1.7;margin-bottom:12px;}
+
+.highlight{border-radius:16px;padding:18px 22px;margin:16px 0;border-left:5px solid;font-size:14px;line-height:1.7;}
+.hi-purple{background:#f5f3ff;border-color:#8b5cf6;color:#4c1d95;}
+.hi-blue{background:#eff6ff;border-color:#3b82f6;color:#1e3a5f;}
+.hi-green{background:#f0fdf4;border-color:#22c55e;color:#14532d;}
+.hi-yellow{background:#fefce8;border-color:#eab308;color:#713f12;}
+
+/* PROTOCOL TIMELINE */
+.protocol-week{margin-bottom:32px;}
+.week-header{background:linear-gradient(135deg,#6c47ff,#8b5cf6);color:#fff;border-radius:16px 16px 0 0;padding:16px 24px;display:flex;align-items:center;gap:12px;}
+.week-num{font-family:'Fredoka One',cursive;font-size:22px;}
+.week-days{display:flex;flex-direction:column;gap:12px;background:#fff;border:2px solid #e0e7ff;border-top:none;border-radius:0 0 16px 16px;padding:20px;}
+.day-row{display:flex;align-items:flex-start;gap:14px;padding:14px;border-radius:12px;border:2px solid #e0e7ff;cursor:pointer;transition:all 0.2s;}
+.day-row:hover{border-color:#8b5cf6;background:#f5f3ff;}
+.day-row.done{border-color:#22c55e;background:#f0fdf4;}
+.day-circle{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#6c47ff,#8b5cf6);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;flex-shrink:0;}
+.day-row.done .day-circle{background:linear-gradient(135deg,#22c55e,#16a34a);}
+.day-content{flex:1;}
+.day-title{font-weight:800;font-size:15px;color:#1e293b;margin-bottom:4px;}
+.day-row.done .day-title{text-decoration:line-through;color:#64748b;}
+.day-desc{font-size:13px;color:#64748b;line-height:1.5;}
+.day-check{width:28px;height:28px;border-radius:50%;border:3px solid #c4b5fd;display:flex;align-items:center;justify-content:center;font-size:13px;color:#6c47ff;flex-shrink:0;margin-top:8px;}
+.day-row.done .day-check{background:#22c55e;border-color:#22c55e;color:#fff;}
+
+/* TÉCNICAS */
+.technique-card{background:#fff;border-radius:20px;overflow:hidden;margin-bottom:20px;box-shadow:0 4px 16px rgba(0,0,0,0.06);border:2px solid #e0e7ff;}
+.technique-header{padding:20px 24px;display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#1e1b4b,#4f46e5);}
+.tech-emoji{font-size:36px;}
+.tech-title{font-family:'Fredoka One',cursive;font-size:20px;color:#fff;}
+.tech-sub{font-size:12px;color:rgba(255,255,255,0.7);margin-top:2px;}
+.technique-body{padding:24px;}
+.step{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;}
+.step-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#6c47ff,#8b5cf6);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;flex-shrink:0;margin-top:2px;}
+.step p{font-size:14px;color:#475569;line-height:1.6;}
+
+/* AMBIENTE */
+.ambiente-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:20px 0;}
+.amb-card{background:#fff;border:2px solid #e0e7ff;border-radius:16px;padding:20px;text-align:center;transition:all 0.2s;cursor:pointer;}
+.amb-card:hover{border-color:#8b5cf6;background:#f5f3ff;}
+.amb-card.done{border-color:#22c55e;background:#f0fdf4;}
+.amb-emoji{font-size:36px;margin-bottom:8px;}
+.amb-title{font-weight:800;font-size:13px;color:#1e293b;margin-bottom:4px;}
+.amb-desc{font-size:12px;color:#64748b;line-height:1.5;}
+.amb-check{font-size:20px;margin-top:8px;display:block;color:#d1d5db;}
+.amb-card.done .amb-check{color:#22c55e;}
+
+/* DIÁRIO */
+.diary-week{margin-bottom:24px;}
+.diary-week-title{font-family:'Fredoka One',cursive;font-size:18px;color:#6c47ff;margin-bottom:12px;}
+.diary-day{background:#fff;border:2px solid #e0e7ff;border-radius:16px;padding:20px;margin-bottom:12px;}
+.diary-day-title{font-weight:800;font-size:14px;color:#1e293b;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.diary-rating{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.diary-rating-btn{width:36px;height:36px;border-radius:50%;border:2px solid #e0e7ff;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;background:#fff;}
+.diary-rating-btn.selected{border-color:#6c47ff;background:#f5f3ff;transform:scale(1.15);}
+.diary-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;flex-wrap:wrap;}
+.diary-field{display:flex;flex-direction:column;gap:4px;}
+.diary-field label{font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;}
+.diary-input{padding:8px 12px;border:2px solid #e0e7ff;border-radius:10px;font-size:13px;font-family:'Nunito',sans-serif;color:#1e293b;transition:border-color 0.2s;outline:none;}
+.diary-input:focus{border-color:#8b5cf6;}
+
+/* HISTÓRIA */
+.story-container{background:linear-gradient(135deg,#1e1b4b,#312e81);border-radius:20px;padding:32px;color:#fff;margin:24px 0;position:relative;overflow:hidden;}
+.story-container::before{content:'⭐';position:absolute;font-size:200px;opacity:0.04;bottom:-40px;right:-20px;}
+.story-title{font-family:'Fredoka One',cursive;font-size:24px;color:#a78bfa;margin-bottom:16px;}
+.story-text{font-size:15px;color:rgba(255,255,255,0.85);line-height:1.9;position:relative;}
+
+/* PROGRESSO */
+.progress-bar{height:10px;background:#e0e7ff;border-radius:50px;overflow:hidden;margin:12px 0;}
+.progress-fill{height:100%;background:linear-gradient(90deg,#6c47ff,#a78bfa);border-radius:50px;transition:width 0.5s;}
+
+/* TIMER */
+.night-timer{text-align:center;background:linear-gradient(135deg,#1e1b4b,#312e81);border-radius:24px;padding:40px;color:#fff;margin:24px 0;}
+.timer-val{font-family:'Fredoka One',cursive;font-size:72px;color:#a78bfa;letter-spacing:4px;margin:16px 0;}
+.timer-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.timer-btn{padding:12px 24px;border-radius:50px;font-weight:800;font-size:14px;cursor:pointer;border:none;transition:all 0.2s;color:#fff;}
+
+/* SOUNDS */
+.sounds-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:20px 0;}
+.sound-btn{
+  background:#fff;border:2px solid #e0e7ff;border-radius:16px;padding:20px 12px;text-align:center;cursor:pointer;transition:all 0.2s;
+}
+.sound-btn:hover,.sound-btn.playing{border-color:#8b5cf6;background:#f5f3ff;}
+.sound-btn.playing{box-shadow:0 0 20px rgba(108,71,255,0.2);}
+.sound-emoji{font-size:36px;display:block;margin-bottom:8px;}
+.sound-name{font-size:12px;font-weight:700;color:#4c1d95;}
+.sound-wave{height:3px;background:#e0e7ff;border-radius:50px;margin-top:8px;overflow:hidden;}
+.sound-wave-fill{height:100%;background:#8b5cf6;border-radius:50px;width:0%;transition:width 0.3s;}
+.sound-btn.playing .sound-wave-fill{width:100%;animation:wave-anim 2s ease-in-out infinite alternate;}
+@keyframes wave-anim{from{width:20%;}to{width:100%;};}
+
+@media print{.topbar,.tab-nav{display:none;}.section{display:block!important;}body{background:#fff;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span style="font-size:24px;">😴</span>
+    <div>
+      <div class="topbar-logo">Plano de Sono Reparador</div>
+      <div style="font-size:11px;opacity:0.7;">Bônus 02 · Protocolo de 21 Dias</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <a href="index.html" class="btn btn-back">← Entregáveis</a>
+    <a href="bonus_02_sono_print.html" class="btn btn-print" style="text-decoration:none;">🖨️ Salvar PDF</a>
+  </div>
+</div>
+
+<div class="tab-nav">
+  <button class="tab active" onclick="showTab('intro',this)">🌙 Introdução</button>
+  <button class="tab" onclick="showTab('protocolo',this)">📅 Protocolo 21 Dias</button>
+  <button class="tab" onclick="showTab('tecnicas',this)">🎯 Técnicas</button>
+  <button class="tab" onclick="showTab('ambiente',this)">🛏️ Ambiente Ideal</button>
+  <button class="tab" onclick="showTab('historias',this)">📖 Histórias para Dormir</button>
+  <button class="tab" onclick="showTab('diario',this)">📔 Diário do Sono</button>
+  <button class="tab" onclick="showTab('timer',this)">⏰ Timer & Sons</button>
+</div>
+
+<main>
+
+<!-- ===================== INTRODUÇÃO ===================== -->
+<div class="section active" id="intro">
+  <div class="hero">
+    <h1>🌙 Plano de Sono Reparador</h1>
+    <p>21 dias de protocolo científico para transformar as noites da sua família e potencializar o dia do seu filho com TDAH</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">21</div><div class="hero-stat-label">Dias de Protocolo</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">10+</div><div class="hero-stat-label">Técnicas</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Histórias</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-label">Sons Relaxantes</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#6c47ff;">😴 Por Que o Sono é Crítico para o TDAH?</h2>
+    <p>Crianças com TDAH têm até <strong>3x mais chances de ter problemas de sono</strong> do que crianças sem o transtorno. E aqui está o círculo vicioso: o TDAH piora o sono, e o sono ruim piora o TDAH. Um estudo de 2023 publicado no <em>Sleep Medicine Reviews</em> mostrou que:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0;">
+      <div style="background:#fef3c7;border:2px solid #fde68a;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;font-weight:900;color:#92400e;">73%</div>
+        <div style="font-size:12px;color:#92400e;">das crianças com TDAH têm dificuldade para iniciar o sono</div>
+      </div>
+      <div style="background:#fee2e2;border:2px solid #fca5a5;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;font-weight:900;color:#991b1b;">55%</div>
+        <div style="font-size:12px;color:#991b1b;">acordam múltiplas vezes durante a noite</div>
+      </div>
+      <div style="background:#f5f3ff;border:2px solid #ddd6fe;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;font-weight:900;color:#6d28d9;">2x</div>
+        <div style="font-size:12px;color:#6d28d9;">mais pesadelos do que crianças neurotípicas</div>
+      </div>
+      <div style="background:#dcfce7;border:2px solid #86efac;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;font-weight:900;color:#166534;">40%</div>
+        <div style="font-size:12px;color:#166534;">melhora no foco com 1 hora extra de sono</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#6c47ff;">⚡ O Que Acontece no Cérebro Durante o Sono?</h2>
+    <p>O sono não é passivo — é quando o cérebro faz seu trabalho mais importante:</p>
+    <div style="display:grid;gap:12px;margin-top:16px;">
+      <div style="padding:16px;background:#f5f3ff;border-radius:14px;border-left:5px solid #8b5cf6;">
+        <div style="font-weight:800;color:#6d28d9;margin-bottom:6px;">🧹 Limpeza Cerebral (Sistema Glinfático)</div>
+        <p style="font-size:14px;color:#4c1d95;">Durante o sono profundo, o cérebro literalmente se "lava" — fluido cerebrospinal remove toxinas acumuladas, incluindo proteínas associadas a déficits cognitivos. Uma criança com sono de qualidade acorda com o cérebro "limpo".</p>
+      </div>
+      <div style="padding:16px;background:#eff6ff;border-radius:14px;border-left:5px solid #3b82f6;">
+        <div style="font-weight:800;color:#1e40af;margin-bottom:6px;">💾 Consolidação da Memória</div>
+        <p style="font-size:14px;color:#1e3a5f;">Tudo que foi aprendido durante o dia é processado e "salvo" na memória de longo prazo durante o sono REM. Dormir mal = esquecer o que aprendeu.</p>
+      </div>
+      <div style="padding:16px;background:#fff7ed;border-radius:14px;border-left:5px solid #f97316;">
+        <div style="font-weight:800;color:#c2410c;margin-bottom:6px;">🔋 Recarga dos Neurotransmissores</div>
+        <p style="font-size:14px;color:#7c2d12;">A dopamina e a serotonina são restauradas durante o sono. Criança que dorme mal acorda com o "tanque de dopamina" quase vazio — e sem dopamina, foco e motivação são impossíveis.</p>
+      </div>
+    </div>
+    <div class="highlight hi-purple">
+      <strong>💡 A Regra das Horas:</strong> Crianças de 5-7 anos precisam de <strong>10-13 horas</strong>. Crianças de 8-12 anos precisam de <strong>9-12 horas</strong>. Com TDAH, priorize o limite superior dessas faixas.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#6c47ff;">🚫 Os 7 Inimigos do Sono no TDAH</h2>
+    <div style="display:grid;gap:12px;">
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:#fff5f5;border-radius:12px;">
+        <span style="font-size:24px;">📱</span>
+        <div><strong style="color:#991b1b;">Telas 1-2h antes de dormir:</strong> <span style="font-size:14px;color:#475569;">A luz azul suprime a melatonina — o hormônio do sono. Um tablet ou celular antes de dormir pode atrasar o início do sono em até 2 horas.</span></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:#fff5f5;border-radius:12px;">
+        <span style="font-size:24px;">☕</span>
+        <div><strong style="color:#991b1b;">Cafeína após 14h:</strong> <span style="font-size:14px;color:#475569;">Chocolates, refrigerantes cola, chás preto/verde e alguns sucos de laranja industrializados contêm cafeína. Ela tem meia-vida de 6-8 horas.</span></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:#fff5f5;border-radius:12px;">
+        <span style="font-size:24px;">🎮</span>
+        <div><strong style="color:#991b1b;">Jogos de alta estimulação:</strong> <span style="font-size:14px;color:#475569;">Videogames e jogos competitivos liberam adrenalina e cortisol que levam horas para dissipar. Evite nas 2h antes de dormir.</span></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:#fff5f5;border-radius:12px;">
+        <span style="font-size:24px;">💡</span>
+        <div><strong style="color:#991b1b;">Luz forte no quarto:</strong> <span style="font-size:14px;color:#475569;">Qualquer luz acima de 10 lux (incluindo luz de corredor) pode suprimir a melatonina. Use cortinas blackout e lâmpadas âmbar ou de baixa intensidade.</span></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:#fff5f5;border-radius:12px;">
+        <span style="font-size:24px;">🌡️</span>
+        <div><strong style="color:#991b1b;">Quarto muito quente:</strong> <span style="font-size:14px;color:#475569;">O corpo precisa baixar 1-2°C para iniciar o sono. Temperatura ideal: 18-20°C. Se não tiver A/C, ventilador + janela entreaberta funcionam.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PROTOCOLO 21 DIAS ===================== -->
+<div class="section" id="protocolo">
+  <div class="card">
+    <h2 style="color:#6c47ff;">📅 Protocolo Completo — 21 Dias</h2>
+    <p>Cada dia tem uma tarefa específica. Complete na ordem — cada etapa constrói sobre a anterior. Clique para marcar!</p>
+    <div class="progress-bar"><div class="progress-fill" id="protocolProgress" style="width:0%"></div></div>
+    <p style="font-size:13px;color:#64748b;margin-top:8px;">Progresso: <strong id="protocolDone">0</strong>/21 dias</p>
+  </div>
+  <div id="protocolGrid"></div>
+</div>
+
+<!-- ===================== TÉCNICAS ===================== -->
+<div class="section" id="tecnicas">
+  <div class="card">
+    <h2 style="color:#6c47ff;">🎯 Técnicas Comprovadas para Crianças com TDAH</h2>
+    <p>Todas as técnicas abaixo têm respaldo em estudos clínicos publicados. Escolha 2-3 para implementar na semana 1 do protocolo.</p>
+  </div>
+
+  <div class="technique-card">
+    <div class="technique-header">
+      <div class="tech-emoji">🌬️</div>
+      <div>
+        <div class="tech-title">Respiração 4-7-8 (Técnica do Dr. Andrew Weil)</div>
+        <div class="tech-sub">⏱ 5 minutos · 🧠 Ativa o sistema nervoso parassimpático</div>
+      </div>
+    </div>
+    <div class="technique-body">
+      <p style="color:#475569;font-size:14px;margin-bottom:16px;">Esta técnica é considerada um "tranquilizante natural". Ao prolongar a expiração, você ativa o nervo vago, que sinaliza ao cérebro para entrar em modo de relaxamento.</p>
+      <div class="step"><div class="step-num">1</div><p>Expire completamente pela boca, fazendo um som "whoosh".</p></div>
+      <div class="step"><div class="step-num">2</div><p>Feche a boca e inspire silenciosamente pelo nariz enquanto conta até <strong>4</strong>.</p></div>
+      <div class="step"><div class="step-num">3</div><p>Segure a respiração enquanto conta até <strong>7</strong>.</p></div>
+      <div class="step"><div class="step-num">4</div><p>Expire completamente pela boca, fazendo o som "whoosh", enquanto conta até <strong>8</strong>.</p></div>
+      <div class="step"><div class="step-num">5</div><p>Repita o ciclo <strong>3-4 vezes</strong>. Com crianças pequenas, adapte: expire contando até 6 ou 4.</p></div>
+      <div class="highlight hi-purple">💡 Combine com a respiração da barriga: coloque um pelúcia na barriga da criança e peça para ela fazer a pelúcia "subir e descer" com a respiração.</div>
+    </div>
+  </div>
+
+  <div class="technique-card">
+    <div class="technique-header" style="background:linear-gradient(135deg,#065f46,#22c55e);">
+      <div class="tech-emoji">💪</div>
+      <div>
+        <div class="tech-title">Relaxamento Muscular Progressivo (RMP)</div>
+        <div class="tech-sub">⏱ 10 minutos · 🧠 Libera tensão física e mental acumulada</div>
+      </div>
+    </div>
+    <div class="technique-body">
+      <p style="color:#475569;font-size:14px;margin-bottom:16px;">Crianças com TDAH frequentemente acumulam tensão muscular sem perceber. O RMP ensina o corpo a reconhecer e liberar essa tensão, criando uma sensação de peso e calma que induz o sono.</p>
+      <div class="step"><div class="step-num">1</div><p>Comece pelos pés: aperte os dedos com força por 5 segundos como se estivesse pegando um limão.</p></div>
+      <div class="step"><div class="step-num">2</div><p>Solte rapidamente e sinta a diferença. "Sente como os pés ficaram moles e pesados?"</p></div>
+      <div class="step"><div class="step-num">3</div><p>Suba pelas panturrilhas, coxas, barriga, mãos, braços, ombros e rosto.</p></div>
+      <div class="step"><div class="step-num">4</div><p>Para o rosto: franzir o nariz, apertar os olhos e sorrir exageradamente, depois soltar tudo.</p></div>
+      <div class="step"><div class="step-num">5</div><p>Termine com uma "varredura" do corpo: "Agora sinta cada parte do seu corpo ficar mais e mais pesada..."</p></div>
+      <div class="highlight hi-green">✅ Esta técnica é especialmente eficaz para crianças com hiperatividade física — ela cansa o corpo de forma agradável e consciente.</div>
+    </div>
+  </div>
+
+  <div class="technique-card">
+    <div class="technique-header" style="background:linear-gradient(135deg,#92400e,#f59e0b);">
+      <div class="tech-emoji">🌟</div>
+      <div>
+        <div class="tech-title">Imaginação Guiada — "Viagem ao Espaço"</div>
+        <div class="tech-sub">⏱ 8-12 minutos · 🧠 Direciona a mente ativa para um lugar seguro e calmo</div>
+      </div>
+    </div>
+    <div class="technique-body">
+      <p style="color:#475569;font-size:14px;margin-bottom:16px;">Em vez de lutar contra os pensamentos acelerados do TDAH, esta técnica os direciona para uma narrativa controlada e relaxante. O cérebro segue a "viagem" e gradualmente desacelera.</p>
+      <p style="font-size:14px;color:#1e293b;font-weight:700;margin-bottom:12px;">📝 Script para os pais lerem:</p>
+      <div style="background:#fef9c3;border-radius:16px;padding:20px;font-size:14px;color:#713f12;line-height:1.9;font-style:italic;">
+        "Feche os olhos e imagine que você está numa nave espacial super confortável, com uma janela enorme cheia de estrelas... A nave flutua suavemente, sem pressa... Cada estrela que você vê é um pensamento do seu dia... Observe cada um passar pela janela... Eles passam... e somem no espaço... A nave fica mais e mais calma... Você sente seu corpo flutuar, leve como uma pena no espaço... Não há pressa... Só paz... E estrelas... E silêncio..."
+      </div>
+      <div class="highlight hi-yellow">💡 Use uma voz calma, pausada, quase sussurrando. Pause de 3-5 segundos após cada reticências (...). Muitas crianças adormecem antes do final!</div>
+    </div>
+  </div>
+
+  <div class="technique-card">
+    <div class="technique-header" style="background:linear-gradient(135deg,#1e3a5f,#3b82f6);">
+      <div class="tech-emoji">🛁</div>
+      <div>
+        <div class="tech-title">Banho Morno Anti-Hiperatividade</div>
+        <div class="tech-sub">⏱ 15-20 minutos · 🧠 Baixa a temperatura corporal e induz o sono</div>
+      </div>
+    </div>
+    <div class="technique-body">
+      <p style="color:#475569;font-size:14px;margin-bottom:16px;">Pesquisas mostram que tomar banho morno (não quente) de 15-20 minutos, 1-2 horas antes de dormir, acelera o início do sono em até 36 minutos. Isso acontece porque o corpo aquece na água e depois esfria rapidamente ao sair — sinalizando ao cérebro que é hora de dormir.</p>
+      <div class="step"><div class="step-num">1</div><p>Agende o banho entre 19h-20h (1-2h antes da hora de dormir)</p></div>
+      <div class="step"><div class="step-num">2</div><p>Temperatura ideal: morna (não quente) — aprox. 37-38°C</p></div>
+      <div class="step"><div class="step-num">3</div><p>Adicione 2 colheres de sopa de sal grosso ou sal de epsom (magnésio transdérmico)</p></div>
+      <div class="step"><div class="step-num">4</div><p>Deixe a criança brincar tranquilamente com brinquedos de banho — sem correria</p></div>
+      <div class="step"><div class="step-num">5</div><p>Após o banho: pijama confortável, quarto escuro, temperatura baixa</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== AMBIENTE ===================== -->
+<div class="section" id="ambiente">
+  <div class="card">
+    <h2 style="color:#6c47ff;">🛏️ O Quarto Perfeito para o Sono TDAH</h2>
+    <p>O ambiente do quarto tem impacto direto na qualidade do sono. Clique em cada item para marcar como implementado!</p>
+    <div class="progress-bar"><div class="progress-fill" id="ambProgress" style="width:0%"></div></div>
+    <p style="font-size:13px;color:#64748b;margin-top:8px;">Implementado: <strong id="ambDone">0</strong>/12 itens</p>
+  </div>
+
+  <div class="ambiente-grid" id="ambienteGrid">
+    <div class="amb-card" onclick="toggleAmb(this)">
+      <div class="amb-emoji">🌑</div>
+      <div class="amb-title">Escuridão Total</div>
+      <div class="amb-desc">Cortinas blackout ou persiana. Tampe LEDs de carregadores. Qualquer luz pode suprimir melatonina.</div>
+      <span class="amb-check">○</span>
+    </div>
+    <div class="amb-card" onclick="toggleAmb(this)">
+      <div class="amb-emoji">🌡️</div>
+      <div class="amb-title">Temperatura 18-20°C</div>
+      <div class="amb-desc">O quarto deve ser levemente fresco. Use lençol leve + cobertor para ajuste individual.</div>
+      <span class="amb-check">○</span>
+    </div>
+    <div class="amb-card" onclick="toggleAmb(this)">
+      <div class="amb-emoji">🔇</div>
+      <div class="amb-title">Ruído Branco</div>
+      <div class="amb-desc">App ou máquina de ruído branco cobre sons externos que perturbam o sono TDAH.</div>
+      <span class="amb-check">○</span>
+    </div>
+    <div class="amb-card" onclick="toggleAmb(this)">
+      <div class="amb-emoji">📱</div>
+      <div class="amb-title">Zero Telas no Quarto</div>
+      <div class="amb-desc">TV, tablet e celular fora do quarto. A tentação de ver "só mais um" é real com TDAH.</div>
+      <span class="amb-check">○</span>
+    </div>
+    <div class="amb-card" onclick="toggleAmb(this)">
+      <div class="amb-emoji">💜</div>
+      <div class="amb-title">Luz Âmbar Noturna</div>
+      <div class="amb-desc">Troque lâmpadas brancas por âmbar ou rosa no período noturno. Elas não suprimem melatonina.</div>
+      <span class="amb-check">○</span>
+    </div>
+    <div class="amb-card" onclick="toggleAmb(this)">
+      <div class="amb-emoji">🧸</div>
+      <div class="amb-title">Objeto de Conforto</div>
+      <div class="amb-desc">Um pelúcia específico para dormir, uma cobertor favorito — cria um "âncora" de segurança e sono.</div>
+      <span class="amb-check">○</span>
+    </div>
+    <div class="amb-card" onclick="toggleAmb(this)">
+      <div class="amb-emoji">🌿</div>
+      <div class="amb-title">Planta no Quarto</div>
+      <div class="amb-desc">Lavanda em vaso ou sachê seco. O aroma de lavanda é comprovadamente sedativo e ansiolítico.</div>
+      <span class="amb-check">○</span>
+    </div>
+    <div class="amb-card" onclick="toggleAmb(this)">
+      <div class="amb-emoji">🛏️</div>
+      <div class="amb-title">Colchão e Travesseiro Certos</div>
+      <div class="amb-desc">Crianças com TDAH podem ter maior sensibilidade tátil — experimentem diferentes texturas de roupa de cama.</div>
+      <span class="amb-check">○</span>
+    </div>
+    <div class="amb-card" onclick="toggleAmb(this)">
+      <div class="amb-emoji">⏰</div>
+      <div class="amb-title">Rotina Visual na Parede</div>
+      <div class="amb-desc">Uma lista visual (com figuras) dos passos da rotina noturna na parede do quarto. Reduz conflito.</div>
+      <span class="amb-check">○</span>
+    </div>
+    <div class="amb-card" onclick="toggleAmb(this)">
+      <div class="amb-emoji">🪨</div>
+      <div class="amb-title">Cobertor Ponderado</div>
+      <div class="amb-desc">Cobertores de 1-1.5kg (10% do peso da criança) reduzem ansiedade e hiperatividade através de pressão profunda.</div>
+      <span class="amb-check">○</span>
+    </div>
+    <div class="amb-card" onclick="toggleAmb(this)">
+      <div class="amb-emoji">🚪</div>
+      <div class="amb-title">Porta Semi-Aberta</div>
+      <div class="amb-desc">Muitas crianças com TDAH têm ansiedade de separação. Porta semi-aberta com luz de corredor apagada ajuda.</div>
+      <span class="amb-check">○</span>
+    </div>
+    <div class="amb-card" onclick="toggleAmb(this)">
+      <div class="amb-emoji">🎵</div>
+      <div class="amb-title">Música ou Meditação</div>
+      <div class="amb-desc">Sons binaurais delta (0.5-4Hz) ou músicas de 432Hz ajudam o cérebro a entrar em ondas de sono.</div>
+      <span class="amb-check">○</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== HISTÓRIAS ===================== -->
+<div class="section" id="historias">
+  <div class="card">
+    <h2 style="color:#6c47ff;">📖 Histórias para Dormir</h2>
+    <p>5 histórias criadas especialmente para crianças com TDAH — personagens que se identificam com elas, narrativas lentas e calmantes, com finais felizes e seguros.</p>
+  </div>
+
+  <div class="story-container">
+    <div class="story-title">🐢 A Tartaruga que Aprendeu a Flutuar</div>
+    <div class="story-text">
+      Havia uma tartaruga chamada Theo que nunca conseguia ficar parada. Seu casco era azul como o oceano, e seus pensamentos eram como peixinhos coloridos que nadavam em todas as direções ao mesmo tempo.<br><br>
+      "Eu quero ir pra lá! Não, pra cá! Olha aquela concha! E aquela alga brilhante!" — a mente de Theo nunca parava.<br><br>
+      Um dia, a vovó-tartaruga, que tinha 200 anos e era muito sábia, chamou Theo perto dela. "Vem cá, meu bem. Quero te ensinar o segredo mais antigo do oceano."<br><br>
+      Ela levou Theo até a superfície, num lugar calmo onde a água era tão lisa quanto um espelho. "Deita de costas," disse a vovó. "E apenas... flutua."<br><br>
+      Theo tentou. No começo, seus pensamentos-peixinhos continuavam nadando. Mas a água era tão morna, o céu era tão azul, e havia apenas o suave balançar das ondas...<br><br>
+      "Quando um pensamento vier," disse a vovó em voz baixa, "não tente pegá-lo. Só observe passar. Como uma bolha. Ela sobe... e some."<br><br>
+      Theo observou um pensamento sobre a concha. Ele subiu. E sumiu. Outro sobre a alga. Subiu. Sumiu. E aos poucos, os peixinhos foram nadando mais devagar... mais devagar... até que Theo estava flutuando no silêncio mais bonito do mundo.<br><br>
+      "É isso," sussurrou a vovó. "Seu cérebro está descansando. Boa noite, Theo."<br><br>
+      E Theo dormiu, com um sorriso pequenino, enquanto as estrelas começavam a aparecer no céu do oceano.
+    </div>
+  </div>
+
+  <div class="story-container" style="margin-top:24px;background:linear-gradient(135deg,#065f46,#166534);">
+    <div class="story-title" style="color:#86efac;">🌲 A Floresta dos Sonhos Dourados</div>
+    <div class="story-text">
+      No fundo de uma floresta encantada, onde as árvores tinham flores de luz e as pedras cantavam de mansinho, morava uma menina chamada Lena. Ela tinha cabelos cheios de caracóis, olhos grandes e curiosos, e um cérebro que pensava em mil coisas ao mesmo tempo — igual ao seu!<br><br>
+      Toda noite, Lena ia até a borda da Floresta dos Sonhos. Uma coruja velha a esperava na primeira árvore.<br><br>
+      "Pronta?" perguntava a coruja.<br><br>
+      "Pronta," dizia Lena. E fechava os olhos.<br><br>
+      Eles caminhavam juntos pela floresta. A cada passo, Lena sentia seus pés afundando suavemente na grama macia. A coruja contava: "Um... dois... três..." — cada número era um passo, e cada passo levava para mais fundo na floresta — mais quieta, mais suave, mais dourada.<br><br>
+      As flores de luz brilhavam em rosa e âmbar. O ar cheirava a pinheiros e baunilha. E as pedras cantavam uma canção sem palavras, só melodia — um som que era como um abraço...<br><br>
+      Antes de chegar ao lago dos sonhos dourados, Lena sempre adormecia — com um sorriso nos lábios e o coração bem quietinho.<br><br>
+      E todos os sonhos dela eram lindos.
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DIÁRIO DO SONO ===================== -->
+<div class="section" id="diario">
+  <div class="card">
+    <h2 style="color:#6c47ff;">📔 Diário do Sono — 3 Semanas</h2>
+    <p>Registre o sono da criança por 21 dias. Esses dados ajudam a identificar padrões e celebrar progressos!</p>
+  </div>
+  <div id="diaryGrid"></div>
+</div>
+
+<!-- ===================== TIMER & SONS ===================== -->
+<div class="section" id="timer">
+  <div class="card">
+    <h2 style="color:#6c47ff;">⏰ Timer de Rotina Noturna</h2>
+    <p>Use este timer durante a rotina da noite para dar clareza à criança sobre quanto tempo falta para cada etapa.</p>
+  </div>
+
+  <div class="night-timer">
+    <p style="font-size:16px;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:8px;" id="timerLabel">Timer de Relaxamento</p>
+    <div class="timer-val" id="timerVal">00:00</div>
+    <div class="timer-btns">
+      <button class="timer-btn" style="background:#8b5cf6;" onclick="setNightTimer(5)">5 min</button>
+      <button class="timer-btn" style="background:#6c47ff;" onclick="setNightTimer(10)">10 min</button>
+      <button class="timer-btn" style="background:#4f46e5;" onclick="setNightTimer(15)">15 min</button>
+      <button class="timer-btn" style="background:#4338ca;" onclick="setNightTimer(20)">20 min</button>
+    </div>
+    <div class="timer-btns" style="margin-top:12px;">
+      <button class="timer-btn" style="background:#22c55e;" onclick="startNightTimer()">▶️ Iniciar</button>
+      <button class="timer-btn" style="background:#64748b;" onclick="pauseNightTimer()">⏸️ Pausar</button>
+      <button class="timer-btn" style="background:#ef4444;" onclick="resetNightTimer()">⏹️ Resetar</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="color:#6c47ff;">🎵 Sons para Dormir</h2>
+    <p>Sons ambiente que ajudam o cérebro TDAH a desacelerar. Os sons são gerados por ondas de áudio (Web Audio API).</p>
+    <div class="sounds-grid" id="soundsGrid">
+      <div class="sound-btn" onclick="playSound('rain',this)">
+        <span class="sound-emoji">🌧️</span>
+        <div class="sound-name">Chuva</div>
+        <div class="sound-wave"><div class="sound-wave-fill"></div></div>
+      </div>
+      <div class="sound-btn" onclick="playSound('ocean',this)">
+        <span class="sound-emoji">🌊</span>
+        <div class="sound-name">Oceano</div>
+        <div class="sound-wave"><div class="sound-wave-fill"></div></div>
+      </div>
+      <div class="sound-btn" onclick="playSound('wind',this)">
+        <span class="sound-emoji">💨</span>
+        <div class="sound-name">Vento</div>
+        <div class="sound-wave"><div class="sound-wave-fill"></div></div>
+      </div>
+      <div class="sound-btn" onclick="playSound('white',this)">
+        <span class="sound-emoji">⬜</span>
+        <div class="sound-name">Ruído Branco</div>
+        <div class="sound-wave"><div class="sound-wave-fill"></div></div>
+      </div>
+      <div class="sound-btn" onclick="playSound('fire',this)">
+        <span class="sound-emoji">🔥</span>
+        <div class="sound-name">Lareira</div>
+        <div class="sound-wave"><div class="sound-wave-fill"></div></div>
+      </div>
+      <div class="sound-btn" onclick="playSound('forest',this)">
+        <span class="sound-emoji">🌲</span>
+        <div class="sound-name">Floresta</div>
+        <div class="sound-wave"><div class="sound-wave-fill"></div></div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:#94a3b8;margin-top:8px;">* Sons gerados sinteticamente no navegador. Para melhor experiência, use fones de ouvido.</p>
+  </div>
+</div>
+
+</main>
+
+<script>
+// ===================== TABS =====================
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ===================== PROTOCOLO =====================
+const protocol21 = [
+  {week:1,days:[
+    {d:1,title:'Estabeleça o Horário de Dormir',desc:'Escolha um horário fixo para dormir (ex: 21h) e mantenha nos próximos 21 dias, incluindo fins de semana. Consistência é o pilar #1.'},
+    {d:2,title:'Banho Morno 2h antes',desc:'Hoje, dê o banho 2 horas antes do horário de dormir. Observe se a criança ficou mais calma após o banho.'},
+    {d:3,title:'Telas Apagadas 1h Antes',desc:'Configure um alarme para desligar todas as telas 1 hora antes de dormir. Prepare uma atividade de substituição (livro, desenho, massagem).'},
+    {d:4,title:'Implante a Respiração 4-7-8',desc:'Pratique a técnica de respiração junto com a criança. Faça 3 ciclos na cama. Torne divertido — "vamos ser feiticeiros do sono!"'},
+    {d:5,title:'Avalie o Ambiente do Quarto',desc:'Vá na seção "Ambiente Ideal" e marque o que já está implementado. Escolha 2 itens para melhorar esta semana.'},
+    {d:6,title:'Primeira História para Dormir',desc:'Leia uma das histórias desta coleção com voz calma e pausada. Observe a reação da criança.'},
+    {d:7,title:'Revisão da Semana 1',desc:'Conversa rápida com a criança: "O que você gostou na nossa nova rotina?" Celebre qualquer progresso, por menor que seja!'},
+  ]},
+  {week:2,days:[
+    {d:8,title:'Adicione o Relaxamento Muscular',desc:'Hoje inclua o RMP à rotina. Comece pelos pés e suba até o rosto. Faça junto com a criança — é mais divertido!'},
+    {d:9,title:'Lanche Noturno Rico em Triptofano',desc:'30 min antes de dormir: banana + iogurte natural OU leite morno com mel. O triptofano vira serotonina e melatonina.'},
+    {d:10,title:'Crie a Rotina Visual',desc:'Desenhe ou imprima (com a criança!) um quadro visual dos passos da rotina noturna. Cole no quarto.'},
+    {d:11,title:'Teste a Imaginação Guiada',desc:'Use o script de "Viagem ao Espaço" hoje à noite. Leia devagar, com pausas de 5 segundos nos (...).'},
+    {d:12,title:'Cuide da Sua Própria Energia',desc:'Pais calmos = crianças calmas. Antes da rotina noturna, faça 3 respirações profundas você mesmo para entrar em modo "calmo".'},
+    {d:13,title:'Experimente Sons Ambiente',desc:'Use a seção Timer & Sons para colocar um som ambiente enquanto a criança adormece. Chuva ou ruído branco tendem a funcionar melhor.'},
+    {d:14,title:'Revisão da Semana 2',desc:'Olhe o Diário do Sono. Houve melhora no tempo para adormecer? Celebre com um "certificado de dormidor campeão"!'},
+  ]},
+  {week:3,days:[
+    {d:15,title:'Consolide a Rotina',desc:'Você já tem uma rotina funcionando! Agora a missão é consistência. Cumpra a rotina mesmo em dias difíceis.'},
+    {d:16,title:'Ajuste Fino do Ambiente',desc:'Verifique a temperatura do quarto, a escuridão e o ruído. Pequenos ajustes podem fazer grande diferença.'},
+    {d:17,title:'Conversas da Manhã',desc:'Pergunte à criança sobre seus sonhos pela manhã. Isso cria uma memória positiva associada ao sono e reforça o hábito.'},
+    {d:18,title:'Exercício Físico Diurno',desc:'Garanta atividade física de 30-60 min pela manhã ou tarde. O cansaço físico saudável melhora enormemente o sono.'},
+    {d:19,title:'Reflexão Gratidão',desc:'Antes de dormir, pergunte: "Me conta 3 coisas boas que aconteceram hoje." Isso muda o estado emocional para positivo.'},
+    {d:20,title:'Carta para o Amanhã',desc:'Juntos, escrevam ou desenhem uma coisa boa que acontecerá amanhã. Anticipação positiva = menos ansiedade no sono.'},
+    {d:21,title:'🎉 PARABÉNS! 21 Dias Completos!',desc:'Você chegou ao fim do protocolo! A rotina já deve estar consolidada. Celebre com toda a família — isso é uma conquista real!'},
+  ]},
+];
+
+function initProtocol() {
+  const done = JSON.parse(localStorage.getItem('sleep_protocol') || '[]');
+  let html = '';
+  protocol21.forEach(week => {
+    html += `<div class="protocol-week">
+      <div class="week-header">
+        <span class="week-num">Semana ${week.week}</span>
+        <span style="font-size:14px;opacity:0.8;">Dias ${week.days[0].d} - ${week.days[week.days.length-1].d}</span>
+      </div>
+      <div class="week-days">`;
+    week.days.forEach(day => {
+      const isDone = done.includes(day.d);
+      html += `<div class="day-row${isDone?' done':''}" onclick="toggleProtocol(${day.d},this)">
+        <div class="day-circle">${day.d}</div>
+        <div class="day-content">
+          <div class="day-title">📌 ${day.title}</div>
+          <div class="day-desc">${day.desc}</div>
+        </div>
+        <div class="day-check">${isDone?'✓':''}</div>
+      </div>`;
+    });
+    html += '</div></div>';
+  });
+  document.getElementById('protocolGrid').innerHTML = html;
+  updateProtocolProgress(done.length);
+}
+
+function toggleProtocol(day, el) {
+  const done = JSON.parse(localStorage.getItem('sleep_protocol') || '[]');
+  const idx = done.indexOf(day);
+  if (idx > -1) { done.splice(idx, 1); el.classList.remove('done'); el.querySelector('.day-check').textContent = ''; }
+  else { done.push(day); el.classList.add('done'); el.querySelector('.day-check').textContent = '✓'; }
+  localStorage.setItem('sleep_protocol', JSON.stringify(done));
+  updateProtocolProgress(done.length);
+}
+
+function updateProtocolProgress(n) {
+  document.getElementById('protocolProgress').style.width = (n/21*100) + '%';
+  document.getElementById('protocolDone').textContent = n;
+}
+
+// ===================== AMBIENTE =====================
+function toggleAmb(card) {
+  card.classList.toggle('done');
+  card.querySelector('.amb-check').textContent = card.classList.contains('done') ? '✓' : '○';
+  const done = document.querySelectorAll('.amb-card.done').length;
+  const total = document.querySelectorAll('.amb-card').length;
+  document.getElementById('ambProgress').style.width = (done/total*100) + '%';
+  document.getElementById('ambDone').textContent = done;
+}
+
+// ===================== DIÁRIO =====================
+function initDiary() {
+  const weeks = ['Semana 1 (Dias 1-7)','Semana 2 (Dias 8-14)','Semana 3 (Dias 15-21)'];
+  const emojis = ['😫','😕','😐','🙂','😊','😄','🤩'];
+  let html = '';
+  weeks.forEach((wk, wi) => {
+    html += `<div class="diary-week"><div class="diary-week-title">${wk}</div>`;
+    for(let d = wi*7+1; d <= (wi+1)*7; d++) {
+      html += `<div class="diary-day">
+        <div class="diary-day-title">🌙 Dia ${d}</div>
+        <p style="font-size:12px;color:#64748b;margin-bottom:8px;">Como foi o sono? (emoji abaixo)</p>
+        <div class="diary-rating">
+          ${emojis.map((e,i) => `<button class="diary-rating-btn" onclick="selectRating(this,${d},'quality',${i})">${e}</button>`).join('')}
+        </div>
+        <div class="diary-fields">
+          <div class="diary-field"><label>⏰ Dormiu às</label><input class="diary-input" type="time" placeholder="21:00" id="sleep_start_${d}"></div>
+          <div class="diary-field"><label>☀️ Acordou às</label><input class="diary-input" type="time" placeholder="07:00" id="sleep_end_${d}"></div>
+          <div class="diary-field"><label>⚡ Tempo para Dormir</label>
+            <select class="diary-input" id="sleep_time_${d}">
+              <option value="">Selecione</option>
+              <option>5-10 min</option><option>10-20 min</option><option>20-30 min</option>
+              <option>30-60 min</option><option>+1 hora</option>
+            </select>
+          </div>
+          <div class="diary-field"><label>😴 Acordou à noite?</label>
+            <select class="diary-input" id="sleep_wake_${d}">
+              <option value="">Selecione</option>
+              <option>Não acordou</option><option>1x</option><option>2x</option><option>3x ou mais</option>
+            </select>
+          </div>
+        </div>
+      </div>`;
+    }
+    html += '</div>';
+  });
+  document.getElementById('diaryGrid').innerHTML = html;
+}
+
+function selectRating(btn, day, type, val) {
+  const siblings = btn.closest('.diary-rating').querySelectorAll('.diary-rating-btn');
+  siblings.forEach(s => s.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+// ===================== NIGHT TIMER =====================
+let nightSeconds = 0, nightInterval, nightRunning = false;
+function setNightTimer(min) { nightSeconds = min*60; resetNightTimer(); }
+function startNightTimer() {
+  if(nightRunning) return; nightRunning = true;
+  nightInterval = setInterval(() => {
+    nightSeconds--;
+    updateNightTimer();
+    if(nightSeconds <= 0) { clearInterval(nightInterval); nightRunning = false; document.getElementById('timerLabel').textContent = '🌙 Boa Noite! Hora de Dormir!'; }
+  }, 1000);
+}
+function pauseNightTimer() { clearInterval(nightInterval); nightRunning = false; }
+function resetNightTimer() { clearInterval(nightInterval); nightRunning = false; updateNightTimer(); document.getElementById('timerLabel').textContent = 'Timer de Relaxamento'; }
+function updateNightTimer() {
+  const m = Math.floor(nightSeconds/60).toString().padStart(2,'0');
+  const s = (nightSeconds%60).toString().padStart(2,'0');
+  document.getElementById('timerVal').textContent = `${m}:${s}`;
+}
+
+// ===================== SOUNDS =====================
+let audioCtx, activeSounds = {};
+function playSound(type, btn) {
+  if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if(activeSounds[type]) {
+    activeSounds[type].stop();
+    delete activeSounds[type];
+    btn.classList.remove('playing');
+    return;
+  }
+  // Stop others
+  for(const t in activeSounds) { activeSounds[t].stop(); delete activeSounds[t]; }
+  document.querySelectorAll('.sound-btn').forEach(b => b.classList.remove('playing'));
+  btn.classList.add('playing');
+  
+  const bufferSize = audioCtx.sampleRate * 3;
+  const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+  const data = buffer.getChannelData(0);
+  
+  if(type === 'white') {
+    for(let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+  } else if(type === 'rain') {
+    for(let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1) * 0.3;
+  } else if(type === 'wind') {
+    for(let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1) * Math.sin(i * 0.001) * 0.4;
+  } else {
+    for(let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1) * 0.2;
+  }
+  
+  const source = audioCtx.createBufferSource();
+  source.buffer = buffer;
+  source.loop = true;
+  
+  const filter = audioCtx.createBiquadFilter();
+  filter.type = type === 'ocean' ? 'lowpass' : type === 'fire' ? 'bandpass' : 'highpass';
+  filter.frequency.value = type === 'ocean' ? 800 : type === 'fire' ? 400 : 1000;
+  
+  const gain = audioCtx.createGain();
+  gain.gain.value = 0.3;
+  
+  source.connect(filter);
+  filter.connect(gain);
+  gain.connect(audioCtx.destination);
+  source.start();
+  
+  activeSounds[type] = source;
+}
+
+window.addEventListener('load', () => {
+  initProtocol();
+  initDiary();
+  updateNightTimer();
+  const done = JSON.parse(localStorage.getItem('sleep_protocol') || '[]');
+  updateProtocolProgress(done.length);
+});
+</script>
+</body>
+</html>

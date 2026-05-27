@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>30 Atividades em Família — Versão de Impressão</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green: #22c55e; --teal: #0d9488; --emerald: #059669;
+    --slate-800: #1e293b; --slate-600: #475569; --slate-400: #94a3b8;
+    --slate-100: #f1f5f9; --slate-50: #f8fafc;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--slate-800);
+    background: #fff;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Fredoka One', cursive; line-height: 1.2; }
+
+  /* ── PRINT BAR (hidden on print) ── */
+  .print-bar {
+    position: sticky; top: 0; z-index: 100;
+    background: linear-gradient(135deg, var(--green), var(--teal));
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.15);
+  }
+  .print-bar button {
+    background: #fff; color: var(--teal); border: none;
+    padding: 10px 28px; border-radius: 50px; font-weight: 800;
+    font-size: 15px; cursor: pointer; font-family: 'Nunito', sans-serif;
+    transition: transform .2s;
+  }
+  .print-bar button:hover { transform: scale(1.05); }
+  .print-bar span { color: #fff; font-weight: 700; font-size: 14px; }
+  .back-link { color: #fff; text-decoration: none; font-weight: 700; font-size: 14px; }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #ccfbf1 100%);
+    padding: 60px 40px;
+  }
+  .cover-emoji { font-size: 120px; margin-bottom: 24px; }
+  .cover h1 { font-size: 44px; color: var(--slate-800); margin-bottom: 12px; }
+  .cover .subtitle { font-size: 20px; color: var(--teal); font-weight: 800; margin-bottom: 32px; }
+  .cover .desc { font-size: 16px; color: var(--slate-600); max-width: 500px; margin-bottom: 48px; }
+  .cover-footer { font-size: 12px; color: var(--slate-400); }
+
+  /* ── TABLE OF CONTENTS ── */
+  .toc { padding: 60px 40px; max-width: 700px; margin: 0 auto; }
+  .toc h2 { font-size: 32px; margin-bottom: 28px; color: var(--slate-800); text-align: center; }
+  .toc-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 0; border-bottom: 1px dashed #e2e8f0; font-size: 15px;
+  }
+  .toc-item .num { color: var(--teal); font-weight: 900; margin-right: 12px; }
+  .toc-item .title { font-weight: 700; flex: 1; }
+  .toc-item .pages { color: var(--slate-400); font-size: 12px; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 50px 40px; max-width: 800px; margin: 0 auto; }
+  .section-header {
+    text-align: center; margin-bottom: 40px;
+    padding: 40px 30px; border-radius: 24px;
+    background: linear-gradient(135deg, #f0fdf4, #ccfbf1);
+  }
+  .section-header .sec-icon { font-size: 64px; margin-bottom: 12px; }
+  .section-header h2 { font-size: 30px; color: var(--slate-800); margin-bottom: 8px; }
+  .section-header p { font-size: 15px; color: var(--slate-600); max-width: 500px; margin: 0 auto; }
+
+  /* ── CONTENT BOXES ── */
+  .card {
+    background: var(--slate-50); border-radius: 20px;
+    padding: 32px; margin-bottom: 28px;
+    border-left: 5px solid var(--teal);
+  }
+  .card h3 { font-size: 20px; margin-bottom: 14px; color: var(--slate-800); }
+  .card p { font-size: 14px; color: var(--slate-600); margin-bottom: 12px; }
+  
+  .highlight {
+    background: #fff; border-radius: 12px; padding: 16px 20px;
+    margin: 16px 0; border: 1px solid #bbf7d0; border-left: 4px solid var(--green);
+  }
+
+  /* ── 30 ACTIVITIES LIST ── */
+  .act-item {
+    background: var(--slate-50); border: 1px solid #e2e8f0; border-radius: 16px;
+    padding: 24px; margin-bottom: 20px; page-break-inside: avoid; break-inside: avoid;
+  }
+  .act-header {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;
+  }
+  .act-title { font-family: 'Fredoka One', cursive; font-size: 18px; color: var(--slate-800); }
+  .act-day { background: var(--teal); color: #fff; font-weight: 800; font-size: 11px; padding: 4px 10px; border-radius: 50px; }
+  .act-meta { font-size: 12px; color: var(--slate-400); font-weight: 700; margin-bottom: 10px; }
+  .act-desc { font-size: 13px; color: var(--slate-600); margin-bottom: 10px; }
+  .act-benefit { font-size: 12px; font-weight: 700; color: var(--teal); }
+
+  /* ── PRINTABLE CUTOUT GAMES ── */
+  .cutout-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0;
+  }
+  .cutout-card {
+    border: 2px dashed var(--slate-400); border-radius: 12px; aspect-ratio: 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: #fff; font-size: 28px; padding: 8px; text-align: center;
+  }
+  .cutout-card span { font-size: 11px; font-weight: 700; color: var(--slate-400); margin-top: 4px; display: block; text-transform: uppercase; }
+
+  /* ── COLORING PAGES ── */
+  .coloring-box {
+    border: 2px solid #cbd5e1; border-radius: 20px; background: #fff; padding: 20px; margin: 20px 0; text-align: center;
+  }
+  .coloring-svg {
+    max-width: 100%; height: auto; display: block; margin: 0 auto;
+  }
+
+  /* ── TRACKER GRID ── */
+  .tracker-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin: 24px 0;
+  }
+  .tracker-cell {
+    border: 2px solid var(--teal); border-radius: 12px; aspect-ratio: 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 800; color: var(--teal); background: #fff;
+  }
+  .tracker-cell span { font-size: 10px; color: var(--slate-400); font-weight: 700; }
+
+  /* ── DIPLOMA ── */
+  .diploma {
+    border: 10px double var(--teal); border-radius: 24px; padding: 40px; text-align: center;
+    background: #fff; margin: 40px 0; page-break-inside: avoid; break-inside: avoid;
+  }
+  .diploma-title { font-size: 28px; color: var(--teal); margin-bottom: 20px; }
+  .diploma-text { font-size: 16px; line-height: 1.8; color: var(--slate-600); margin-bottom: 30px; }
+  .diploma-line { border-bottom: 2px solid var(--slate-800); width: 60%; margin: 40px auto 10px; }
+
+  /* ── SEPARATOR ── */
+  .page-sep {
+    border: none; height: 2px;
+    background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
+    margin: 40px 0;
+  }
+
+  /* ── PRINT STYLES ── */
+  @media print {
+    .print-bar { display: none !important; }
+    body { font-size: 12px; }
+    .cover { min-height: auto; padding: 40px 20px; page-break-after: always; }
+    .toc { page-break-after: always; }
+    .section { page-break-before: always; }
+    .act-item { page-break-inside: avoid; break-inside: avoid; }
+    .cutout-card { border-style: dashed; }
+    .coloring-box { page-break-inside: avoid; break-inside: avoid; }
+    .tracker-grid { page-break-inside: avoid; break-inside: avoid; }
+    .diploma { page-break-inside: avoid; break-inside: avoid; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PRINT BAR -->
+<div class="print-bar">
+  <a href="bonus_03_atividades_v2.html" class="back-link">← Voltar ao Menu Interativo</a>
+  <span>|</span>
+  <span>📄 Versão para Impressão</span>
+  <button onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- COVER PAGE -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-emoji">🎨</div>
+  <h1>30 Atividades em Família</h1>
+  <div class="subtitle">Guia Prático e Jogos Recortáveis para TDAH</div>
+  <p class="desc">Material de apoio para pais e filhos criarem laços mais fortes, treinarem as funções executivas e se divertirem juntos longe de telas, com jogos de tabuleiro e cartões recortáveis.</p>
+
+  <div class="cover-footer">
+    <p>© 2025 TDAH Produtivo Kids · Material Exclusivo para Alunos</p>
+    <p>Proibida a reprodução sem autorização</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TABLE OF CONTENTS -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="toc">
+  <h2>📋 Sumário</h2>
+  <div class="toc-item"><span class="num">01</span><span class="title">Introdução & Guia de Aplicação</span><span class="pages">Pág. 3</span></div>
+  <div class="toc-item"><span class="num">02</span><span class="title">Lista Completa de 30 Atividades</span><span class="pages">Pág. 4</span></div>
+  <div class="toc-item"><span class="num">03</span><span class="title">Material Recortável: Jogo da Memória</span><span class="pages">Pág. 8</span></div>
+  <div class="toc-item"><span class="num">04</span><span class="title">Páginas de Desenho & Colorir</span><span class="pages">Pág. 9</span></div>
+  <div class="toc-item"><span class="num">05</span><span class="title">Tracker de Conquistas & Diploma</span><span class="pages">Pág. 10</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- INTRODUÇÃO & GUIA DE APLICAÇÃO -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="sec-icon">🌿</div>
+    <h2>Atividades & O Vínculo Familiar</h2>
+    <p>Saiba como as conexões familiares atuam como moduladoras da dopamina e reduzem o estresse das crianças.</p>
+  </div>
+
+  <div class="card">
+    <h3>🧘 O Poder das Atividades Sem Telas</h3>
+    <p>A superestimulação digital (luz azul, vídeos curtos rápidos, games competitivos) exaure o estoque de dopamina cerebral de forma artificial, aumentando os sintomas de rebote (irritabilidade, ansiedade e impaciência). Atividades desconectadas, baseadas em interações físicas em família, ativam o sistema nervoso parassimpático e treinam a mente a focar no presente.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--green);">
+    <h3>📋 Guia de Aplicação para os Pais</h3>
+    <p><strong>Não Corrija Demais:</strong> O objetivo de desenhar, cozinhar ou construir juntos é o processo de interação e vínculo, não a perfeição da obra final.</p>
+    <p><strong>Use Elogios Descritivos:</strong> Em vez de apenas "muito bom", diga "eu adorei a forma como você planejou e colocou cada peça da torre de copos no lugar!"</p>
+    <p><strong>Divida em Blocos:</strong> Se a criança aparentar tédio ou inquietação, pare e retome a atividade mais tarde. Não force a conclusão.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 30 ATIVIDADES -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="sec-icon">📅</div>
+    <h2>Lista das 30 Atividades Diárias</h2>
+    <p>Atividades fáceis e estruturadas para realizar em conjunto, estimulando diferentes funções cognitivas.</p>
+  </div>
+
+  <!-- Atividade 1 -->
+  <div class="act-item">
+    <div class="act-header">
+      <h3 class="act-title">🌬️ Respiração do Dragão</h3>
+      <span class="act-day">Dia 1</span>
+    </div>
+    <div class="act-meta">⏱ 10 min · 🧘 Mindfulness · 📦 Nenhum</div>
+    <p class="act-desc">Inspirem profundamente juntos e soltem o ar devagar pela boca fazendo um sopro forte de dragão (rugindo baixinho). Repitam por 5 vezes.</p>
+    <p class="act-benefit">🧠 <strong>Benefício:</strong> Redução rápida de estresse e melhora da regulação corporal.</p>
+  </div>
+
+  <!-- Atividade 2 -->
+  <div class="act-item">
+    <div class="act-header">
+      <h3 class="act-title">🧩 Torre de Copos Plásticos</h3>
+      <span class="act-day">Dia 2</span>
+    </div>
+    <div class="act-meta">⏱ 15 min · 🧩 Cognição · 📦 20+ Copos de Plástico</div>
+    <p class="act-desc">Utilizando copos descartáveis ou de plástico, tentem erguer a maior pirâmide possível sem deixar cair. Se cair, respirem e comecem novamente.</p>
+    <p class="act-benefit">🧠 <strong>Benefício:</strong> Planejamento espacial e controle inibitório.</p>
+  </div>
+
+  <!-- Atividade 3 -->
+  <div class="act-item">
+    <div class="act-header">
+      <h3 class="act-title">🎨 Pintura Silenciosa de Mandala</h3>
+      <span class="act-day">Dia 3</span>
+    </div>
+    <div class="act-meta">⏱ 20 min · 🎨 Arte · 📦 Lápis de cor, papel</div>
+    <p class="act-desc">Pintem desenhos circulares concêntricos (mandalas) em absoluto silêncio, prestando atenção em cada movimento do lápis de cor no papel.</p>
+    <p class="act-benefit">🧠 <strong>Benefício:</strong> Foco atencional sustentado e coordenação fina.</p>
+  </div>
+
+  <!-- Atividade 4 -->
+  <div class="act-item">
+    <div class="act-header">
+      <h3 class="act-title">🏃 Caça ao Tesouro Caseiro</h3>
+      <span class="act-day">Dia 4</span>
+    </div>
+    <div class="act-meta">⏱ 20 min · 🏃 Movimento · 📦 Post-its, caneta</div>
+    <p class="act-desc">Escreva pequenas pistas em papéis e espalhe-as pela casa. Cada pista aponta a localização da seguinte, até acharem um pequeno prêmio.</p>
+    <p class="act-benefit">🧠 <strong>Benefício:</strong> Interpretação lógica e exercício físico moderado.</p>
+  </div>
+
+  <!-- Atividade 5 -->
+  <div class="act-item">
+    <div class="act-header">
+      <h3 class="act-title">🍳 Pizza Saudável das Frações</h3>
+      <span class="act-day">Dia 5</span>
+    </div>
+    <div class="act-meta">⏱ 30 min · 🍳 Culinária · 📦 Pão de forma ou massa, queijo, molho</div>
+    <p class="act-desc">Montem juntos uma mini pizza. Dividam os ingredientes em porções geométricas: "coloque tomate em metade, milho em um quarto".</p>
+    <p class="act-benefit">🧠 <strong>Benefício:</strong> Sequenciamento, raciocínio de proporção matemática.</p>
+  </div>
+
+  <!-- Atividade 6 -->
+  <div class="act-item">
+    <div class="act-header">
+      <h3 class="act-title">🌿 Trilha dos 5 Sentidos</h3>
+      <span class="act-day">Dia 6</span>
+    </div>
+    <div class="act-meta">⏱ 45 min · 🌿 Natureza · 📦 Tênis confortáveis</div>
+    <p class="act-desc">Caminhem em um parque verde. Ao longo do trajeto, peçam para a criança identificar 5 sons, 4 cores, 3 texturas de folhas e 2 aromas.</p>
+    <p class="act-benefit">🧠 <strong>Benefício:</strong> Estimulação sensorial integrada e regulação emocional.</p>
+  </div>
+
+  <!-- Atividade 7 -->
+  <div class="act-item">
+    <div class="act-header">
+      <h3 class="act-title">🧘 Yoga dos Animais</h3>
+      <span class="act-day">Dia 7</span>
+    </div>
+    <div class="act-meta">⏱ 15 min · 🧘 Mindfulness · 📦 Tapete macio</div>
+    <p class="act-desc">Realizem poses corporais imitando animais: pose da cobra (deitar de bruços e subir o tronco), pose do gato (esticar as costas no chão) e da árvore.</p>
+    <p class="act-benefit">🧠 <strong>Benefício:</strong> Equilíbrio corporal e consciência proprioceptiva.</p>
+  </div>
+
+  <!-- Atividade 8 -->
+  <div class="act-item">
+    <div class="act-header">
+      <h3 class="act-title">🎵 Criação de Instrumentos</h3>
+      <span class="act-day">Dia 8</span>
+    </div>
+    <div class="act-meta">⏱ 20 min · 🎨 Arte · 📦 Garrafas, grãos de arroz/feijão, potes</div>
+    <p class="act-desc">Construam chocalhos e pequenos tambores enchendo garrafas com grãos de feijão. Toquem ritmos em conjunto simulando uma pequena orquestra.</p>
+    <p class="act-benefit">🧠 <strong>Benefício:</strong> Estímulo auditivo, ritmo e processamento sensorial.</p>
+  </div>
+
+  <!-- Atividade 9 -->
+  <div class="act-item">
+    <div class="act-header">
+      <h3 class="act-title">🧩 Jogo dos 15 Objetos</h3>
+      <span class="act-day">Dia 9</span>
+    </div>
+    <div class="act-meta">⏱ 15 min · 🧩 Cognição · 📦 15 objetos pequenos, bandeja, pano</div>
+    <p class="act-desc">Coloque 15 objetos em uma bandeja. Deixe a criança observar por 1 minuto, cubra com o pano e peça que ela cite todos de cabeça.</p>
+    <p class="act-benefit">🧠 <strong>Benefício:</strong> Fortalecimento da memória de trabalho e retenção visual.</p>
+  </div>
+
+  <!-- Atividade 10 -->
+  <div class="act-item">
+    <div class="act-header">
+      <h3 class="act-title">🌿 Plantio de Sementes no Algodão</h3>
+      <span class="act-day">Dia 10</span>
+    </div>
+    <div class="act-meta">⏱ 15 min · 🌿 Natureza · 📦 Copo, algodão, grãos de feijão, água</div>
+    <p class="act-desc">Preparem o copinho com algodão molhado e coloquem os feijões. Deixem na janela e combinem que a criança deve regar diariamente.</p>
+    <p class="act-benefit">🧠 <strong>Benefício:</strong> Senso de responsabilidade, paciência e observação científica.</p>
+  </div>
+
+  <!-- Atividades 11 a 30 resumidas de forma compacta e rica -->
+  <div class="act-item">
+    <div class="act-header"><h3>🍳 Dia 11: Vitaminas Divertidas</h3></div>
+    <p>Usem medidores para fazer um smoothie de banana, morango e chia. Enfatize as medidas fracionárias.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🎨 Dia 12: Teatro de Fantoches</h3></div>
+    <p>Façam fantoches colando botões e olhas em meias velhas. Criem um pequeno roteiro criativo.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🏃 Dia 13: Circuito Motor na Sala</h3></div>
+    <p>Usem almofadas, fita crepe e cadeiras para criar obstáculos. A criança passa pulando e rastejando.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🧘 Dia 14: Confecção do Pote da Calma</h3></div>
+    <p>Encham um pote com água, cola colorida e glitter. Agite e observem o glitter assentar.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🎨 Dia 15: Arte com Carimbo de Folhas</h3></div>
+    <p>Coletem folhas caídas das árvores, passem tinta guache e carimbem texturas no papel.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🧩 Dia 16: Desafio Tangram Geométrico</h3></div>
+    <p>Cortem formas geométricas em papel e tentem criar imagens de animais (gato, barco, ave).</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🌿 Dia 17: Piquenique Noturno na Varanda/Quintal</h3></div>
+    <p>Estendam uma colcha no chão sob a luz da lua e façam o lanche da noite sem eletrônicos.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🏃 Dia 18: Dança das Estátuas Musicais</h3></div>
+    <p>Coloque uma música agitada e pare-a repentinamente. A criança precisa congelar na pose.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🍳 Dia 19: Cookies de Banana e Aveia</h3></div>
+    <p>Amassem 2 bananas, misturem 1 xícara de aveia e assem pequenas porções por 15 minutos.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🧘 Dia 20: Jogo dos Sons Silenciosos</h3></div>
+    <p>Deitem-se de olhos fechados por 2 minutos. Anotem quantos sons diferentes conseguiram ouvir.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🎨 Dia 21: Livro das Minhas Histórias</h3></div>
+    <p>Dobre folhas A4 ao meio. A criança cria desenhos e os pais escrevem as falas dos personagens.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🧩 Dia 22: Desafio do Quebra-Cabeça</h3></div>
+    <p>Montem um quebra-cabeça de 100 peças juntos, auxiliando na identificação de bordas e cores.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🌿 Dia 23: Observação Lunar</h3></div>
+    <p>Com ajuda de binóculos ou a olho nu, observem a lua e façam um desenho simples da sua fase atual.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🏃 Dia 24: Vôlei de Balão Sopro</h3></div>
+    <p>Usem um balão e tentem não deixá-lo tocar o chão, usando apenas sopros ou toques com as mãos.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🍳 Dia 25: Limonada Suíça</h3></div>
+    <p>Espremam limões frescos, misturem água e mel e decorem o copo com rodelas finas.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🧘 Dia 26: Massagem nas Costas</h3></div>
+    <p>Façam desenhos suaves com o dedo nas costas do outro e tentem adivinhar o que foi desenhado.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🎨 Dia 27: Esculturas de Argila ou Massinha</h3></div>
+    <p>Modelem animais fantásticos e contem histórias sobre seus poderes extraordinários.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🧩 Dia 28: Encontre as 7 Diferenças</h3></div>
+    <p>Desenhem duas figuras quase idênticas e peçam para o outro identificar as diferenças sutis.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🌿 Dia 29: Colecionadores de Pedras</h3></div>
+    <p>Achem pedras lisas na rua ou parque e pintem rostos divertidos nelas usando guache.</p>
+  </div>
+  <div class="act-item">
+    <div class="act-header"><h3>🎉 Dia 30: Festa das Medalhas</h3></div>
+    <p>Comemorem a conclusão do mês montando a mesa do lanche juntos e entregando o diploma da família.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MATERIAL RECORTÁVEL -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="sec-icon">✂️</div>
+    <h2>Material Recortável</h2>
+    <p>Recorte as peças abaixo com tesoura sem ponta para jogar com seu filho no dia 9 e dia 16.</p>
+  </div>
+
+  <div class="card">
+    <h3>🦁 Cartões do Jogo da Memória Animal</h3>
+    <p>Recorte na linha tracejada para obter 8 pares de cartas. Embaralhe e encontre os pares.</p>
+    
+    <div class="cutout-grid">
+      <div class="cutout-card">🦁<span>Leão</span></div>
+      <div class="cutout-card">🦁<span>Leão</span></div>
+      <div class="cutout-card">🐘<span>Elefante</span></div>
+      <div class="cutout-card">🐘<span>Elefante</span></div>
+      <div class="cutout-card">🐸<span>Sapo</span></div>
+      <div class="cutout-card">🐸<span>Sapo</span></div>
+      <div class="cutout-card">🦊<span>Raposa</span></div>
+      <div class="cutout-card">🦊<span>Raposa</span></div>
+      <div class="cutout-card">🐬<span>Golfinho</span></div>
+      <div class="cutout-card">🐬<span>Golfinho</span></div>
+      <div class="cutout-card">🐦<span>Passarinho</span></div>
+      <div class="cutout-card">🐦<span>Passarinho</span></div>
+      <div class="cutout-card">🦋<span>Borboleta</span></div>
+      <div class="cutout-card">🦋<span>Borboleta</span></div>
+      <div class="cutout-card">🦄<span>Unicórnio</span></div>
+      <div class="cutout-card">🦄<span>Unicórnio</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- DESENHAR & COLORIR -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="sec-icon">🎨</div>
+    <h2>Páginas para Desenho Livre</h2>
+    <p>Espaço em branco estruturado para colorir e soltar a imaginação com giz de cera ou guache.</p>
+  </div>
+
+  <div class="coloring-box">
+    <h3 style="margin-bottom: 12px;">🎨 Pinte Theo, a Tartaruga Flutuante</h3>
+    <!-- Beautiful SVG outlines for coloring -->
+    <svg class="coloring-svg" viewBox="0 0 200 120" width="400" height="240">
+      <!-- Ocean background lines -->
+      <path d="M 10 100 Q 50 90 90 100 T 170 100" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4"/>
+      <path d="M 30 110 Q 70 105 110 110 T 190 110" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4"/>
+      <!-- The turtle -->
+      <!-- Shell -->
+      <path d="M 60 70 A 40 30 0 0 1 140 70 Z" fill="none" stroke="#1e293b" stroke-width="3"/>
+      <!-- Head -->
+      <circle cx="150" cy="65" r="12" fill="none" stroke="#1e293b" stroke-width="3"/>
+      <!-- Eye -->
+      <circle cx="154" cy="62" r="2" fill="#1e293b"/>
+      <!-- Mouth -->
+      <path d="M 152 70 Q 155 72 158 68" fill="none" stroke="#1e293b" stroke-width="2"/>
+      <!-- Flippers -->
+      <path d="M 70 70 C 60 85 50 90 40 85 C 45 75 55 70 70 70" fill="none" stroke="#1e293b" stroke-width="3"/>
+      <path d="M 130 70 C 140 85 150 90 160 85 C 155 75 145 70 130 70" fill="none" stroke="#1e293b" stroke-width="3"/>
+      <!-- Shell patterns -->
+      <path d="M 80 65 Q 100 50 120 65" fill="none" stroke="#1e293b" stroke-width="2"/>
+      <path d="M 100 70 L 100 40" fill="none" stroke="#1e293b" stroke-width="2"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TRACKER DE CONQUISTAS & DIPLOMA -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="sec-icon">🏆</div>
+    <h2>Tracker & Diploma</h2>
+    <p>Monitore suas vitórias e celebre com um diploma oficial de união familiar.</p>
+  </div>
+
+  <div class="card">
+    <h3>📅 Calendário de Conquistas de 30 Dias</h3>
+    <p>Coloram uma estrela ou façam um X no círculo de cada dia que completarem uma atividade em conjunto.</p>
+    
+    <div class="tracker-grid">
+      <div class="tracker-cell">1<span>Dia</span></div>
+      <div class="tracker-cell">2<span>Dia</span></div>
+      <div class="tracker-cell">3<span>Dia</span></div>
+      <div class="tracker-cell">4<span>Dia</span></div>
+      <div class="tracker-cell">5<span>Dia</span></div>
+      <div class="tracker-cell">6<span>Dia</span></div>
+      <div class="tracker-cell">7<span>Dia</span></div>
+      <div class="tracker-cell">8<span>Dia</span></div>
+      <div class="tracker-cell">9<span>Dia</span></div>
+      <div class="tracker-cell">10<span>Dia</span></div>
+      <div class="tracker-cell">11<span>Dia</span></div>
+      <div class="tracker-cell">12<span>Dia</span></div>
+      <div class="tracker-cell">13<span>Dia</span></div>
+      <div class="tracker-cell">14<span>Dia</span></div>
+      <div class="tracker-cell">15<span>Dia</span></div>
+      <div class="tracker-cell">16<span>Dia</span></div>
+      <div class="tracker-cell">17<span>Dia</span></div>
+      <div class="tracker-cell">18<span>Dia</span></div>
+      <div class="tracker-cell">19<span>Dia</span></div>
+      <div class="tracker-cell">20<span>Dia</span></div>
+      <div class="tracker-cell">21<span>Dia</span></div>
+      <div class="tracker-cell">22<span>Dia</span></div>
+      <div class="tracker-cell">23<span>Dia</span></div>
+      <div class="tracker-cell">24<span>Dia</span></div>
+      <div class="tracker-cell">25<span>Dia</span></div>
+      <div class="tracker-cell">26<span>Dia</span></div>
+      <div class="tracker-cell">27<span>Dia</span></div>
+      <div class="tracker-cell">28<span>Dia</span></div>
+      <div class="tracker-cell">29<span>Dia</span></div>
+      <div class="tracker-cell">30<span>Dia</span></div>
+    </div>
+  </div>
+
+  <hr class="page-sep">
+
+  <div class="diploma">
+    <h2 class="diploma-title">🏆 DIPLOMA DE SUPER FAMÍLIA</h2>
+    <p class="diploma-text">
+      Este certificado atesta solenemente que a Família<br>
+      <strong style="font-size: 22px; color: var(--slate-800); text-decoration: underline;">________________________________________</strong><br>
+      completou com sucesso o protocolo das <strong>30 Atividades em Família</strong>, fortalecendo a conexão de amor, respeito e atenção incondicional, cultivando uma mente saudável e feliz.
+    </p>
+    <div style="display: flex; justify-content: space-around; margin-top: 40px;">
+      <div>
+        <div style="border-bottom: 1px solid #000; width: 180px; height: 30px;"></div>
+        <p style="font-size: 11px; color: var(--slate-400); margin-top: 4px;">Assinatura do(a) Filho(a)</p>
+      </div>
+      <div>
+        <div style="border-bottom: 1px solid #000; width: 180px; height: 30px;"></div>
+        <p style="font-size: 11px; color: var(--slate-400); margin-top: 4px;">Assinatura dos Pais</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

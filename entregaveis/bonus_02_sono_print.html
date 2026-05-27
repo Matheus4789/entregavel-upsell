@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano de Sono Reparador — Versão de Impressão</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --purple: #6c47ff; --indigo: #4f46e5; --dark-purple: #1e1b4b;
+    --slate-800: #1e293b; --slate-600: #475569; --slate-400: #94a3b8;
+    --slate-100: #f1f5f9; --slate-50: #f8fafc;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--slate-800);
+    background: #fff;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Fredoka One', cursive; line-height: 1.2; }
+
+  /* ── PRINT BAR (hidden on print) ── */
+  .print-bar {
+    position: sticky; top: 0; z-index: 100;
+    background: linear-gradient(135deg, var(--dark-purple), var(--indigo));
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.15);
+  }
+  .print-bar button {
+    background: #fff; color: var(--indigo); border: none;
+    padding: 10px 28px; border-radius: 50px; font-weight: 800;
+    font-size: 15px; cursor: pointer; font-family: 'Nunito', sans-serif;
+    transition: transform .2s;
+  }
+  .print-bar button:hover { transform: scale(1.05); }
+  .print-bar span { color: #fff; font-weight: 700; font-size: 14px; }
+  .back-link { color: #fff; text-decoration: none; font-weight: 700; font-size: 14px; }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4f46e5 100%);
+    padding: 60px 40px;
+    color: #fff;
+  }
+  .cover-emoji { font-size: 120px; margin-bottom: 24px; }
+  .cover h1 { font-size: 44px; margin-bottom: 12px; background: linear-gradient(90deg, #a78bfa, #c4b5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .cover .subtitle { font-size: 20px; color: #a78bfa; font-weight: 800; margin-bottom: 32px; }
+  .cover .desc { font-size: 16px; color: rgba(255,255,255,0.75); max-width: 500px; margin-bottom: 48px; }
+  .cover-footer { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  /* ── TABLE OF CONTENTS ── */
+  .toc { padding: 60px 40px; max-width: 700px; margin: 0 auto; }
+  .toc h2 { font-size: 32px; margin-bottom: 28px; color: var(--slate-800); text-align: center; }
+  .toc-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 0; border-bottom: 1px dashed #e2e8f0; font-size: 15px;
+  }
+  .toc-item .num { color: var(--purple); font-weight: 900; margin-right: 12px; }
+  .toc-item .title { font-weight: 700; flex: 1; }
+  .toc-item .pages { color: var(--slate-400); font-size: 12px; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 50px 40px; max-width: 800px; margin: 0 auto; }
+  .section-header {
+    text-align: center; margin-bottom: 40px;
+    padding: 40px 30px; border-radius: 24px;
+    background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+  }
+  .section-header .sec-icon { font-size: 64px; margin-bottom: 12px; }
+  .section-header h2 { font-size: 30px; color: var(--slate-800); margin-bottom: 8px; }
+  .section-header p { font-size: 15px; color: var(--slate-600); max-width: 500px; margin: 0 auto; }
+
+  /* ── CONTENT BOXES ── */
+  .card {
+    background: var(--slate-50); border-radius: 20px;
+    padding: 32px; margin-bottom: 28px;
+    border-left: 5px solid var(--purple);
+  }
+  .card h3 { font-size: 20px; margin-bottom: 14px; color: var(--slate-800); }
+  .card p { font-size: 14px; color: var(--slate-600); margin-bottom: 12px; }
+  
+  .highlight {
+    background: #fff; border-radius: 12px; padding: 16px 20px;
+    margin: 16px 0; border: 1px solid #ddd6fe; border-left: 4px solid var(--purple);
+  }
+  .hi-blue { border-left-color: var(--indigo); border-color: #c7d2fe; }
+
+  /* ── CHECKLIST GRID ── */
+  .check-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0;
+  }
+  .check-card {
+    background: var(--slate-50); border-radius: 16px; padding: 20px; border: 1px solid #e0e7ff;
+  }
+  .check-card h4 { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 15px; color: var(--slate-800); }
+  .check-card p { font-size: 12px; color: var(--slate-600); line-height: 1.5; }
+  .check-box-marker {
+    width: 20px; height: 20px; border: 2px solid var(--purple); border-radius: 4px; display: inline-block; flex-shrink: 0;
+  }
+
+  /* ── PROTOCOL ROADMAP ── */
+  .proto-week { margin-bottom: 28px; }
+  .proto-week-title { font-size: 18px; color: var(--purple); margin-bottom: 12px; }
+  .proto-day {
+    display: flex; gap: 14px; padding: 14px; border-radius: 12px; border: 1px solid #e0e7ff; background: var(--slate-50); margin-bottom: 10px; page-break-inside: avoid; break-inside: avoid;
+  }
+  .proto-num {
+    width: 32px; height: 32px; border-radius: 50%; background: var(--purple); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0;
+  }
+  .proto-content h4 { font-size: 14px; font-weight: 800; color: var(--slate-800); margin-bottom: 4px; }
+  .proto-content p { font-size: 13px; color: var(--slate-600); line-height: 1.5; }
+
+  /* ── STORIES ── */
+  .story-card {
+    background: #1e1b4b; color: #fff; border-radius: 20px; padding: 32px; margin-bottom: 28px; page-break-inside: avoid; break-inside: avoid;
+  }
+  .story-title { font-size: 20px; color: #a78bfa; margin-bottom: 12px; }
+  .story-text { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.9; font-style: italic; }
+
+  /* ── DIARY TABLE ── */
+  .diary-table {
+    width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 12px;
+  }
+  .diary-table th, .diary-table td {
+    padding: 10px 8px; border: 1px solid #cbd5e1; text-align: left;
+  }
+  .diary-table th { background: var(--slate-100); font-weight: 800; }
+  .diary-table td { height: 40px; }
+
+  /* ── SEPARATOR ── */
+  .page-sep {
+    border: none; height: 2px;
+    background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
+    margin: 40px 0;
+  }
+
+  /* ── PRINT STYLES ── */
+  @media print {
+    .print-bar { display: none !important; }
+    body { font-size: 12px; color: #000; }
+    .cover { min-height: auto; padding: 40px 20px; page-break-after: always; background: #fff; color: #000; }
+    .cover h1 { -webkit-text-fill-color: initial; color: #000; }
+    .toc { page-break-after: always; }
+    .section { page-break-before: always; }
+    .story-card { background: #fff; color: #000; border: 1px solid #cbd5e1; }
+    .story-title { color: var(--purple); }
+    .story-text { color: var(--slate-800); }
+    .proto-day { page-break-inside: avoid; break-inside: avoid; }
+    .diary-table { page-break-inside: avoid; break-inside: avoid; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PRINT BAR -->
+<div class="print-bar">
+  <a href="bonus_02_sono_v2.html" class="back-link">← Voltar ao Plano de Sono Interativo</a>
+  <span>|</span>
+  <span>📄 Versão para Impressão</span>
+  <button onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- COVER PAGE -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-emoji">🌙</div>
+  <h1>Plano de Sono Reparador</h1>
+  <div class="subtitle">Protocolo de 21 Dias para Crianças com TDAH</div>
+  <p class="desc">Guia prático e científico para desacelerar o cérebro hiperativo à noite, criar a rotina de sono perfeita e melhorar a qualidade do foco e do humor durante o dia.</p>
+
+  <div class="cover-footer">
+    <p>© 2025 TDAH Produtivo Kids · Material Exclusivo para Alunos</p>
+    <p>Proibida a reprodução sem autorização</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TABLE OF CONTENTS -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="toc">
+  <h2>📋 Sumário</h2>
+  <div class="toc-item"><span class="num">01</span><span class="title">Introdução & A Neurobiologia do Sono</span><span class="pages">Pág. 3</span></div>
+  <div class="toc-item"><span class="num">02</span><span class="title">Técnicas de Desaceleração Noturna</span><span class="pages">Pág. 4</span></div>
+  <div class="toc-item"><span class="num">03</span><span class="title">O Quarto Perfeito (Checklist de Higiene do Sono)</span><span class="pages">Pág. 5</span></div>
+  <div class="toc-item"><span class="num">04</span><span class="title">Protocolo Diário de 21 Dias</span><span class="pages">Pág. 6</span></div>
+  <div class="toc-item"><span class="num">05</span><span class="title">Histórias para Dormir (Leitura Guiada)</span><span class="pages">Pág. 8</span></div>
+  <div class="toc-item"><span class="num">06</span><span class="title">Diário do Sono (Tabela de Acompanhamento)</span><span class="pages">Pág. 10</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- INTRODUÇÃO & CIÊNCIA -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="sec-icon">😴</div>
+    <h2>O Sono & O Cérebro TDAH</h2>
+    <p>Compreenda a relação de mão dupla entre a qualidade do sono e a severidade dos sintomas de desatenção e hiperatividade.</p>
+  </div>
+
+  <div class="card">
+    <h3>🌀 O Círculo Vicioso do Sono no TDAH</h3>
+    <p>A neurobiologia explica que crianças com TDAH possuem um atraso circadiano natural. A produção de melatonina (o hormônio que sinaliza ao corpo que é hora de dormir) inicia-se mais tarde nesses cérebros. A falta de regulação dopaminérgica também dificulta o ato de "desligar" os pensamentos.</p>
+    <p>Dormir pouco ou mal reduz ainda mais o estoque de dopamina matinal. Isso resulta em maior impulsividade, irritabilidade e fadiga, dificultando a concentração ao longo de todo o dia seguinte.</p>
+  </div>
+
+  <div class="card" style="border-left-color: var(--indigo);">
+    <h3>🧬 Benefícios do Sono Reparador</h3>
+    <p><strong>Limpeza de Toxinas:</strong> O sistema glinfático cerebral funciona como um coletor de resíduos. Ele atua principalmente durante as fases de sono profundo, limpando metabólitos nocivos acumulados na vigília.</p>
+    <p><strong>Consolidação da Aprendizagem:</strong> É na fase do sono REM que o cérebro processa e cataloga as informações obtidas nas atividades de alfabetização, matemática e leitura, gravando-as na memória de longo prazo.</p>
+    <p><strong>Estabilização do Humor:</strong> O sono profundo regula a produção de cortisol (hormônio do estresse), auxiliando a criança a gerenciar suas frustrações no dia seguinte.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TÉCNICAS -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="sec-icon">🎯</div>
+    <h2>Técnicas de Desaceleração</h2>
+    <p>Estratégias de relaxamento físico e mental com comprovação científica para usar na hora de deitar.</p>
+  </div>
+
+  <div class="card">
+    <h3>🌬️ Respiração 4-7-8 (Dr. Andrew Weil)</h3>
+    <p>Ativa diretamente o sistema nervoso parassimpático, desacelerando os batimentos cardíacos e diminuindo a ansiedade.</p>
+    <p><strong>Como praticar:</strong></p>
+    <ol style="margin-left: 20px; margin-bottom: 10px;">
+      <li>Peça para a criança inspirar silenciosamente pelo nariz contando até <strong>4</strong>.</li>
+      <li>Segurar o ar no pulmão contando até <strong>7</strong>.</li>
+      <li>Soltar o ar completamente pela boca, fazendo barulho de sopro lento, contando até <strong>8</strong>.</li>
+      <li>Repetir o ciclo por 4 vezes consecutivas.</li>
+    </ol>
+  </div>
+
+  <div class="card" style="border-left-color: var(--indigo);">
+    <h3>💪 Relaxamento Muscular Progressivo</h3>
+    <p>Acalma a agitação motora e ensina a criança a reconhecer a diferença entre tensão e relaxamento corporal.</p>
+    <p><strong>Como praticar:</strong></p>
+    <ol style="margin-left: 20px; margin-bottom: 10px;">
+      <li><strong>Pés:</strong> Contraia os dedos dos pés com força por 5 segundos e solte rapidamente.</li>
+      <li><strong>Mãos:</strong> Feche os punhos com força, segure e relaxe.</li>
+      <li><strong>Ombros:</strong> Suba os ombros até as orelhas, segure e solte de uma vez.</li>
+      <li><strong>Rosto:</strong> Franza a testa e aperte os olhos, depois relaxe toda a musculatura facial.</li>
+    </ol>
+  </div>
+
+  <div class="card" style="border-left-color: var(--indigo);">
+    <h3>🛁 Banho Morno Estratégico</h3>
+    <p>Cerca de 90 a 120 minutos antes do horário de deitar, ofereça um banho morno. A água quente dilata os vasos sanguíneos da pele. Ao sair do banho, a temperatura central do corpo sofre uma queda induzida, o que sinaliza biologicamente ao cérebro para secretar melatonina e iniciar o sono.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- AMBIENTE IDEAL -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="sec-icon">🛏️</div>
+    <h2>O Quarto Perfeito (Higiene do Sono)</h2>
+    <p>Verifique o quarto do seu filho e marque os itens para garantir um ambiente livre de estímulos concorrentes.</p>
+  </div>
+
+  <div class="check-grid">
+    <div class="check-card">
+      <h4><span class="check-box-marker"></span> 🌑 Escuridão Total</h4>
+      <p>Instale cortinas blackout e tampe leds de eletroeletrônicos. Pequenos feixes de luz suprimem a melatonina.</p>
+    </div>
+    <div class="check-card">
+      <h4><span class="check-box-marker"></span> 🌡️ Temperatura Fresca</h4>
+      <p>Mantenha o quarto ventilado e com temperatura agradável (ideal de 18 a 21°C) para auxiliar a queda térmica do corpo.</p>
+    </div>
+    <div class="check-card">
+      <h4><span class="check-box-marker"></span> 🔇 Ruído Branco</h4>
+      <p>Se o ambiente externo for barulhento, use ventiladores ou sons constantes de chuva para camuflar ruídos abruptos.</p>
+    </div>
+    <div class="check-card">
+      <h4><span class="check-box-marker"></span> 🚫 Zero Telas no Quarto</h4>
+      <p>Televisores, tablets e videogames devem ser banidos do quarto à noite. A luz azul e o conteúdo são excitantes.</p>
+    </div>
+    <div class="check-card">
+      <h4><span class="check-box-marker"></span> 💡 Iluminação Âmbar</h4>
+      <p>Nas duas horas antecedentes ao sono, use apenas abajures com lâmpadas amareladas/âmbar, simulando o pôr do sol.</p>
+    </div>
+    <div class="check-card">
+      <h4><span class="check-box-marker"></span> 🧸 Objeto de Conforto</h4>
+      <p>Um travesseiro macio, cobertor especial ou urso de pelúcia que atue como uma "âncora" tátil de segurança para adormecer.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PROTOCOLO DE 21 DIAS -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="sec-icon">📅</div>
+    <h2>Protocolo de Mudança de Hábito</h2>
+    <p>Um roteiro de 21 dias sequenciais para implementar hábitos saudáveis passo a passo na rotina familiar.</p>
+  </div>
+
+  <div class="proto-week">
+    <h3 class="proto-week-title">Semana 1: Estabelecendo a Base</h3>
+    
+    <div class="proto-day">
+      <div class="proto-num">1</div>
+      <div class="proto-content">
+        <h4>Definição do Horário Âncora</h4>
+        <p>Defina o horário fixo para apagar as luzes (ex: 21h30). Mantenha fixo mesmo no final de semana.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">2</div>
+      <div class="proto-content">
+        <h4>Desconexão de Telas 1h Antes</h4>
+        <p>Desligue TVs e tablets 60 minutos antes do horário âncora. Substitua por leitura física ou conversa leve.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">3</div>
+      <div class="proto-content">
+        <h4>Inserção do Banho Morno</h4>
+        <p>Realize o banho morno 90 minutos antes do sono. Vista o pijama imediatamente após secar.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">4</div>
+      <div class="proto-content">
+        <h4>Primeiro Treino de Respiração 4-7-8</h4>
+        <p>Faça a técnica com a criança na cama. Explique de forma lúdica (como encher um balão de ar lentamente).</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">5</div>
+      <div class="proto-content">
+        <h4>Auditoria do Quarto</h4>
+        <p>Use a página de Higiene do Sono e neutralize fontes de ruídos ou luzes indesejadas no quarto da criança.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">6</div>
+      <div class="proto-content">
+        <h4>Contação de História Calmante</h4>
+        <p>Substitua a conversa ou leitura ativa por uma história em tom monótono e relaxante (leia as histórias deste guia).</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">7</div>
+      <div class="proto-content">
+        <h4>Revisão e Ajustes</h4>
+        <p>Identifique qual barreira causou maior resistência no sono da semana e planeje ajustes para a semana 2.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="proto-week">
+    <h3 class="proto-week-title">Semana 2: Condicionamento e Consistência</h3>
+    
+    <div class="proto-day">
+      <div class="proto-num">8</div>
+      <div class="proto-content">
+        <h4>Relaxamento Muscular Progressivo</h4>
+        <p>Adicione o RMP antes da história na cama. Estimule a criança a sentir o corpo pesado afundando no colchão.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">9</div>
+      <div class="proto-content">
+        <h4>Lanche Triptofano Noturno</h4>
+        <p>Ofereça banana com aveia ou leite morno 45 minutos antes de deitar. Facilita a produção endógena de melatonina.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">10</div>
+      <div class="proto-content">
+        <h4>Quadro de Rotina Visual</h4>
+        <p>Desenhe com a criança o passo a passo da noite (Banho -> Escovar dente -> Cama -> Respiração) e cole no quarto.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">11</div>
+      <div class="proto-content">
+        <h4>Treino de Imaginação Guiada</h4>
+        <p>Faça a meditação da "Viagem ao Espaço" usando o script deste livro. Fale muito pausadamente.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">12</div>
+      <div class="proto-content">
+        <h4>Regulação da Energia Paterna/Materna</h4>
+        <p>Antes de iniciar a rotina do seu filho, faça 3 respirações lentas para reduzir sua própria ansiedade/tensão.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">13</div>
+      <div class="proto-content">
+        <h4>Som de Fundo Constante</h4>
+        <p>Use sons ambiente calmos (chuva) como ruído protetor durante toda a noite para evitar despertares noturnos.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">14</div>
+      <div class="proto-content">
+        <h4>Check-in de Desempenho</h4>
+        <p>Verifique o diário do sono. Compare a facilidade de pegar no sono com a primeira semana.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="proto-week">
+    <h3 class="proto-week-title">Semana 3: Consolidação e Autonomia</h3>
+    
+    <div class="proto-day">
+      <div class="proto-num">15</div>
+      <div class="proto-content">
+        <h4>Consistência sem Exceção</h4>
+        <p>A rotina agora já está automatizada. Mantenha os horários rigidamente para criar o reflexo biológico no cérebro.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">16</div>
+      <div class="proto-content">
+        <h4>Microajuste de Temperatura</h4>
+        <p>Avalie se a criança acorda com suor ou frio. Garanta que o lençol/cobertor esteja ideal para a estação.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">17</div>
+      <div class="proto-content">
+        <h4>Conversa Matinal Positiva</h4>
+        <p>Ao acordar, pergunte sobre os sonhos da noite. Isso reforça no cérebro a ideia de que deitar e dormir é seguro e agradável.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">18</div>
+      <div class="proto-content">
+        <h4>Atividade Física Estruturada Diurna</h4>
+        <p>Garanta brincadeiras intensas ao ar livre pela manhã ou início da tarde para cansar o corpo fisicamente.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">19</div>
+      <div class="proto-content">
+        <h4>Diário de Gratidão Rápido</h4>
+        <p>Na cama, peça para a criança citar 3 coisas boas do dia. Substitui pensamentos ansiosos por sentimentos de segurança.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">20</div>
+      <div class="proto-content">
+        <h4>Visualização do Dia Seguinte</h4>
+        <p>Antecipe um evento bom que vai acontecer amanhã ("amanhã vamos brincar de bola"). Dá segurança emocional para adormecer.</p>
+      </div>
+    </div>
+    <div class="proto-day">
+      <div class="proto-num">21</div>
+      <div class="proto-content">
+        <h4>Celebração do Hábito Concluído</h4>
+        <p>Parabéns! Entregue o certificado simbólico de "Dormidor Campeão". O hábito está enraizado na rotina da família.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- HISTÓRIAS PARA DORMIR -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="sec-icon">📖</div>
+    <h2>Histórias Calmantes</h2>
+    <p>Textos construídos com ritmo lento, repetições de palavras e metáforas de relaxamento para ler na cama.</p>
+  </div>
+
+  <div class="story-card">
+    <h3 class="story-title">🐢 Theo, a Tartaruga que Flutuava</h3>
+    <div class="story-text">
+      <p>Theo era uma tartaruga jovem que morava num lindo mar de águas transparentes e mornas. O casco de Theo era verde e brilhante, e ele adorava nadar pelos corais coloridos. Mas, às vezes, a mente de Theo andava muito rápido, pulando de um peixinho para outro, de uma alga para outra, sem conseguir parar...</p>
+      <p>Um dia, a tartaruga mais velha e sábia do recife, Vovó Zola, chamou Theo para deitar ao seu lado, bem pertinho da areia macia sob a água calma do mar. "Theo, deite-se de costas na água morna, feche os olhos e deixe os peixinhos passarem", sussurrou ela.</p>
+      <p>Theo respirou fundo, puxando o ar morno do oceano. Sentiu a água amparar seu casco... leve... muito leve... balançando de um lado para o outro... de um lado para o outro. "Quando um peixinho de pensamento passar correndo por você", explicou Vovó Zola, "não nade atrás dele. Apenas olhe. Ele vem... e vai embora... e a água continua calma... e você continua flutuando."</p>
+      <p>Theo respirou de novo. Um peixinho dourado passou. Ele só olhou, calmo. O peixinho sumiu. O mar estava calmo. O corpo de Theo estava mole, relaxado e feliz, balançando de leve no oceano morno... até que adormeceu tranquilamente.</p>
+    </div>
+  </div>
+
+  <div class="story-card" style="background: #14532d; border-color: #86efac;">
+    <h3 class="story-title" style="color: #6ee7b7;">🌲 A Floresta do Vento Manso</h3>
+    <div class="story-text">
+      <p>No alto de uma montanha suave, havia uma floresta mágica chamada Floresta do Vento Manso. Nessa floresta, as folhas das árvores brilhavam suavemente à noite com cores de estrelas, e o chão era coberto por um musgo tão fofinho que parecia um colchão de algodão.</p>
+      <p>Lena, uma coelhinha muito travessa de orelhas longas, adorava correr pela floresta o dia todo. Mas à noite, quando a lua cheia subia no céu límpido, as orelhas de Lena continuavam atentas, ouvindo tudo, e seu coraçãozinho continuava acelerado.</p>
+      <p>A mãe da coelhinha levou-a para sua toca macia e aconchegante. "Lena, escute o vento nas folhas das árvores lá fora. Ele canta bem baixinho... *shhh*... *shhh*..." Lena fechou os olhos e escutou. O vento soprava devagar nas árvores, fazendo as folhas brilhantes dançarem sem pressa.</p>
+      <p>Ela puxou o ar fresco da floresta. Sentiu suas orelhas relaxarem... depois suas patinhas... depois suas costas macias. Cada sopro do vento levava embora uma brincadeira do dia, deixando apenas a calmaria. A floresta inteira estava se preparando para dormir, e Lena respirava no mesmo ritmo calmo das árvores... inspirando calma... expirando sono... até fechar os olhos e sonhar com estrelas douradas.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- DIÁRIO DO SONO -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="sec-icon">📔</div>
+    <h2>Diário do Sono (21 Dias)</h2>
+    <p>Preencha diariamente para identificar fatores de melhora e monitorar o desenvolvimento da rotina noturna.</p>
+  </div>
+
+  <table class="diary-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">Dia</th>
+        <th style="width: 15%;">Data</th>
+        <th style="width: 15%;">Hora da Cama</th>
+        <th style="width: 15%;">Hora do Despertar</th>
+        <th style="width: 17%;">Tempo p/ Adormecer</th>
+        <th style="width: 12%;">Acordou à Noite?</th>
+        <th style="width: 18%;">Qualidade (0 a 5 ⭐)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Loop de 21 dias para preenchimento manual -->
+      <tr><td><strong>Dia 1</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 2</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 3</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 4</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 5</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 6</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 7</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 8</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 9</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 10</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 11</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 12</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 13</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 14</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 15</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 16</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 17</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 18</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 19</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 20</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+      <tr><td><strong>Dia 21</strong></td><td>___/___</td><td>______:______</td><td>______:______</td><td>[ ] <15m [ ] 30m [ ] >1h</td><td>[ ] Sim [ ] Não</td><td>⭐ ⭐ ⭐ ⭐ ⭐</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

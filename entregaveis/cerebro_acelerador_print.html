@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cérebro Acelerador Kids — Material Completo para Impressão</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --orange: #f97316; --amber: #f59e0b; --indigo: #6366f1;
+    --emerald: #10b981; --red: #ef4444; --purple: #8b5cf6;
+    --slate-800: #1e293b; --slate-600: #475569; --slate-400: #94a3b8;
+    --slate-100: #f1f5f9; --slate-50: #f8fafc;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--slate-800);
+    background: #fff;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Fredoka One', cursive; line-height: 1.2; }
+
+  /* ── PRINT BUTTON (hidden on print) ── */
+  .print-bar {
+    position: sticky; top: 0; z-index: 100;
+    background: linear-gradient(135deg, var(--orange), var(--amber));
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.15);
+  }
+  .print-bar button {
+    background: #fff; color: var(--orange); border: none;
+    padding: 10px 28px; border-radius: 50px; font-weight: 800;
+    font-size: 15px; cursor: pointer; font-family: 'Nunito', sans-serif;
+    transition: transform .2s;
+  }
+  .print-bar button:hover { transform: scale(1.05); }
+  .print-bar span { color: #fff; font-weight: 700; font-size: 14px; }
+  .back-link { color: #fff; text-decoration: none; font-weight: 700; font-size: 14px; }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 50%, #ecfdf5 100%);
+    padding: 60px 40px;
+  }
+  .cover-emoji { font-size: 120px; margin-bottom: 24px; }
+  .cover h1 { font-size: 48px; color: var(--slate-800); margin-bottom: 12px; }
+  .cover .subtitle { font-size: 22px; color: var(--orange); font-weight: 800; margin-bottom: 32px; }
+  .cover .desc { font-size: 16px; color: var(--slate-600); max-width: 500px; margin-bottom: 48px; }
+  .cover-modules { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 48px; }
+  .cover-mod {
+    background: #fff; border-radius: 14px; padding: 14px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06); font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .cover-footer { font-size: 12px; color: var(--slate-400); }
+
+  /* ── TABLE OF CONTENTS ── */
+  .toc { padding: 60px 40px; max-width: 700px; margin: 0 auto; }
+  .toc h2 { font-size: 32px; margin-bottom: 28px; color: var(--slate-800); text-align: center; }
+  .toc-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 0; border-bottom: 1px dashed #e2e8f0; font-size: 15px;
+  }
+  .toc-item .num { color: var(--orange); font-weight: 900; margin-right: 12px; }
+  .toc-item .title { font-weight: 700; flex: 1; }
+  .toc-item .pages { color: var(--slate-400); font-size: 12px; }
+
+  /* ── MODULE PAGES ── */
+  .module { padding: 50px 40px; max-width: 800px; margin: 0 auto; }
+  .module-header {
+    text-align: center; margin-bottom: 40px;
+    padding: 40px 30px; border-radius: 24px;
+  }
+  .mod-orange  .module-header { background: linear-gradient(135deg, #fff7ed, #ffedd5); }
+  .mod-blue    .module-header { background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+  .mod-green   .module-header { background: linear-gradient(135deg, #ecfdf5, #d1fae5); }
+  .mod-purple  .module-header { background: linear-gradient(135deg, #faf5ff, #ede9fe); }
+  .mod-red     .module-header { background: linear-gradient(135deg, #fef2f2, #fecaca); }
+
+  .module-header .mod-icon { font-size: 64px; margin-bottom: 12px; }
+  .module-header .mod-num {
+    font-size: 12px; font-weight: 900; text-transform: uppercase;
+    letter-spacing: 3px; margin-bottom: 8px; color: var(--slate-400);
+  }
+  .module-header h2 { font-size: 32px; margin-bottom: 8px; }
+  .module-header p { font-size: 15px; color: var(--slate-600); max-width: 500px; margin: 0 auto; }
+
+  /* ── ACTIVITY CARDS ── */
+  .activity {
+    background: var(--slate-50); border-radius: 20px;
+    padding: 32px; margin-bottom: 28px;
+    border-left: 5px solid var(--orange);
+  }
+  .mod-blue .activity { border-left-color: #3b82f6; }
+  .mod-green .activity { border-left-color: var(--emerald); }
+  .mod-purple .activity { border-left-color: var(--purple); }
+  .mod-red .activity { border-left-color: var(--red); }
+
+  .activity-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .activity-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--orange); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 16px; flex-shrink: 0;
+  }
+  .mod-blue .activity-num { background: #3b82f6; }
+  .mod-green .activity-num { background: var(--emerald); }
+  .mod-purple .activity-num { background: var(--purple); }
+  .mod-red .activity-num { background: var(--red); }
+
+  .activity h3 { font-size: 20px; }
+  .activity h4 { font-size: 14px; font-family: 'Nunito', sans-serif; font-weight: 800; color: var(--slate-600); margin: 16px 0 8px; text-transform: uppercase; letter-spacing: 1px; }
+
+  .activity p, .activity li { font-size: 14px; color: var(--slate-600); line-height: 1.8; }
+  .activity ul, .activity ol { padding-left: 20px; margin-bottom: 12px; }
+  .activity li { margin-bottom: 4px; }
+
+  .materials-box {
+    background: #fff; border-radius: 12px; padding: 16px 20px;
+    margin: 12px 0; border: 1px dashed #cbd5e1;
+  }
+  .materials-box strong { color: var(--slate-800); }
+
+  .tip-box {
+    background: #fffbeb; border-radius: 12px; padding: 16px 20px;
+    margin-top: 16px; border: 1px solid #fde68a;
+  }
+  .tip-box::before { content: '💡 '; font-size: 16px; }
+
+  .science-box {
+    background: #eff6ff; border-radius: 12px; padding: 16px 20px;
+    margin-top: 16px; border: 1px solid #bfdbfe;
+  }
+  .science-box::before { content: '🔬 '; font-size: 16px; }
+
+  /* ── WORKSHEET AREA ── */
+  .worksheet {
+    border: 2px dashed #cbd5e1; border-radius: 16px;
+    padding: 24px; margin: 20px 0; background: #fff;
+  }
+  .worksheet h4 { text-align: center; margin-bottom: 16px; }
+  .write-line {
+    border-bottom: 1px solid #e2e8f0; height: 40px; margin-bottom: 4px;
+  }
+  .grid-box {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+  }
+  .grid-cell {
+    border: 1px solid #e2e8f0; border-radius: 8px;
+    height: 50px; display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 800;
+  }
+
+  /* ── SEPARATOR ── */
+  .page-sep {
+    border: none; height: 2px;
+    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+    margin: 40px 0;
+  }
+
+  /* ── PRINT STYLES ── */
+  @media print {
+    .print-bar { display: none !important; }
+    body { font-size: 12px; }
+    .cover { min-height: auto; padding: 40px 20px; page-break-after: always; }
+    .toc { page-break-after: always; }
+    .module-header { page-break-before: always; }
+    .activity { page-break-inside: avoid; break-inside: avoid; }
+    .worksheet { page-break-inside: avoid; break-inside: avoid; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PRINT BAR -->
+<div class="print-bar">
+  <a href="cerebro_acelerador_v2.html" class="back-link">← Voltar ao Material Interativo</a>
+  <span>|</span>
+  <span>📄 Versão para Impressão</span>
+  <button onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- COVER PAGE -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-emoji">🧠</div>
+  <h1>Cérebro Acelerador Kids</h1>
+  <div class="subtitle">Guia Completo de Atividades para Crianças com TDAH</div>
+  <p class="desc">Material pedagógico baseado em neurociência com atividades lúdicas e práticas para potencializar o aprendizado, o foco e a memória do seu filho.</p>
+
+  <div class="cover-modules">
+    <div class="cover-mod">📝 Módulo 1 — Alfabetização Lúdica</div>
+    <div class="cover-mod">🔢 Módulo 2 — Matemática Visual</div>
+    <div class="cover-mod">📖 Módulo 3 — Leitura & Interpretação</div>
+    <div class="cover-mod">🎯 Módulo 4 — Foco & Memória</div>
+    <div class="cover-mod">🇬🇧 Módulo 5 — Inglês Divertido</div>
+  </div>
+
+  <div class="cover-footer">
+    <p>© 2025 TDAH Produtivo Kids · Material Exclusivo para Alunos</p>
+    <p>Proibida a reprodução sem autorização</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TABLE OF CONTENTS -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="toc">
+  <h2>📋 Sumário</h2>
+  <div class="toc-item"><span class="num">01</span><span class="title">Módulo 1 — Alfabetização Lúdica</span><span class="pages">6 atividades</span></div>
+  <div class="toc-item"><span class="num">02</span><span class="title">Módulo 2 — Matemática Visual</span><span class="pages">6 atividades</span></div>
+  <div class="toc-item"><span class="num">03</span><span class="title">Módulo 3 — Leitura & Interpretação</span><span class="pages">5 atividades</span></div>
+  <div class="toc-item"><span class="num">04</span><span class="title">Módulo 4 — Foco & Memória</span><span class="pages">6 atividades</span></div>
+  <div class="toc-item"><span class="num">05</span><span class="title">Módulo 5 — Inglês Divertido</span><span class="pages">5 atividades</span></div>
+  <div class="toc-item" style="border-bottom:none;font-weight:900;color:var(--orange);"><span></span><span class="title">Total: 28 atividades práticas</span><span class="pages"></span></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MÓDULO 1 — ALFABETIZAÇÃO LÚDICA -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="module mod-orange">
+  <div class="module-header">
+    <div class="mod-icon">📝</div>
+    <div class="mod-num">Módulo 1</div>
+    <h2>Alfabetização Lúdica</h2>
+    <p>Atividades multissensoriais que transformam o aprendizado das letras, sílabas e palavras em uma experiência divertida e significativa para crianças com TDAH.</p>
+  </div>
+
+  <div class="science-box">
+    <strong>Base Científica:</strong> Crianças com TDAH aprendem melhor quando múltiplos canais sensoriais são ativados simultaneamente (visual + tátil + auditivo). A abordagem multissensorial aumenta a retenção em até 75% comparada a métodos tradicionais (Mather & Wendling, 2012).
+  </div>
+
+  <hr class="page-sep">
+
+  <!-- Atividade 1.1 -->
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">1</div>
+      <h3>Caça às Letras do Nome</h3>
+    </div>
+    <p>A criança vai encontrar e circular todas as letras do seu próprio nome em um texto. Usar o nome da criança traz significado pessoal e aumenta o engajamento.</p>
+
+    <h4>📦 Materiais</h4>
+    <div class="materials-box">
+      <strong>Necessários:</strong> Lápis de cor (uma cor para cada letra), uma página de revista ou jornal velho, tesoura, cola, folha A4 em branco.
+    </div>
+
+    <h4>📋 Passo a Passo</h4>
+    <ol>
+      <li>Escreva o nome da criança em letras grandes na parte de cima da folha A4.</li>
+      <li>Atribua uma cor para cada letra (ex: M = vermelho, A = azul, R = verde).</li>
+      <li>Entregue a revista/jornal e peça que encontre e circule cada letra com a cor correspondente.</li>
+      <li>Depois de circular, peça para recortar as letras encontradas e colar na folha abaixo do nome.</li>
+      <li>Conte quantas vezes cada letra apareceu e faça um "ranking" das letras mais frequentes.</li>
+    </ol>
+
+    <h4>⏱️ Duração</h4>
+    <p>15–20 minutos. Se a criança perder o foco, divida em 2 sessões de 10 minutos.</p>
+
+    <div class="tip-box">
+      <strong>Dica TDAH:</strong> Use um timer visual (ampulheta de areia) para criar senso de urgência positiva. Elogie cada letra encontrada para manter a dopamina alta.
+    </div>
+  </div>
+
+  <!-- Atividade 1.2 -->
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">2</div>
+      <h3>Formando Sílabas com o Corpo</h3>
+    </div>
+    <p>Atividade cinestésica onde a criança forma sílabas usando movimentos corporais, conectando cada sílaba a um gesto ou posição diferente.</p>
+
+    <h4>📦 Materiais</h4>
+    <div class="materials-box">
+      <strong>Necessários:</strong> Espaço aberto (sala de estar, quintal), cartões com sílabas escritas (BA, BE, BI, BO, BU, CA, CE, CI, CO, CU, etc.), fita adesiva.
+    </div>
+
+    <h4>📋 Passo a Passo</h4>
+    <ol>
+      <li>Cole os cartões de sílabas no chão, espalhados pela sala, com fita adesiva.</li>
+      <li>Diga uma palavra simples (ex: "BOCA") e a criança deve pular nos cartões das sílabas corretas: BO + CA.</li>
+      <li>Para cada sílaba, crie um gesto: BA = bater palma, BE = bater no peito, BI = pular, BO = girar, BU = agachar.</li>
+      <li>Aumente a complexidade gradualmente: palavras de 2 sílabas → 3 sílabas → 4 sílabas.</li>
+      <li>No final, a criança escolhe 3 palavras e faz a "dança das sílabas" completa.</li>
+    </ol>
+
+    <h4>🎯 Palavras Sugeridas</h4>
+    <p><strong>Nível 1 (2 sílabas):</strong> bola, gato, mesa, sapo, dedo, foca, lobo, nuvem.<br>
+    <strong>Nível 2 (3 sílabas):</strong> banana, cavalo, boneca, janela, sapato, macaco.<br>
+    <strong>Nível 3 (4 sílabas):</strong> borboleta, jacaré, abacaxi, chocolate.</p>
+
+    <div class="tip-box">
+      <strong>Dica TDAH:</strong> Crianças com TDAH têm excesso de energia — use isso a favor do aprendizado! O movimento libera dopamina e noradrenalina, melhorando a atenção.
+    </div>
+  </div>
+
+  <!-- Atividade 1.3 -->
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">3</div>
+      <h3>Letras na Areia / Sal</h3>
+    </div>
+    <p>Atividade tátil onde a criança pratica o traçado das letras usando os dedos em uma bandeja com areia ou sal, ativando a memória muscular.</p>
+
+    <h4>📦 Materiais</h4>
+    <div class="materials-box">
+      <strong>Necessários:</strong> Bandeja rasa (forma de bolo serve), areia fina ou sal grosso, cartões com letras para referência, corante alimentício (opcional, para colorir o sal).
+    </div>
+
+    <h4>📋 Passo a Passo</h4>
+    <ol>
+      <li>Espalhe uma camada fina e uniforme de areia/sal na bandeja.</li>
+      <li>Mostre um cartão com uma letra e fale o nome e o som da letra em voz alta.</li>
+      <li>A criança desenha a letra com o dedo indicador na areia, dizendo o nome enquanto traça.</li>
+      <li>Agite a bandeja para "apagar" e repetir com a próxima letra.</li>
+      <li>Após 5 letras, faça um mini ditado: você fala o som, a criança escreve a letra.</li>
+    </ol>
+
+    <div class="tip-box">
+      <strong>Dica TDAH:</strong> A textura do sal/areia mantém o tato engajado, o que ajuda crianças com TDAH a se concentrarem. Adicione brilho (glitter) ao sal para mais estímulo visual.
+    </div>
+  </div>
+
+  <!-- Atividade 1.4 -->
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">4</div>
+      <h3>Bingo das Palavras</h3>
+    </div>
+    <p>Jogo de bingo adaptado onde as cartelas contêm palavras simples em vez de números, trabalhando reconhecimento visual e auditivo simultâneo.</p>
+
+    <h4>📦 Materiais</h4>
+    <div class="materials-box">
+      <strong>Necessários:</strong> Cartelas de bingo (modelo abaixo para recortar), feijões ou botões para marcar, saco ou caixa para sortear palavras.
+    </div>
+
+    <h4>📋 Como Jogar</h4>
+    <ol>
+      <li>Imprima ou desenhe cartelas 4x4 com palavras simples (gato, sol, lua, mar, pé, mão, etc.).</li>
+      <li>Escreva cada palavra em um papelzinho e coloque no saco.</li>
+      <li>Sorteie uma palavra, leia em voz alta e mostre o papelzinho.</li>
+      <li>A criança procura a palavra na cartela e marca com o feijão.</li>
+      <li>Quem completar uma linha grita "BINGO!" (pode jogar com irmãos ou pais).</li>
+    </ol>
+
+    <div class="worksheet">
+      <h4>✂️ Modelo de Cartela — Recorte e Use</h4>
+      <div class="grid-box">
+        <div class="grid-cell">GATO</div><div class="grid-cell">SOL</div><div class="grid-cell">LUA</div><div class="grid-cell">MAR</div><div class="grid-cell">PÉ</div>
+        <div class="grid-cell">MÃO</div><div class="grid-cell">CÃO</div><div class="grid-cell">RUA</div><div class="grid-cell">RIO</div><div class="grid-cell">CÉU</div>
+        <div class="grid-cell">OVO</div><div class="grid-cell">UVA</div><div class="grid-cell">⭐</div><div class="grid-cell">AVE</div><div class="grid-cell">REI</div>
+        <div class="grid-cell">PAZ</div><div class="grid-cell">LUZ</div><div class="grid-cell">SAL</div><div class="grid-cell">MIL</div><div class="grid-cell">BOI</div>
+        <div class="grid-cell">DIA</div><div class="grid-cell">MÊS</div><div class="grid-cell">TIA</div><div class="grid-cell">VEZ</div><div class="grid-cell">SIM</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Atividade 1.5 -->
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">5</div>
+      <h3>Contação de Histórias com Figuras</h3>
+    </div>
+    <p>A criança recebe figuras recortadas e deve organizá-las em sequência, depois criar uma pequena história oral e escrita sobre elas.</p>
+
+    <h4>📋 Passo a Passo</h4>
+    <ol>
+      <li>Recorte 4–6 figuras de revistas (um cachorro, uma casa, uma criança, um parque, etc.).</li>
+      <li>Peça para a criança organizar as figuras na ordem que ela quer contar a história.</li>
+      <li>A criança conta a história oralmente primeiro (sem pressão de escrita).</li>
+      <li>Depois, para cada figura, escreve UMA frase sobre o que acontece.</li>
+      <li>Cole as figuras e as frases em uma folha para criar o "livrinho" da criança.</li>
+    </ol>
+
+    <div class="worksheet">
+      <h4>✏️ Minha História — Escreva uma frase para cada cena</h4>
+      <p style="text-align:center;color:var(--slate-400);margin-bottom:12px;">Cole a figura acima de cada linha</p>
+      <p><strong>Cena 1:</strong></p><div class="write-line"></div>
+      <p><strong>Cena 2:</strong></p><div class="write-line"></div>
+      <p><strong>Cena 3:</strong></p><div class="write-line"></div>
+      <p><strong>Cena 4:</strong></p><div class="write-line"></div>
+    </div>
+
+    <div class="science-box">
+      <strong>Por que funciona:</strong> A narrativa visual reduz a carga cognitiva para crianças com TDAH, permitindo que organizem pensamentos antes de escrever. Isso contorna a dificuldade de planejamento (função executiva).
+    </div>
+  </div>
+
+  <!-- Atividade 1.6 -->
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">6</div>
+      <h3>Caça-Palavras Temático: Animais</h3>
+    </div>
+    <p>Encontre os 10 animais escondidos na grade abaixo. As palavras podem estar na horizontal, vertical ou diagonal.</p>
+
+    <div class="worksheet">
+      <h4>🔍 Encontre os Animais</h4>
+      <div class="grid-box" style="grid-template-columns: repeat(10, 1fr); gap: 4px;">
+        <div class="grid-cell" style="height:36px;font-size:16px;">G</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div><div class="grid-cell" style="height:36px;font-size:16px;">T</div><div class="grid-cell" style="height:36px;font-size:16px;">O</div><div class="grid-cell" style="height:36px;font-size:16px;">P</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div><div class="grid-cell" style="height:36px;font-size:16px;">T</div><div class="grid-cell" style="height:36px;font-size:16px;">O</div><div class="grid-cell" style="height:36px;font-size:16px;">X</div><div class="grid-cell" style="height:36px;font-size:16px;">L</div>
+        <div class="grid-cell" style="height:36px;font-size:16px;">E</div><div class="grid-cell" style="height:36px;font-size:16px;">L</div><div class="grid-cell" style="height:36px;font-size:16px;">E</div><div class="grid-cell" style="height:36px;font-size:16px;">F</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div><div class="grid-cell" style="height:36px;font-size:16px;">N</div><div class="grid-cell" style="height:36px;font-size:16px;">T</div><div class="grid-cell" style="height:36px;font-size:16px;">E</div><div class="grid-cell" style="height:36px;font-size:16px;">R</div><div class="grid-cell" style="height:36px;font-size:16px;">E</div>
+        <div class="grid-cell" style="height:36px;font-size:16px;">C</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div><div class="grid-cell" style="height:36px;font-size:16px;">V</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div><div class="grid-cell" style="height:36px;font-size:16px;">L</div><div class="grid-cell" style="height:36px;font-size:16px;">O</div><div class="grid-cell" style="height:36px;font-size:16px;">M</div><div class="grid-cell" style="height:36px;font-size:16px;">B</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div><div class="grid-cell" style="height:36px;font-size:16px;">Ã</div>
+        <div class="grid-cell" style="height:36px;font-size:16px;">M</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div><div class="grid-cell" style="height:36px;font-size:16px;">C</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div><div class="grid-cell" style="height:36px;font-size:16px;">C</div><div class="grid-cell" style="height:36px;font-size:16px;">O</div><div class="grid-cell" style="height:36px;font-size:16px;">S</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div><div class="grid-cell" style="height:36px;font-size:16px;">P</div><div class="grid-cell" style="height:36px;font-size:16px;">O</div>
+        <div class="grid-cell" style="height:36px;font-size:16px;">J</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div><div class="grid-cell" style="height:36px;font-size:16px;">C</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div><div class="grid-cell" style="height:36px;font-size:16px;">R</div><div class="grid-cell" style="height:36px;font-size:16px;">É</div><div class="grid-cell" style="height:36px;font-size:16px;">T</div><div class="grid-cell" style="height:36px;font-size:16px;">U</div><div class="grid-cell" style="height:36px;font-size:16px;">R</div><div class="grid-cell" style="height:36px;font-size:16px;">T</div>
+        <div class="grid-cell" style="height:36px;font-size:16px;">C</div><div class="grid-cell" style="height:36px;font-size:16px;">O</div><div class="grid-cell" style="height:36px;font-size:16px;">E</div><div class="grid-cell" style="height:36px;font-size:16px;">L</div><div class="grid-cell" style="height:36px;font-size:16px;">H</div><div class="grid-cell" style="height:36px;font-size:16px;">O</div><div class="grid-cell" style="height:36px;font-size:16px;">B</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div><div class="grid-cell" style="height:36px;font-size:16px;">L</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div>
+        <div class="grid-cell" style="height:36px;font-size:16px;">F</div><div class="grid-cell" style="height:36px;font-size:16px;">O</div><div class="grid-cell" style="height:36px;font-size:16px;">C</div><div class="grid-cell" style="height:36px;font-size:16px;">A</div><div class="grid-cell" style="height:36px;font-size:16px;">P</div><div class="grid-cell" style="height:36px;font-size:16px;">E</div><div class="grid-cell" style="height:36px;font-size:16px;">I</div><div class="grid-cell" style="height:36px;font-size:16px;">X</div><div class="grid-cell" style="height:36px;font-size:16px;">E</div><div class="grid-cell" style="height:36px;font-size:16px;">S</div>
+      </div>
+      <p style="margin-top:16px;font-size:13px;color:var(--slate-400);text-align:center;"><strong>Palavras:</strong> GATO · PATO · ELEFANTE · LEÃO · CAVALO · MACACO · SAPO · JACARÉ · COELHO · FOCA</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MÓDULO 2 — MATEMÁTICA VISUAL -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="module mod-blue">
+  <div class="module-header">
+    <div class="mod-icon">🔢</div>
+    <div class="mod-num">Módulo 2</div>
+    <h2>Matemática Visual</h2>
+    <p>Números, contagem e operações básicas transformados em experiências visuais e manipuláveis que fazem sentido para o cérebro TDAH.</p>
+  </div>
+
+  <div class="science-box">
+    <strong>Base Científica:</strong> A matemática concreta (manipulação de objetos) é 3x mais eficaz do que a abstrata para crianças com TDAH. O uso de materiais concretos ativa o córtex parietal, essencial para o raciocínio numérico (Butterworth, 2005).
+  </div>
+
+  <hr class="page-sep">
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">1</div>
+      <h3>Mercadinho em Casa</h3>
+    </div>
+    <p>Monte um mercadinho com itens reais da casa. A criança é o caixa e precisa somar preços, dar troco e contar moedas. Aprendizado prático e motivador!</p>
+
+    <h4>📦 Materiais</h4>
+    <div class="materials-box">
+      <strong>Necessários:</strong> 10–15 itens da despensa/geladeira, etiquetas adesivas, caneta marcadora, moedas e notas de brinquedo (ou recortadas em papel), calculadora (para conferência), caixa de sapato como "caixa registradora".
+    </div>
+
+    <h4>📋 Passo a Passo</h4>
+    <ol>
+      <li>Cole etiquetas de preço em cada item (use valores simples: R$ 1, R$ 2, R$ 5, R$ 3).</li>
+      <li>A criança é o caixa. O pai/mãe é o cliente que vai "comprar" 3 itens por vez.</li>
+      <li>A criança soma os preços mentalmente ou usando os dedos/papel.</li>
+      <li>O "cliente" paga com uma nota maior. A criança calcula o troco.</li>
+      <li>Varie: faça promoções ("2 por R$ 3!"), descontos ("50% de desconto!") para nível avançado.</li>
+    </ol>
+
+    <div class="tip-box">
+      <strong>Dica TDAH:</strong> Role-play (faz de conta) é uma das técnicas mais poderosas para TDAH. A criança fica engajada porque a atividade tem significado real e recompensa imediata (a "venda").
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">2</div>
+      <h3>Dominó da Tabuada</h3>
+    </div>
+    <p>Jogo de dominó personalizado onde cada peça tem uma multiplicação de um lado e o resultado do outro.</p>
+
+    <h4>📋 Como Fazer</h4>
+    <ol>
+      <li>Corte 28 retângulos de cartolina (6cm x 3cm).</li>
+      <li>Divida cada retângulo ao meio com uma linha.</li>
+      <li>De um lado, escreva uma multiplicação (ex: 3×4). Do outro lado de OUTRA peça, o resultado (12).</li>
+      <li>Jogue como dominó: a criança precisa conectar a multiplicação com seu resultado correto.</li>
+    </ol>
+
+    <div class="worksheet">
+      <h4>✂️ Peças para Recortar — Tabuada do 2 ao 5</h4>
+      <div class="grid-box" style="grid-template-columns: repeat(4, 1fr); gap: 10px;">
+        <div class="grid-cell" style="height:60px;font-size:13px;flex-direction:column;"><span style="font-weight:900;">2×3</span><span style="font-size:10px;color:#94a3b8;">= 6</span></div>
+        <div class="grid-cell" style="height:60px;font-size:13px;flex-direction:column;"><span style="font-weight:900;">2×4</span><span style="font-size:10px;color:#94a3b8;">= 8</span></div>
+        <div class="grid-cell" style="height:60px;font-size:13px;flex-direction:column;"><span style="font-weight:900;">2×5</span><span style="font-size:10px;color:#94a3b8;">= 10</span></div>
+        <div class="grid-cell" style="height:60px;font-size:13px;flex-direction:column;"><span style="font-weight:900;">3×3</span><span style="font-size:10px;color:#94a3b8;">= 9</span></div>
+        <div class="grid-cell" style="height:60px;font-size:13px;flex-direction:column;"><span style="font-weight:900;">3×4</span><span style="font-size:10px;color:#94a3b8;">= 12</span></div>
+        <div class="grid-cell" style="height:60px;font-size:13px;flex-direction:column;"><span style="font-weight:900;">3×5</span><span style="font-size:10px;color:#94a3b8;">= 15</span></div>
+        <div class="grid-cell" style="height:60px;font-size:13px;flex-direction:column;"><span style="font-weight:900;">4×4</span><span style="font-size:10px;color:#94a3b8;">= 16</span></div>
+        <div class="grid-cell" style="height:60px;font-size:13px;flex-direction:column;"><span style="font-weight:900;">4×5</span><span style="font-size:10px;color:#94a3b8;">= 20</span></div>
+        <div class="grid-cell" style="height:60px;font-size:13px;flex-direction:column;"><span style="font-weight:900;">5×5</span><span style="font-size:10px;color:#94a3b8;">= 25</span></div>
+        <div class="grid-cell" style="height:60px;font-size:13px;flex-direction:column;"><span style="font-weight:900;">5×6</span><span style="font-size:10px;color:#94a3b8;">= 30</span></div>
+        <div class="grid-cell" style="height:60px;font-size:13px;flex-direction:column;"><span style="font-weight:900;">2×7</span><span style="font-size:10px;color:#94a3b8;">= 14</span></div>
+        <div class="grid-cell" style="height:60px;font-size:13px;flex-direction:column;"><span style="font-weight:900;">3×6</span><span style="font-size:10px;color:#94a3b8;">= 18</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">3</div>
+      <h3>Gráfico dos Sentimentos</h3>
+    </div>
+    <p>Durante 7 dias, a criança registra como se sentiu cada dia usando emojis. No final, cria um gráfico de barras dos sentimentos — aprende estatística sem perceber!</p>
+
+    <h4>📋 Passo a Passo</h4>
+    <ol>
+      <li>Desenhe uma tabela 7×2 (dia da semana + emoji).</li>
+      <li>Todo dia, a criança escolhe: 😄 Feliz, 😐 Normal, 😢 Triste, 😠 Irritado, 😴 Cansado.</li>
+      <li>No final da semana, conte quantos dias de cada sentimento.</li>
+      <li>Desenhe um gráfico de barras usando cores diferentes para cada sentimento.</li>
+      <li>Discuta: "Qual sentimento apareceu mais? Por quê?"</li>
+    </ol>
+
+    <div class="worksheet">
+      <h4>📊 Meu Gráfico dos Sentimentos</h4>
+      <div class="grid-box" style="grid-template-columns: repeat(7, 1fr); gap: 6px;">
+        <div class="grid-cell" style="height:30px;font-size:11px;font-weight:900;">SEG</div>
+        <div class="grid-cell" style="height:30px;font-size:11px;font-weight:900;">TER</div>
+        <div class="grid-cell" style="height:30px;font-size:11px;font-weight:900;">QUA</div>
+        <div class="grid-cell" style="height:30px;font-size:11px;font-weight:900;">QUI</div>
+        <div class="grid-cell" style="height:30px;font-size:11px;font-weight:900;">SEX</div>
+        <div class="grid-cell" style="height:30px;font-size:11px;font-weight:900;">SÁB</div>
+        <div class="grid-cell" style="height:30px;font-size:11px;font-weight:900;">DOM</div>
+        <div class="grid-cell" style="height:50px;"></div>
+        <div class="grid-cell" style="height:50px;"></div>
+        <div class="grid-cell" style="height:50px;"></div>
+        <div class="grid-cell" style="height:50px;"></div>
+        <div class="grid-cell" style="height:50px;"></div>
+        <div class="grid-cell" style="height:50px;"></div>
+        <div class="grid-cell" style="height:50px;"></div>
+      </div>
+      <p style="margin-top:12px;text-align:center;font-size:12px;color:var(--slate-400);">😄 Feliz &nbsp; 😐 Normal &nbsp; 😢 Triste &nbsp; 😠 Irritado &nbsp; 😴 Cansado</p>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">4</div>
+      <h3>Receita Matemática</h3>
+    </div>
+    <p>Cozinhar é pura matemática! A criança ajuda a fazer uma receita simples, praticando frações, medidas e contagem.</p>
+
+    <h4>🍪 Receita: Biscoitos de Aveia (faz ~20 biscoitos)</h4>
+    <ul>
+      <li>2 xícaras de aveia em flocos</li>
+      <li>1 xícara de farinha de trigo</li>
+      <li>½ xícara de açúcar mascavo</li>
+      <li>½ xícara de óleo de coco (ou manteiga)</li>
+      <li>1 ovo</li>
+      <li>1 colher de chá de canela</li>
+      <li>½ colher de chá de fermento</li>
+    </ul>
+
+    <h4>🧮 Desafios Matemáticos Durante a Receita</h4>
+    <ol>
+      <li>"Se a receita pede ½ xícara de açúcar, quantas colheres de sopa isso dá?" (8 colheres)</li>
+      <li>"Se cada biscoito precisa de 1 colher de massa, e temos 20 colheres, quantos biscoitos faremos?"</li>
+      <li>"Se queremos o DOBRO da receita, quanto de aveia precisamos?" (4 xícaras)</li>
+      <li>"Se assar 10 biscoitos de cada vez, quantas tandas precisamos para 20?"</li>
+      <li>"Se cada biscoito demora 12 minutos, quanto tempo leva para assar todos?"</li>
+    </ol>
+
+    <div class="tip-box">
+      <strong>Dica TDAH:</strong> Cozinhar exige sequenciamento (função executiva), atenção sustentada e controle de impulsos — exatamente o que crianças com TDAH precisam praticar, mas com recompensa imediata (comer o biscoito!).
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">5</div>
+      <h3>Medindo o Mundo</h3>
+    </div>
+    <p>A criança usa uma fita métrica (ou régua, ou os próprios pés) para medir objetos da casa, registrando tudo em uma tabela.</p>
+
+    <div class="worksheet">
+      <h4>📏 Tabela de Medições</h4>
+      <div style="width:100%;border-collapse:collapse;">
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:1px;background:#e2e8f0;">
+          <div style="background:#f1f5f9;padding:10px;font-weight:900;font-size:13px;">O que medi</div>
+          <div style="background:#f1f5f9;padding:10px;font-weight:900;font-size:13px;text-align:center;">Meu chute</div>
+          <div style="background:#f1f5f9;padding:10px;font-weight:900;font-size:13px;text-align:center;">Medida real</div>
+          <div style="background:#fff;padding:12px;font-size:13px;">Mesa da cozinha</div><div style="background:#fff;padding:12px;"></div><div style="background:#fff;padding:12px;"></div>
+          <div style="background:#fff;padding:12px;font-size:13px;">Minha cama</div><div style="background:#fff;padding:12px;"></div><div style="background:#fff;padding:12px;"></div>
+          <div style="background:#fff;padding:12px;font-size:13px;">Porta do quarto</div><div style="background:#fff;padding:12px;"></div><div style="background:#fff;padding:12px;"></div>
+          <div style="background:#fff;padding:12px;font-size:13px;">Meu sapato</div><div style="background:#fff;padding:12px;"></div><div style="background:#fff;padding:12px;"></div>
+          <div style="background:#fff;padding:12px;font-size:13px;">Meu braço</div><div style="background:#fff;padding:12px;"></div><div style="background:#fff;padding:12px;"></div>
+          <div style="background:#fff;padding:12px;font-size:13px;">Geladeira</div><div style="background:#fff;padding:12px;"></div><div style="background:#fff;padding:12px;"></div>
+          <div style="background:#fff;padding:12px;font-size:13px;">Sofá</div><div style="background:#fff;padding:12px;"></div><div style="background:#fff;padding:12px;"></div>
+          <div style="background:#fff;padding:12px;font-size:13px;">_________</div><div style="background:#fff;padding:12px;"></div><div style="background:#fff;padding:12px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">6</div>
+      <h3>Probleminhas do Dia a Dia</h3>
+    </div>
+    <p>Resolva estes problemas contextualizados. Incentive a criança a desenhar a solução antes de calcular!</p>
+
+    <div class="worksheet">
+      <h4>🧩 Resolva os Problemas</h4>
+      <p><strong>1.</strong> Maria tinha 15 figurinhas. Ganhou 8 do seu amigo João. Quantas figurinhas ela tem agora?</p>
+      <div class="write-line"></div>
+      <p><strong>2.</strong> Pedro tem 3 caixas com 6 lápis em cada uma. Quantos lápis ele tem no total?</p>
+      <div class="write-line"></div>
+      <p><strong>3.</strong> Ana comprou 2 pacotes de biscoito por R$ 4 cada e 1 suco por R$ 3. Quanto ela gastou?</p>
+      <div class="write-line"></div>
+      <p><strong>4.</strong> Lucas tem 20 bolinhas de gude. Deu metade para sua irmã. Quantas sobraram?</p>
+      <div class="write-line"></div>
+      <p><strong>5.</strong> Uma pizza foi cortada em 8 pedaços. A família comeu 5. Que fração sobrou?</p>
+      <div class="write-line"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MÓDULO 3 — LEITURA & INTERPRETAÇÃO -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="module mod-green">
+  <div class="module-header">
+    <div class="mod-icon">📖</div>
+    <div class="mod-num">Módulo 3</div>
+    <h2>Leitura & Interpretação</h2>
+    <p>Textos curtos e envolventes com perguntas de compreensão, estratégias de leitura e atividades de vocabulário projetadas para manter o foco ativo.</p>
+  </div>
+
+  <div class="science-box">
+    <strong>Base Científica:</strong> Textos curtos (150–300 palavras) com perguntas intercaladas mantêm a atenção sustentada de crianças com TDAH 4x mais do que textos longos sem pausas (DuPaul & Stoner, 2014).
+  </div>
+
+  <hr class="page-sep">
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">1</div>
+      <h3>Texto: A Aventura do Gato Curioso</h3>
+    </div>
+
+    <div style="background:#f0fdf4;border-radius:16px;padding:24px;margin:16px 0;border:1px solid #bbf7d0;line-height:2;">
+      <p>Era uma vez um gato chamado <strong>Faísca</strong>. Ele tinha pelos alaranjados e olhos verdes como duas esmeraldas brilhantes. Faísca morava em uma casa grande com um quintal cheio de árvores.</p>
+      <p>Um dia, Faísca viu uma <strong>borboleta azul</strong> pousando no muro do quintal. Ele nunca tinha visto uma borboleta daquela cor! Seu coração bateu mais rápido de curiosidade.</p>
+      <p>Faísca pulou no muro e seguiu a borboleta pelo jardim da vizinha. Ela voou por cima das flores vermelhas, passou pela fonte de água e pousou em uma <strong>árvore enorme</strong> no final do jardim.</p>
+      <p>O gato subiu na árvore, galho por galho, até chegar bem perto da borboleta. Mas quando esticou a patinha, a borboleta voou para longe. Faísca olhou para baixo e percebeu que estava muito alto!</p>
+      <p>"<em>Miau!</em>" — ele chamou por ajuda. A vizinha, Dona Clara, ouviu o miado e trouxe uma escada. Faísca desceu aliviado e voltou para casa, onde sua dona lhe deu um pedaço de peixe como recompensa.</p>
+      <p>Naquela noite, deitado na sua caminha, Faísca sonhou com a borboleta azul. Ele aprendeu que <strong>a curiosidade é divertida, mas é importante ter cuidado</strong>.</p>
+    </div>
+
+    <div class="worksheet">
+      <h4>📝 Responda sobre o Texto</h4>
+      <p><strong>1.</strong> Qual é o nome do gato e qual era a cor dos seus pelos?</p>
+      <div class="write-line"></div>
+      <p><strong>2.</strong> O que Faísca viu no muro do quintal que chamou sua atenção?</p>
+      <div class="write-line"></div>
+      <p><strong>3.</strong> Por quais lugares a borboleta passou antes de pousar na árvore?</p>
+      <div class="write-line"></div>
+      <p><strong>4.</strong> O que aconteceu quando Faísca subiu na árvore?</p>
+      <div class="write-line"></div>
+      <p><strong>5.</strong> Quem ajudou Faísca a descer? Como?</p>
+      <div class="write-line"></div>
+      <p><strong>6.</strong> Qual foi a lição que Faísca aprendeu? Você concorda? Por quê?</p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">2</div>
+      <h3>Texto: O Tesouro do Vovô</h3>
+    </div>
+
+    <div style="background:#f0fdf4;border-radius:16px;padding:24px;margin:16px 0;border:1px solid #bbf7d0;line-height:2;">
+      <p><strong>Lucas</strong> adorava visitar a casa do vovô Joaquim. O vovô morava numa casa antiga, cheia de coisas interessantes. Tinha um relógio de cuco na parede, livros amarelados nas prateleiras e um baú misterioso no sótão.</p>
+      <p>— Vovô, o que tem dentro daquele baú? — perguntou Lucas, apontando para o sótão.</p>
+      <p>O vovô sorriu e disse: — Um tesouro, meu neto. Mas só pode abrir quem resolver <strong>três enigmas</strong>.</p>
+      <p><strong>Enigma 1:</strong> "Tenho capa, mas não sou super-herói. Tenho folhas, mas não sou árvore. O que sou?" Lucas pensou... — Um livro!</p>
+      <p><strong>Enigma 2:</strong> "Quanto mais seco, mais molhado fico. O que sou?" Lucas coçou a cabeça... — A toalha!</p>
+      <p><strong>Enigma 3:</strong> "Tenho dentes, mas não mordo. O que sou?" — O pente! — gritou Lucas.</p>
+      <p>O vovô abriu o baú. Dentro havia fotos antigas da família, uma carta escrita pela bisavó e um relógio de bolso dourado.</p>
+      <p>— Este é o verdadeiro tesouro — disse o vovô. — São as nossas <strong>memórias</strong>.</p>
+    </div>
+
+    <div class="worksheet">
+      <h4>📝 Responda</h4>
+      <p><strong>1.</strong> Descreva a casa do vovô Joaquim com suas palavras.</p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <p><strong>2.</strong> Quais foram os três enigmas? Você conseguiria responder sem ler as respostas?</p>
+      <div class="write-line"></div>
+      <p><strong>3.</strong> O que havia dentro do baú?</p>
+      <div class="write-line"></div>
+      <p><strong>4.</strong> Por que o vovô chamou as memórias de "verdadeiro tesouro"?</p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <p><strong>5.</strong> Crie um enigma original para o Lucas:</p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">3</div>
+      <h3>Complete a História</h3>
+    </div>
+    <p>Leia o início da história e use sua imaginação para completar o final. Não existe resposta certa — seja criativo!</p>
+
+    <div style="background:#f0fdf4;border-radius:16px;padding:24px;margin:16px 0;border:1px solid #bbf7d0;line-height:2;">
+      <p>Sofia encontrou um <strong>mapa estranho</strong> dentro de um livro da biblioteca. O mapa mostrava um caminho que começava na escola, passava pela praça e terminava em um X vermelho no meio do parque da cidade.</p>
+      <p>Junto com o mapa havia um bilhete: "<em>Para quem encontrar este mapa: siga os passos e descubra o que deixei para você. Mas atenção — só funciona à luz da lua cheia!</em>"</p>
+      <p>Sofia olhou pela janela. A lua cheia brilhava no céu...</p>
+    </div>
+
+    <div class="worksheet">
+      <h4>✏️ Continue a história da Sofia!</h4>
+      <div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div>
+      <div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div>
+      <div class="write-line"></div><div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">4</div>
+      <h3>Vocabulário: Sinônimos e Antônimos</h3>
+    </div>
+
+    <div class="worksheet">
+      <h4>🔄 Ligue o sinônimo (palavra parecida)</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;">
+        <div style="background:#f1f5f9;padding:10px 16px;border-radius:10px;font-weight:700;">Bonito</div><div style="background:#f1f5f9;padding:10px 16px;border-radius:10px;">Contente</div>
+        <div style="background:#f1f5f9;padding:10px 16px;border-radius:10px;font-weight:700;">Veloz</div><div style="background:#f1f5f9;padding:10px 16px;border-radius:10px;">Imenso</div>
+        <div style="background:#f1f5f9;padding:10px 16px;border-radius:10px;font-weight:700;">Feliz</div><div style="background:#f1f5f9;padding:10px 16px;border-radius:10px;">Rápido</div>
+        <div style="background:#f1f5f9;padding:10px 16px;border-radius:10px;font-weight:700;">Enorme</div><div style="background:#f1f5f9;padding:10px 16px;border-radius:10px;">Lindo</div>
+      </div>
+
+      <h4 style="margin-top:24px;">↔️ Escreva o antônimo (palavra oposta)</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;">
+        <div style="background:#f1f5f9;padding:10px 16px;border-radius:10px;font-weight:700;">Grande → </div><div style="background:#fff;padding:10px 16px;border-radius:10px;border:1px solid #e2e8f0;"></div>
+        <div style="background:#f1f5f9;padding:10px 16px;border-radius:10px;font-weight:700;">Quente → </div><div style="background:#fff;padding:10px 16px;border-radius:10px;border:1px solid #e2e8f0;"></div>
+        <div style="background:#f1f5f9;padding:10px 16px;border-radius:10px;font-weight:700;">Rápido → </div><div style="background:#fff;padding:10px 16px;border-radius:10px;border:1px solid #e2e8f0;"></div>
+        <div style="background:#f1f5f9;padding:10px 16px;border-radius:10px;font-weight:700;">Alegre → </div><div style="background:#fff;padding:10px 16px;border-radius:10px;border:1px solid #e2e8f0;"></div>
+        <div style="background:#f1f5f9;padding:10px 16px;border-radius:10px;font-weight:700;">Claro → </div><div style="background:#fff;padding:10px 16px;border-radius:10px;border:1px solid #e2e8f0;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">5</div>
+      <h3>Diário de Leitura</h3>
+    </div>
+    <p>Após ler qualquer livro ou texto, preencha esta ficha. Guardar essas fichas cria um "álbum de leituras" que mostra o progresso!</p>
+
+    <div class="worksheet">
+      <h4>📚 Ficha de Leitura</h4>
+      <p><strong>Título do livro/texto:</strong></p><div class="write-line"></div>
+      <p><strong>Autor:</strong></p><div class="write-line"></div>
+      <p><strong>Data da leitura:</strong> ____/____/______</p>
+      <p><strong>Personagem principal:</strong></p><div class="write-line"></div>
+      <p><strong>Onde acontece a história:</strong></p><div class="write-line"></div>
+      <p><strong>O que aconteceu (resumo em 3 frases):</strong></p>
+      <div class="write-line"></div><div class="write-line"></div><div class="write-line"></div>
+      <p><strong>O que mais gostei:</strong></p><div class="write-line"></div>
+      <p><strong>Nota de 1 a 5 estrelas:</strong> ☆ ☆ ☆ ☆ ☆</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MÓDULO 4 — FOCO & MEMÓRIA -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="module mod-purple">
+  <div class="module-header">
+    <div class="mod-icon">🎯</div>
+    <div class="mod-num">Módulo 4</div>
+    <h2>Foco & Memória</h2>
+    <p>Exercícios práticos e protocolos simples para treinar a atenção sustentada, memória de trabalho e autorregulação — as áreas mais afetadas pelo TDAH.</p>
+  </div>
+
+  <div class="science-box">
+    <strong>Base Científica:</strong> O treinamento de funções executivas produz melhorias mensuráveis em crianças com TDAH em 4–8 semanas de prática regular. A respiração diafragmática ativa o nervo vago e reduz hiperatividade em 40% (Sinha et al., 2013).
+  </div>
+
+  <hr class="page-sep">
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">1</div>
+      <h3>Respiração do Quadrado (Box Breathing)</h3>
+    </div>
+    <p>Técnica de respiração utilizada por militares e astronautas para acalmar o sistema nervoso. Perfeita para momentos de agitação ou antes de começar uma tarefa difícil.</p>
+
+    <h4>📋 Como Fazer</h4>
+    <ol>
+      <li><strong>INSPIRE</strong> contando devagar até 4 (1... 2... 3... 4...)</li>
+      <li><strong>SEGURE</strong> o ar contando até 4</li>
+      <li><strong>EXPIRE</strong> devagar contando até 4</li>
+      <li><strong>SEGURE</strong> (sem ar) contando até 4</li>
+      <li>Repita 4 vezes.</li>
+    </ol>
+
+    <div class="worksheet">
+      <h4>🔲 Siga o Quadrado com o Dedo</h4>
+      <div style="width:200px;height:200px;border:3px solid var(--purple);border-radius:12px;margin:20px auto;position:relative;">
+        <span style="position:absolute;top:-24px;left:50%;transform:translateX(-50%);font-weight:900;font-size:13px;color:var(--purple);">INSPIRE (4s) →</span>
+        <span style="position:absolute;right:-80px;top:50%;transform:translateY(-50%) rotate(90deg);font-weight:900;font-size:13px;color:var(--purple);">SEGURE (4s) →</span>
+        <span style="position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);font-weight:900;font-size:13px;color:var(--purple);">← EXPIRE (4s)</span>
+        <span style="position:absolute;left:-80px;top:50%;transform:translateY(-50%) rotate(-90deg);font-weight:900;font-size:13px;color:var(--purple);">← SEGURE (4s)</span>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <strong>Quando usar:</strong> Antes de provas, quando sentir raiva/frustração, antes de dormir, quando não conseguir parar quieto.
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">2</div>
+      <h3>Jogo dos 5 Sentidos (Grounding)</h3>
+    </div>
+    <p>Exercício de atenção plena (mindfulness) que âncora a criança no momento presente usando os 5 sentidos. Excelente para momentos de ansiedade ou descontrole.</p>
+
+    <div class="worksheet">
+      <h4>👁️👂👃✋👅 Complete os 5 Sentidos</h4>
+      <p><strong>5 coisas que VEJO:</strong></p>
+      <div class="write-line"></div>
+      <p><strong>4 coisas que TOCO:</strong></p>
+      <div class="write-line"></div>
+      <p><strong>3 coisas que OUÇO:</strong></p>
+      <div class="write-line"></div>
+      <p><strong>2 coisas que CHEIRO:</strong></p>
+      <div class="write-line"></div>
+      <p><strong>1 coisa que SABOREIO:</strong></p>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">3</div>
+      <h3>Sequência de Memória Progressiva</h3>
+    </div>
+    <p>Exercício para fortalecer a memória de trabalho (working memory), a habilidade mais afetada pelo TDAH.</p>
+
+    <h4>📋 Como Jogar</h4>
+    <ol>
+      <li>Leia em voz alta a primeira sequência. A criança repete de memória.</li>
+      <li>Avance para a próxima sequência (mais longa). Continue até a criança errar.</li>
+      <li>Registre até que nível chegou. Repita amanhã e tente superar!</li>
+    </ol>
+
+    <div class="worksheet">
+      <h4>🧠 Sequências de Números</h4>
+      <p><strong>Nível 1:</strong> 3 - 7 - 2</p>
+      <p><strong>Nível 2:</strong> 5 - 1 - 8 - 4</p>
+      <p><strong>Nível 3:</strong> 9 - 3 - 6 - 2 - 7</p>
+      <p><strong>Nível 4:</strong> 4 - 8 - 1 - 5 - 9 - 3</p>
+      <p><strong>Nível 5:</strong> 6 - 2 - 7 - 4 - 1 - 8 - 5</p>
+      <p><strong>Nível 6:</strong> 3 - 9 - 2 - 6 - 1 - 7 - 4 - 8</p>
+      <p style="margin-top:16px;"><strong>Meu recorde hoje:</strong> Nível _____</p>
+      <p><strong>Data:</strong> ____/____/______</p>
+
+      <h4 style="margin-top:24px;">🔄 Agora ao Contrário! (Ordem inversa)</h4>
+      <p><strong>Nível 1:</strong> 5 - 2 → Resposta: 2 - 5</p>
+      <p><strong>Nível 2:</strong> 4 - 7 - 1 → Resposta: ___</p>
+      <p><strong>Nível 3:</strong> 8 - 3 - 6 - 2 → Resposta: ___</p>
+      <p><strong>Nível 4:</strong> 1 - 5 - 9 - 3 - 7 → Resposta: ___</p>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">4</div>
+      <h3>Encontre as Diferenças (Mental)</h3>
+    </div>
+    <p>Observe a lista A por 30 segundos. Depois, olhe a lista B. O que mudou?</p>
+
+    <div class="worksheet">
+      <h4>👀 Lista A (observe por 30 segundos)</h4>
+      <div class="grid-box" style="grid-template-columns:repeat(6,1fr);gap:8px;margin:12px 0;">
+        <div class="grid-cell" style="height:45px;">🍎</div>
+        <div class="grid-cell" style="height:45px;">🐶</div>
+        <div class="grid-cell" style="height:45px;">⭐</div>
+        <div class="grid-cell" style="height:45px;">🌙</div>
+        <div class="grid-cell" style="height:45px;">🎈</div>
+        <div class="grid-cell" style="height:45px;">🚗</div>
+        <div class="grid-cell" style="height:45px;">📚</div>
+        <div class="grid-cell" style="height:45px;">🎵</div>
+        <div class="grid-cell" style="height:45px;">🌻</div>
+        <div class="grid-cell" style="height:45px;">🏠</div>
+        <div class="grid-cell" style="height:45px;">⚽</div>
+        <div class="grid-cell" style="height:45px;">🎨</div>
+      </div>
+
+      <h4 style="margin-top:20px;">👀 Lista B (o que mudou?)</h4>
+      <div class="grid-box" style="grid-template-columns:repeat(6,1fr);gap:8px;margin:12px 0;">
+        <div class="grid-cell" style="height:45px;">🍎</div>
+        <div class="grid-cell" style="height:45px;">🐱</div>
+        <div class="grid-cell" style="height:45px;">⭐</div>
+        <div class="grid-cell" style="height:45px;">☀️</div>
+        <div class="grid-cell" style="height:45px;">🎈</div>
+        <div class="grid-cell" style="height:45px;">🚗</div>
+        <div class="grid-cell" style="height:45px;">📚</div>
+        <div class="grid-cell" style="height:45px;">🎵</div>
+        <div class="grid-cell" style="height:45px;">🌹</div>
+        <div class="grid-cell" style="height:45px;">🏠</div>
+        <div class="grid-cell" style="height:45px;">🏀</div>
+        <div class="grid-cell" style="height:45px;">🎨</div>
+      </div>
+
+      <p><strong>Escreva as 4 diferenças:</strong></p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">5</div>
+      <h3>Meu Planejador de Tarefas</h3>
+    </div>
+    <p>Ensinar a criança a planejar suas tarefas é treinar sua função executiva. Use esta ferramenta todo dia!</p>
+
+    <div class="worksheet">
+      <h4>📋 Planejador do Dia — Data: ____/____/______</h4>
+      <p style="font-size:13px;color:var(--slate-400);margin-bottom:12px;">Preencha pela manhã. Marque ✅ quando completar!</p>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:1px;background:#e2e8f0;">
+        <div style="background:#ede9fe;padding:10px;font-weight:900;font-size:12px;">TAREFA</div>
+        <div style="background:#ede9fe;padding:10px;font-weight:900;font-size:12px;text-align:center;">PRIORIDADE</div>
+        <div style="background:#ede9fe;padding:10px;font-weight:900;font-size:12px;text-align:center;">FEITO?</div>
+        <div style="background:#fff;padding:14px;font-size:13px;">1.</div><div style="background:#fff;padding:14px;text-align:center;">⬜🔴 ⬜🟡 ⬜🟢</div><div style="background:#fff;padding:14px;text-align:center;">⬜</div>
+        <div style="background:#fff;padding:14px;font-size:13px;">2.</div><div style="background:#fff;padding:14px;text-align:center;">⬜🔴 ⬜🟡 ⬜🟢</div><div style="background:#fff;padding:14px;text-align:center;">⬜</div>
+        <div style="background:#fff;padding:14px;font-size:13px;">3.</div><div style="background:#fff;padding:14px;text-align:center;">⬜🔴 ⬜🟡 ⬜🟢</div><div style="background:#fff;padding:14px;text-align:center;">⬜</div>
+        <div style="background:#fff;padding:14px;font-size:13px;">4.</div><div style="background:#fff;padding:14px;text-align:center;">⬜🔴 ⬜🟡 ⬜🟢</div><div style="background:#fff;padding:14px;text-align:center;">⬜</div>
+        <div style="background:#fff;padding:14px;font-size:13px;">5.</div><div style="background:#fff;padding:14px;text-align:center;">⬜🔴 ⬜🟡 ⬜🟢</div><div style="background:#fff;padding:14px;text-align:center;">⬜</div>
+      </div>
+      <p style="margin-top:12px;font-size:11px;color:var(--slate-400);">🔴 Urgente &nbsp; 🟡 Importante &nbsp; 🟢 Pode esperar</p>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">6</div>
+      <h3>Checklist de Rotina Diária</h3>
+    </div>
+    <p>Rotina é o superpoder secreto para crianças com TDAH. Imprima e cole na parede do quarto!</p>
+
+    <div class="worksheet">
+      <h4>🌅 Minha Rotina da Manhã</h4>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f1f5f9;border-radius:8px;"><span style="font-size:20px;">⬜</span><span>Acordar no horário (___:___)</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f1f5f9;border-radius:8px;"><span style="font-size:20px;">⬜</span><span>Arrumar a cama</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f1f5f9;border-radius:8px;"><span style="font-size:20px;">⬜</span><span>Escovar os dentes</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f1f5f9;border-radius:8px;"><span style="font-size:20px;">⬜</span><span>Tomar café da manhã</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f1f5f9;border-radius:8px;"><span style="font-size:20px;">⬜</span><span>Conferir mochila/material</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f1f5f9;border-radius:8px;"><span style="font-size:20px;">⬜</span><span>Se vestir</span></div>
+      </div>
+
+      <h4 style="margin-top:24px;">🌙 Minha Rotina da Noite</h4>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f1f5f9;border-radius:8px;"><span style="font-size:20px;">⬜</span><span>Guardar brinquedos/materiais</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f1f5f9;border-radius:8px;"><span style="font-size:20px;">⬜</span><span>Tomar banho</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f1f5f9;border-radius:8px;"><span style="font-size:20px;">⬜</span><span>Escovar os dentes</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f1f5f9;border-radius:8px;"><span style="font-size:20px;">⬜</span><span>Ler 10 minutos / ouvir história</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f1f5f9;border-radius:8px;"><span style="font-size:20px;">⬜</span><span>Respiração do quadrado (4x)</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f1f5f9;border-radius:8px;"><span style="font-size:20px;">⬜</span><span>Dormir até ___:___</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MÓDULO 5 — INGLÊS DIVERTIDO -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="module mod-red">
+  <div class="module-header">
+    <div class="mod-icon">🇬🇧</div>
+    <div class="mod-num">Módulo 5</div>
+    <h2>Inglês Divertido</h2>
+    <p>Vocabulário básico de inglês com atividades visuais, jogos de associação e frases do dia a dia que a criança vai adorar praticar.</p>
+  </div>
+
+  <hr class="page-sep">
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">1</div>
+      <h3>Flashcards de Vocabulário</h3>
+    </div>
+    <p>Recorte e dobre os cartões ao meio. De um lado fica a palavra em inglês, do outro a tradução. Pratique 5 por dia!</p>
+
+    <div class="worksheet">
+      <h4>✂️ Flashcards para Recortar</h4>
+      <div class="grid-box" style="grid-template-columns: repeat(4, 1fr); gap: 10px;">
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>DOG</strong><span style="font-size:10px;color:#94a3b8;">Cachorro 🐶</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>CAT</strong><span style="font-size:10px;color:#94a3b8;">Gato 🐱</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>HOUSE</strong><span style="font-size:10px;color:#94a3b8;">Casa 🏠</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>SUN</strong><span style="font-size:10px;color:#94a3b8;">Sol ☀️</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>MOON</strong><span style="font-size:10px;color:#94a3b8;">Lua 🌙</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>WATER</strong><span style="font-size:10px;color:#94a3b8;">Água 💧</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>TREE</strong><span style="font-size:10px;color:#94a3b8;">Árvore 🌳</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>BOOK</strong><span style="font-size:10px;color:#94a3b8;">Livro 📚</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>BIRD</strong><span style="font-size:10px;color:#94a3b8;">Pássaro 🐦</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>FISH</strong><span style="font-size:10px;color:#94a3b8;">Peixe 🐟</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>APPLE</strong><span style="font-size:10px;color:#94a3b8;">Maçã 🍎</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>STAR</strong><span style="font-size:10px;color:#94a3b8;">Estrela ⭐</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>FLOWER</strong><span style="font-size:10px;color:#94a3b8;">Flor 🌸</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>HEART</strong><span style="font-size:10px;color:#94a3b8;">Coração ❤️</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>RAIN</strong><span style="font-size:10px;color:#94a3b8;">Chuva 🌧️</span></div>
+        <div class="grid-cell" style="height:70px;flex-direction:column;font-size:12px;"><strong>FAMILY</strong><span style="font-size:10px;color:#94a3b8;">Família 👨‍👩‍👧</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">2</div>
+      <h3>Cores em Inglês — Pinte e Aprenda</h3>
+    </div>
+
+    <div class="worksheet">
+      <h4>🎨 Pinte cada quadrado com a cor correta</h4>
+      <div class="grid-box" style="grid-template-columns: repeat(5, 1fr); gap: 10px;">
+        <div class="grid-cell" style="height:60px;flex-direction:column;font-size:12px;"><strong>RED</strong><span style="font-size:10px;">Vermelho</span></div>
+        <div class="grid-cell" style="height:60px;flex-direction:column;font-size:12px;"><strong>BLUE</strong><span style="font-size:10px;">Azul</span></div>
+        <div class="grid-cell" style="height:60px;flex-direction:column;font-size:12px;"><strong>GREEN</strong><span style="font-size:10px;">Verde</span></div>
+        <div class="grid-cell" style="height:60px;flex-direction:column;font-size:12px;"><strong>YELLOW</strong><span style="font-size:10px;">Amarelo</span></div>
+        <div class="grid-cell" style="height:60px;flex-direction:column;font-size:12px;"><strong>ORANGE</strong><span style="font-size:10px;">Laranja</span></div>
+        <div class="grid-cell" style="height:60px;flex-direction:column;font-size:12px;"><strong>PURPLE</strong><span style="font-size:10px;">Roxo</span></div>
+        <div class="grid-cell" style="height:60px;flex-direction:column;font-size:12px;"><strong>PINK</strong><span style="font-size:10px;">Rosa</span></div>
+        <div class="grid-cell" style="height:60px;flex-direction:column;font-size:12px;"><strong>BLACK</strong><span style="font-size:10px;">Preto</span></div>
+        <div class="grid-cell" style="height:60px;flex-direction:column;font-size:12px;"><strong>WHITE</strong><span style="font-size:10px;">Branco</span></div>
+        <div class="grid-cell" style="height:60px;flex-direction:column;font-size:12px;"><strong>BROWN</strong><span style="font-size:10px;">Marrom</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">3</div>
+      <h3>Números de 1 a 20 em Inglês</h3>
+    </div>
+
+    <div class="worksheet">
+      <h4>🔢 Complete os Números que Faltam</h4>
+      <div class="grid-box" style="grid-template-columns: repeat(5, 1fr); gap: 8px;">
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>1</strong>ONE</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>2</strong>TWO</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>3</strong>_____</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>4</strong>FOUR</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>5</strong>_____</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>6</strong>SIX</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>7</strong>_____</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>8</strong>EIGHT</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>9</strong>_____</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>10</strong>TEN</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>11</strong>_____</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>12</strong>TWELVE</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>13</strong>_____</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>14</strong>FOURTEEN</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>15</strong>_____</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>16</strong>SIXTEEN</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>17</strong>_____</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>18</strong>EIGHTEEN</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>19</strong>_____</div>
+        <div class="grid-cell" style="height:50px;flex-direction:column;font-size:11px;"><strong>20</strong>TWENTY</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">4</div>
+      <h3>Frases do Dia a Dia</h3>
+    </div>
+    <p>Pratique estas frases com seu filho(a). Tente usar uma por dia!</p>
+
+    <div class="worksheet">
+      <h4>💬 Frases Essenciais</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="background:#fef2f2;padding:12px;border-radius:10px;font-size:13px;"><strong>Good morning!</strong><br><span style="color:#94a3b8;">Bom dia!</span></div>
+        <div style="background:#fef2f2;padding:12px;border-radius:10px;font-size:13px;"><strong>How are you?</strong><br><span style="color:#94a3b8;">Como você está?</span></div>
+        <div style="background:#fef2f2;padding:12px;border-radius:10px;font-size:13px;"><strong>I'm fine, thank you!</strong><br><span style="color:#94a3b8;">Estou bem, obrigado!</span></div>
+        <div style="background:#fef2f2;padding:12px;border-radius:10px;font-size:13px;"><strong>What's your name?</strong><br><span style="color:#94a3b8;">Qual é o seu nome?</span></div>
+        <div style="background:#fef2f2;padding:12px;border-radius:10px;font-size:13px;"><strong>I love you!</strong><br><span style="color:#94a3b8;">Eu te amo!</span></div>
+        <div style="background:#fef2f2;padding:12px;border-radius:10px;font-size:13px;"><strong>Please / Thank you</strong><br><span style="color:#94a3b8;">Por favor / Obrigado</span></div>
+        <div style="background:#fef2f2;padding:12px;border-radius:10px;font-size:13px;"><strong>Let's play!</strong><br><span style="color:#94a3b8;">Vamos brincar!</span></div>
+        <div style="background:#fef2f2;padding:12px;border-radius:10px;font-size:13px;"><strong>Good night!</strong><br><span style="color:#94a3b8;">Boa noite!</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="activity-head">
+      <div class="activity-num">5</div>
+      <h3>Meu Dicionário Ilustrado</h3>
+    </div>
+    <p>A criança escreve a palavra em inglês, desenha e escreve em português. Crie seu próprio dicionário!</p>
+
+    <div class="worksheet">
+      <h4>📖 Meu Dicionário — Preencha e Desenhe</h4>
+      <div class="grid-box" style="grid-template-columns: repeat(3, 1fr); gap: 12px;">
+        <div style="border:1px solid #e2e8f0;border-radius:12px;padding:12px;text-align:center;">
+          <div style="height:60px;border:1px dashed #e2e8f0;border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:11px;">Desenhe aqui</div>
+          <div style="font-weight:900;font-size:14px;">_____________</div>
+          <div style="font-size:11px;color:#94a3b8;">___________</div>
+        </div>
+        <div style="border:1px solid #e2e8f0;border-radius:12px;padding:12px;text-align:center;">
+          <div style="height:60px;border:1px dashed #e2e8f0;border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:11px;">Desenhe aqui</div>
+          <div style="font-weight:900;font-size:14px;">_____________</div>
+          <div style="font-size:11px;color:#94a3b8;">___________</div>
+        </div>
+        <div style="border:1px solid #e2e8f0;border-radius:12px;padding:12px;text-align:center;">
+          <div style="height:60px;border:1px dashed #e2e8f0;border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:11px;">Desenhe aqui</div>
+          <div style="font-weight:900;font-size:14px;">_____________</div>
+          <div style="font-size:11px;color:#94a3b8;">___________</div>
+        </div>
+        <div style="border:1px solid #e2e8f0;border-radius:12px;padding:12px;text-align:center;">
+          <div style="height:60px;border:1px dashed #e2e8f0;border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:11px;">Desenhe aqui</div>
+          <div style="font-weight:900;font-size:14px;">_____________</div>
+          <div style="font-size:11px;color:#94a3b8;">___________</div>
+        </div>
+        <div style="border:1px solid #e2e8f0;border-radius:12px;padding:12px;text-align:center;">
+          <div style="height:60px;border:1px dashed #e2e8f0;border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:11px;">Desenhe aqui</div>
+          <div style="font-weight:900;font-size:14px;">_____________</div>
+          <div style="font-size:11px;color:#94a3b8;">___________</div>
+        </div>
+        <div style="border:1px solid #e2e8f0;border-radius:12px;padding:12px;text-align:center;">
+          <div style="height:60px;border:1px dashed #e2e8f0;border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:11px;">Desenhe aqui</div>
+          <div style="font-weight:900;font-size:14px;">_____________</div>
+          <div style="font-size:11px;color:#94a3b8;">___________</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- FINAL PAGE -->
+<!-- ═══════════════════════════════════════════ -->
+<div style="text-align:center;padding:60px 40px;background:linear-gradient(135deg,#fff7ed,#ecfdf5);">
+  <div style="font-size:64px;margin-bottom:16px;">🏆</div>
+  <h2 style="font-size:32px;margin-bottom:12px;">Parabéns!</h2>
+  <p style="font-size:16px;color:var(--slate-600);max-width:500px;margin:0 auto 24px;">Você completou todas as 28 atividades do Cérebro Acelerador Kids. Cada exercício foi pensado com carinho para ajudar seu filho a brilhar!</p>
+  <p style="font-size:14px;color:var(--slate-400);">© 2025 TDAH Produtivo Kids · Todos os direitos reservados</p>
+</div>
+
+</body>
+</html>
