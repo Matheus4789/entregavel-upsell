@@ -20,6 +20,42 @@
             }
         }
     </script>
+    <style>
+        /* CSS overrides to fix transparent gradients caused by Tailwind v3 / v4 conflict */
+        .bg-gradient-to-br.from-indigo-700.via-purple-700.to-emerald-600 {
+            background: linear-gradient(135deg, #4338ca, #6d28d9, #059669) !important;
+        }
+        .bg-gradient-to-br.from-orange-400.to-orange-600 {
+            background: linear-gradient(135deg, #fb923c, #ea580c) !important;
+        }
+        .bg-gradient-to-br.from-indigo-500.to-purple-600 {
+            background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+        }
+        .bg-gradient-to-r.from-orange-500.to-orange-600 {
+            background: linear-gradient(90deg, #f97316, #ea580c) !important;
+        }
+        .bg-gradient-to-r.from-orange-500.to-orange-600:hover {
+            background: linear-gradient(90deg, #ea580c, #c2410c) !important;
+        }
+        .bg-gradient-to-br.from-slate-50.to-slate-100 {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9) !important;
+        }
+        .bg-gradient-to-tr.from-orange-500.to-amber-400 {
+            background: linear-gradient(45deg, #f97316, #fbbf24) !important;
+        }
+        .bg-gradient-to-r.from-orange-400.to-amber-300 {
+            background: linear-gradient(90deg, #fb923c, #fcd34d) !important;
+        }
+        .bg-gradient-to-b.from-red-50.to-white {
+            background: linear-gradient(180deg, #fef2f2, #ffffff) !important;
+        }
+        .bg-gradient-to-b.from-indigo-50.to-white {
+            background: linear-gradient(180deg, #eef2ff, #ffffff) !important;
+        }
+        .bg-gradient-to-b.from-emerald-50.to-white {
+            background: linear-gradient(180deg, #ecfdf5, #ffffff) !important;
+        }
+    </style>
 </head>
 <body class="min-h-full flex flex-col bg-[#f8fafc] font-[family-name:var(--font-poppins)]">
     
